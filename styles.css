@@ -5,9 +5,9 @@ body {
     background-image: url("assets/bg-formatted.png");
     background-size: cover;
     color: white;
-    font-size: 25px;
-    font-family: "Comfortaa", sans-serif;
-    text-shadow: 7px 7px 7px #086FAA;
+    font-size: 20px;
+    font-family: "Andika New Basic", sans-serif;
+    text-shadow: 3px 3px 3px #086FAA;
 }
 
 h1 {
@@ -16,14 +16,12 @@ h1 {
     font-weight: normal;
 }
 
-p1 {
-    text-align: left;
-    font-weight: normal;
+p.banner {
     font-size: 15px;
     padding: 0px;
 }
 
-.center-text {
+div.center-text {
     text-align: center;
     display: block;
 }
@@ -36,4 +34,34 @@ img.squeeze:hover {
 
 img.squeeze {
     transition: 0.2s;
+}
+
+div.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+div.tooltip .tooltiptext {
+    font-size: 15px;
+    text-shadow: 0 0 0;
+    visibility: hidden;
+    width: 150px;
+    background-color: rgb(61, 61, 61);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.3s;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+div.tooltip:hover .tooltiptext {
+    transform: scale(1);
+    opacity: 0.9;
+    visibility: visible;
 }
