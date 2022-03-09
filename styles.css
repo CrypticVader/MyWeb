@@ -4,9 +4,10 @@ body {
     background-color: #000000;
     background-image: url("assets/bg-formatted.png");
     background-size: cover;
-    background-repeat: no-repeat;
     color: white;
     font-size: 25px;
+    font-family: "Comfortaa", sans-serif;
+    text-shadow: 7px 7px 7px #086FAA;
 }
 
 h1 {
