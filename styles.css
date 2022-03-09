@@ -7,7 +7,7 @@ body {
     color: white;
     font-size: 20px;
     font-family: "Andika New Basic", sans-serif;
-    text-shadow: 3px 3px 3px #086FAA;
+    text-shadow: 3px 3px 3px #00507e;
 }
 
 h1 {
@@ -39,7 +39,6 @@ img.squeeze {
 div.tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 div.tooltip .tooltiptext {
