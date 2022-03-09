@@ -13,9 +13,9 @@ p1 {
 }
 
 body {
-        padding: 25px;
-        background-color: black;
-        background-image: linear-gradient(black, blue);
-        color: white;
-        font-size: 25px;
+    padding: 25px;
+    background-color: black;
+    background-image: linear-gradient(rgb(31, 31, 31), rgb(8, 139, 122));
+    color: white;
+    font-size: 25px;
 }
