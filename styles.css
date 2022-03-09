@@ -1,5 +1,12 @@
 /* Place your CSS styles in this file */
 
+body {
+    padding: 30px;
+    background-color: white;
+    color: white;
+    font-size: 30px;
+}
+
 h1 {
     text-align: center;
     font-family: "Source Sans Pro", sans-serif;
@@ -10,11 +17,4 @@ p1 {
     text-align: left;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: normal;
-}
-
-body {
-    padding: 30px;
-    background-color: white;
-    color: white;
-    font-size: 30px;
 }
