@@ -27,3 +27,13 @@ p1 {
     text-align: center;
     display: block;
 }
+
+img.squeeze:hover {
+    opacity: 0.8;
+    transition: .35s;
+    transform: scale(0.8);
+}
+
+img.squeeze {
+    transition: 0.2s;
+}
