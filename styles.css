@@ -15,7 +15,7 @@ p1 {
 body {
         padding: 25px;
         background-color: black;
-        background-image: linear-gradient(black, teal);
+        background-image: linear-gradient(black, blue);
         color: white;
         font-size: 25px;
 }
