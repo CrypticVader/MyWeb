@@ -1,26 +1,22 @@
-/* Place your CSS styles in this file */
-
 body {
     padding: 25px;
     padding-top: 5px;
     background-color: #000000;
     background-image: url("assets/bg-formatted.png");
     background-size: cover;
+    background-repeat: no-repeat;
     color: white;
     font-size: 25px;
-    font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
     text-align: center;
     padding-top: 0px;
-    font-family: "Source Sans Pro", sans-serif;
     font-weight: normal;
 }
 
 p1 {
     text-align: left;
-    font-family: "Source Sans Pro", sans-serif;
     font-weight: normal;
     font-size: 15px;
     padding: 0px;
