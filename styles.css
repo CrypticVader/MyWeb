@@ -31,6 +31,14 @@ h1 {
     font-weight: bold;
 }
 
+hr {
+    border: 0;
+    height: 2.5px;
+    background-image: linear-gradient(132deg, #0090b4a4, #9926119c, #992451bb, #ca8b95b2, #58059496, #8600868a, #0070b18f, #00ec929a);
+    background-size: 1200% 1200%;
+    animation: gradient 60s ease infinite;
+}
+
 h1.gradient-text {
     font-weight: bolder;
     font-size: 120px;
