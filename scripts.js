@@ -1,1 +1,1 @@
-/* Place your JavaScript in this file */
+/* Nothing for now D: */
