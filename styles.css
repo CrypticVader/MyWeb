@@ -51,6 +51,7 @@ h1.gradient-text {
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
     background-clip: text;
+    text-shadow: rgba(255, 255, 255, 0.192) 0px 0px 0px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -60,19 +61,13 @@ h1.gradient-text {
 
 h1.gradient-text:hover {
     opacity: 1;
-    text-shadow: rgba(255, 255, 255, 0.171) 0px 0px 0px;
+    text-shadow: rgba(255, 255, 255, 0.473) 0px 0px 0px;
     ;
 }
 
 div.center-text {
     text-align: center;
     display: block;
-}
-
-img.squeeze:hover {
-    opacity: 1;
-    transition: .35s;
-    transform: scale(2);
 }
 
 img.squeeze {
@@ -82,6 +77,18 @@ img.squeeze {
     padding-bottom: 0px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.274), 0 17px 50px 0 rgba(0, 0, 0, 0.205);
     border-radius: 100%;
+}
+
+img.squeeze:hover {
+    opacity: 1;
+    transition: .2s;
+    transform: scale(1.5);
+}
+
+img.squeeze:active {
+    opacity: 0.6;
+    transition: .2s;
+    transform: scale(1.1);
 }
 
 img.padded-InLine {
