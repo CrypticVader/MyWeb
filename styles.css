@@ -1,6 +1,6 @@
 body {
-    padding: 25px;
-    padding-top: 0px;
+    padding: 20px;
+    padding-top: 10px;
     background: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
     background-size: 600% 600%;
     animation: gradient 60s ease infinite;
@@ -23,10 +23,44 @@ body {
     }
 }
 
+button {
+    font-family: "Comfortaa", sans-serif;
+    background-color: #a1a1a131;
+    backdrop-filter: blur(20px);
+    border: solid 2px #a7a6a61e;
+    color: rgb(255, 255, 255);
+    padding: 10px 12px;
+    text-align: center;
+    display: inline-block;
+    font-size: 17px;
+    margin: 4px 2px;
+    border-radius: 17px;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #a1a1a100;
+    border-radius: 10px;
+    transition: 0.25s;
+    transform: scale(1.06);
+    cursor: pointer;
+    opacity: 1;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:active {
+    transition: transform 0s, opacity 0.2s, box-shadow 0.4s;
+    transform: scale(1);
+    opacity: 0.3;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.24), 1px 1px 1px 1px rgba(0, 0, 0, 0.19);
+}
+
 h1 {
     font-family: "Andika New Basic", sans-serif;
-    font-size: 50px;
+    font-size: 120px;
     text-align: center;
+    line-height: 15%;
+    height: 10%;
     padding-top: 0px;
     font-weight: bold;
 }
@@ -44,6 +78,8 @@ h1.gradient-text {
     transition: 0.6s;
     opacity: 0.7;
     font-size: 120px;
+    line-height: 100%;
+    margin-top: 60px;
     /* Create the gradient. */
     background-image: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
     /* Set the background size and repeat properties. */
@@ -51,7 +87,7 @@ h1.gradient-text {
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
     background-clip: text;
-    text-shadow: rgba(255, 255, 255, 0.192) 0px 0px 0px;
+    text-shadow: rgba(219, 219, 219, 0.24) 0px 0px 0px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -61,7 +97,7 @@ h1.gradient-text {
 
 h1.gradient-text:hover {
     opacity: 1;
-    text-shadow: rgba(255, 255, 255, 0.473) 0px 0px 0px;
+    text-shadow: rgba(255, 255, 255, 0.466) 0px 0px 0px;
     ;
 }
 
@@ -70,9 +106,38 @@ div.center-text {
     display: block;
 }
 
+
+/* .fa is WIP 
+.fa {
+    opacity: 0.7;
+    transition: 0.4s;
+    transform: scale(1);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.274), 0 17px 50px 0 rgba(0, 0, 0, 0.205);
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 1;
+    transition: .2s;
+    transform: scale(1.5);
+}
+
+.fa:active {
+    opacity: 0.4;
+    transition: transform 0s, opacity 0.2s;
+    transform: scale(1.2);
+}
+*/
+
 img.squeeze {
     opacity: 0.7;
     transition: 0.4s;
+    transform: scale(1);
     padding-right: 0px;
     padding-bottom: 0px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.274), 0 17px 50px 0 rgba(0, 0, 0, 0.205);
@@ -86,9 +151,9 @@ img.squeeze:hover {
 }
 
 img.squeeze:active {
-    opacity: 0.6;
-    transition: .2s;
-    transform: scale(1.1);
+    opacity: 0.4;
+    transition: transform 0s, opacity 0.2s;
+    transform: scale(1.2);
 }
 
 img.padded-InLine {
@@ -116,7 +181,7 @@ div.tooltip .tooltiptext {
     visibility: hidden;
     width: 170px;
     height: 25px;
-    background-color: rgba(0, 0, 0, 0.253);
+    background-color: rgba(0, 0, 0, 0.205);
     animation: gradient 60s ease infinite;
     color: #ffffff;
     text-align: center;
@@ -124,9 +189,10 @@ div.tooltip .tooltiptext {
     padding-top: 9px;
     transform: scale(0) translate3d(120px, 0%, 0);
     opacity: 0;
-    backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
+    backdrop-filter: blur(10px) saturate(150%) brightness(1);
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
-    transition: 0.35s;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
@@ -135,7 +201,8 @@ div.tooltip .tooltiptext {
 
 div.tooltip:hover .tooltiptext {
     transform: scale(1) translate3d(120px, 0%, 0);
-    transition: 0.4s;
+    transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+    transition: 0.35s;
     opacity: 1;
     visibility: visible;
 }
