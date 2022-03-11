@@ -60,7 +60,7 @@ h1.gradient-text {
 
 h1.gradient-text:hover {
     opacity: 1;
-    text-shadow: rgba(255, 255, 255, 0.171) 0px 0px 1px;
+    text-shadow: rgba(255, 255, 255, 0.171) 0px 0px 0px;
     ;
 }
 
@@ -78,8 +78,10 @@ img.squeeze:hover {
 img.squeeze {
     opacity: 0.7;
     transition: 0.4s;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.274), 0 17px 50px 0 rgba(0, 0, 0, 0.205);
+    border-radius: 100%;
 }
 
 img.padded-InLine {
@@ -116,6 +118,7 @@ div.tooltip .tooltiptext {
     transform: scale(0) translate3d(120px, 0%, 0);
     opacity: 0;
     backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
+    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     transition: 0.35s;
     /* Position the tooltip */
     position: absolute;
