@@ -3,6 +3,7 @@ body {
     padding-top: 10px;
     background: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
     background-size: 600% 600%;
+    background-attachment: fixed;
     animation: gradient 60s ease infinite;
     background-color: #111111;
     overscroll-behavior: none;
