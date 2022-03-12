@@ -1,5 +1,5 @@
 body {
-    padding: 20px;
+    padding: 30px;
     padding-top: 10px;
     background: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
     background-size: 600% 600%;
@@ -24,7 +24,29 @@ body {
     }
 }
 
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+div.nav-bar {
+    background-color: rgba(44, 43, 43, 0.412);
+    color: rgba(255, 255, 255, 0.712);
+    font-size: 20px;
+    font-family: "Comfortaa", sans-serif;
+    backdrop-filter: blur(10px) brightness(0.9);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    margin-left: -38px;
+    margin-right: -38px;
+}
+
 a.link-button {
+    -webkit-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     font-size: 17px;
     background-color: #a1a1a131;
@@ -35,7 +57,7 @@ a.link-button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 2px;
+    margin: 0px 0px;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -60,6 +82,7 @@ a.link-button:active {
 }
 
 button {
+    -webkit-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     background-color: #a1a1a131;
     backdrop-filter: blur(20px);
