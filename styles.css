@@ -1,6 +1,4 @@
 body {
-    padding: 30px;
-    padding-top: 10px;
     background: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
     background-size: 600% 600%;
     background-attachment: fixed;
@@ -122,9 +120,6 @@ h1 {
     font-family: "Andika New Basic", sans-serif;
     font-size: 120px;
     text-align: center;
-    line-height: 15%;
-    height: 10%;
-    padding-top: 0px;
     font-weight: bold;
 }
 
