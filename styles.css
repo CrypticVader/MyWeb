@@ -3,7 +3,7 @@ body {
     background-size: 600% 600%;
     background-attachment: fixed;
     animation: gradient 60s ease infinite;
-    background-color: #111111;
+    background-color: #171d1f;
     /* overscroll-behavior: none; */
     color: white;
     font-size: 20px;
@@ -120,7 +120,7 @@ h1 {
     font-family: "Andika New Basic", sans-serif;
     font-size: 120px;
     text-align: center;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 hr {
