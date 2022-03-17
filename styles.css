@@ -222,7 +222,7 @@ div.tooltip .tooltiptext {
     text-align: center;
     border-radius: 8px;
     padding-top: 9px;
-    transform: scale(0);
+    transform: scale(0.4);
     opacity: 0;
     backdrop-filter: blur(10px) saturate(150%) brightness(1);
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
