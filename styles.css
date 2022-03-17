@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     animation: gradient 60s ease infinite;
     background-color: #111111;
-    overscroll-behavior: none;
+    /* overscroll-behavior: none; */
     color: white;
     font-size: 20px;
     font-family: "Comfortaa", sans-serif;
