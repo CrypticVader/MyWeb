@@ -1,8 +1,8 @@
 # MyWeb
 Personal website (WIP)
 
-![image](https://user-images.githubusercontent.com/61494838/159059210-079c8b8a-c432-4561-b5fb-3c134a9381cd.png)
-![image](https://user-images.githubusercontent.com/61494838/159059251-b6ac94d8-38e2-41b7-aec7-306af8deee52.png)
-![image](https://user-images.githubusercontent.com/61494838/159059275-61c0ef69-f18f-4a8b-8146-682c22d3737d.png)
+![2022-03-18 (14)](https://user-images.githubusercontent.com/61494838/159060851-fb7db424-6b30-45dc-b879-2b7004f54c54.png)
 
+![2022-03-18 (17)](https://user-images.githubusercontent.com/61494838/159060867-ae6b9701-1a5a-4645-a47e-c2b20717e338.png)
 
+![2022-03-18 (19)](https://user-images.githubusercontent.com/61494838/159060877-bc22fd19-2f82-49f0-8a3a-117ee53c99dd.png)
