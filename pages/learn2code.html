@@ -47,53 +47,118 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="nav-bar">
+
         <img src="/assets/vader-grey.png" height="40px" width="40px" style="margin-top: 0.5em" alt="logo"><span style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
 
         <a class='link-button' style="float: right; margin-top: 0.5em; display: flex; vertical-align: middle;" href="https://crypticvader.github.io/MyWeb">
             <span class="material-icons-round md-24" style="margin-top:-0.2em; padding-right: 0.2em;">home</span> Home
         </a>
+
     </div>
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
-    <div class="center-text">
 
-        <div class="tab">
-            <p>Microsoft Learn</p>
-            <a style="float: right; padding-bottom: 0px;" href="https://docs.microsoft.com/en-us/learn">
-                <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+    <div class="overlay" id="MsftOverlay">
+        <div class="popup">
+            <div onclick="CloseMsftModal()" class="CloseIcon">
+                <span class="material-icons-round md-48">close</span>
+            </div>
+            <h3>Microsoft Learn</h3>
+            <p>Does this even work?</p>
+            <a href="https://www.microsoft.com/en-us/learning" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
             </a>
         </div>
-
-        <div class="tab">
-            <p>Codecademy</p>
-            <a style="float: right; padding-bottom: 0px;" href="https://www.codecademy.com/learn">
-                <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
-            </a>
-        </div>
-
-        <div class="tab">
-            <p>freeCodeCamp</p>
-            <a style="float: right; padding-bottom: 0px;" href="https://www.freecodecamp.org/learn">
-                <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
-            </a>
-        </div>
-
-        <div class="tab">
-            <p>W3Schools</p>
-            <a style="float: right; padding-bottom: 0px;" href="https://my-learning.w3schools.com">
-                <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
-            </a>
-        </div>
-
-        <div class="tab">
-            <p>GitHub Learning Lab</p>
-            <a style="float: right; padding-bottom: 0px;" href="https://lab.github.com">
-                <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
-            </a>
-        </div>
-
     </div>
+
+    <div class="overlay" id="CodCadOverlay">
+        <div class="popup">
+            <div onclick="CloseCodCadModal()" class="CloseIcon">
+                <span class="material-icons-round md-48">close</span>
+            </div>
+            <h3>Codecademy</h3>
+            <p>Does this even work?</p>
+            <a href="https://www.codecademy.com/learn" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+            </a>
+        </div>
+    </div>
+
+    <div class="overlay" id="FreeCcOverlay">
+        <div class="popup">
+            <div onclick="CloseFreeCcModal()" class="CloseIcon">
+                <span class="material-icons-round md-48">close</span>
+            </div>
+            <h3>FreeCodeCamp</h3>
+            <p>Does this even work?</p>
+            <a href="https://www.freecodecamp.org/learn" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+            </a>
+        </div>
+    </div>
+
+    <div class="overlay" id="W3SOverlay">
+        <div class="popup">
+            <div onclick="CloseW3SModal()" class="CloseIcon">
+                <span class="material-icons-round md-48">close</span>
+            </div>
+            <h3>W3Schools</h3>
+            <p>Does this even work?</p>
+            <a href="https://my-learning.w3schools.com" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+            </a>
+        </div>
+    </div>
+
+    <div class="overlay" id="GitLearnOverlay">
+        <div class="popup">
+            <div onclick="CloseGitLearnModal()" class="CloseIcon">
+                <span class="material-icons-round md-48">close</span>
+            </div>
+            <h3>GitHub Learning Lab</h3>
+            <p>Does this even work?</p>
+            <a href="https://lab.github.com" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+            </a>
+        </div>
+    </div>
+
+    <div class="tab" onclick="OpenMsftModal()">
+        <p>Microsoft Learn</p>
+        <a style="float: right; padding-bottom: 0px;" href="https://docs.microsoft.com/en-us/learn">
+            <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+        </a>
+    </div>
+
+    <div class="tab" onclick="OpenCodCadModal()">
+        <p>Codecademy</p>
+        <a style="float: right; padding-bottom: 0px;" href="https://www.codecademy.com/learn">
+            <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+        </a>
+    </div>
+
+    <div class="tab" onclick="OpenFreeCcModal()">
+        <p>FreeCodeCamp</p>
+        <a style="float: right; padding-bottom: 0px;" href="https://www.freecodecamp.org/learn">
+            <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+        </a>
+    </div>
+
+    <div class="tab" onclick="OpenW3SModal()">
+        <p>W3Schools</p>
+        <a style="float: right; padding-bottom: 0px;" href="https://my-learning.w3schools.com">
+            <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+        </a>
+    </div>
+
+    <div class="tab" onclick="OpenGitLearnModal()">
+        <p>GitHub Learning Lab</p>
+        <a style="float: right; padding-bottom: 0px;" href="https://lab.github.com">
+            <span class="material-icons-round md-48" style="padding: 70%; margin-left: -150%; margin-top: -80%; border-radius: 30%; background-color: rgba(107, 107, 107, 0.192);">arrow_right</span>
+        </a>
+    </div>
+
 
     <p>WIP :/</p>
 
