@@ -1,4 +1,9 @@
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
+function OpenModal() {
+    let element = document.getElementById('overlay')
+    element.style.display = 'block'
+}
+
+function CloseModal() {
+    let element = document.getElementById('overlay')
+    element.style.display = 'none'
 }
