@@ -343,6 +343,7 @@ div.CloseIcon {
     transition: 0.2s;
     background-color: rgba(134, 134, 134, 0.39);
     border-radius: 20%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 div.CloseIcon:hover {
