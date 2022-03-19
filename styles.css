@@ -323,6 +323,7 @@ div.overlay {
 }
 
 div.popup {
+    overflow: auto;
     border-radius: 20px;
     position: absolute;
     width: 60%;
@@ -345,16 +346,11 @@ div.CloseIcon {
     transition: 0.2s;
     background-color: rgba(134, 134, 134, 0.39);
     border-radius: 20%;
-    border: 3px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
 }
 
 div.CloseIcon:hover {
     background-color: rgba(253, 0, 0, 0.5);
-    border-style: solid;
-    border-color: rgba(180, 133, 133, 0.774);
     opacity: 1;
     transition: 0.2s;
 }
