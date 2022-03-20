@@ -1,14 +1,11 @@
 function OpenMsftModal() {
     let element = document.getElementById('MsftOverlay')
     element.style.display = 'block'
-    element.style.scale = '1'
-    element.style.opacity = '1'
 }
 
 function CloseMsftModal() {
     let element = document.getElementById('MsftOverlay')
-    element.style.opacity = '0'
-    element.style.scale = '0'
+    element.style.display = 'none'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
