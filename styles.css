@@ -306,7 +306,7 @@ div.tooltip:hover .tooltiptext {
 
 div.overlay {
     position: fixed;
-    display: none;
+    visibility: hidden;
     top: 0;
     right: 0;
     bottom: 0;
@@ -314,12 +314,13 @@ div.overlay {
     background: rgba(0, 0, 0, 0.527);
     backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
     z-index: 9;
-    transition: 0.5s;
+    opacity: 0;
+    transition: 0.7s;
 }
 
 div.popup {
     z-index: 99;
-    display: none;
+    visibility: hidden;
     overflow: auto;
     border-radius: 20px;
     position: absolute;
@@ -330,9 +331,9 @@ div.popup {
     padding: 20px;
     background: #8080803f;
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
-    transform: scale(1);
-    transition: 0.5s;
-    backdrop-filter: saturate(0%);
+    opacity: 0;
+    transition: 0.3s;
+    backdrop-filter: saturate(40%) blur(10px);
 }
 
 div.CloseIcon {
