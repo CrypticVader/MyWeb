@@ -133,40 +133,6 @@ hr {
     animation: gradient 60s ease infinite;
 }
 
-div.tab {
-    background-color: #00000031;
-    color: white;
-    font-size: 1em;
-    font-family: "Comfortaa", sans-serif;
-    width: auto;
-    text-align: middle;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 3%;
-    padding-right: 2%;
-    margin: 1%;
-    border-radius: 17px;
-    transition: 0.25s;
-    position: relative;
-    display: inline-block;
-}
-
-div.tab:hover {
-    transform: scale(1.02);
-    transition: 0.25s;
-    color: white;
-    font-family: "Comfortaa", sans-serif;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
-div.tab:active {
-    opacity: 0.6;
-    transition: opacity 0s, box-shadow 0.4s;
-    color: white;
-    font-family: "Comfortaa", sans-serif;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
-}
-
 .material-icons-round.md-18 {
     font-size: 18px;
 }
@@ -296,6 +262,40 @@ div.tooltip:hover .tooltiptext {
     transition: 0.35s;
     opacity: 1;
     visibility: visible;
+}
+
+div.tab {
+    background-color: #00000031;
+    color: white;
+    font-size: 1em;
+    font-family: "Comfortaa", sans-serif;
+    width: auto;
+    text-align: middle;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 2%;
+    margin: 1%;
+    border-radius: 17px;
+    transition: 0.25s;
+    position: relative;
+    display: inline-block;
+}
+
+div.tab:hover {
+    transform: scale(1.02);
+    transition: 0.25s;
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.tab:active {
+    opacity: 0.6;
+    transition: opacity 0s, box-shadow 0.4s;
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
 
