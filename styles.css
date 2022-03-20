@@ -313,11 +313,13 @@ div.overlay {
     left: 0;
     background: rgba(0, 0, 0, 0.527);
     backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
-    z-index: 99;
+    z-index: 9;
     transition: 0.5s;
 }
 
 div.popup {
+    z-index: 99;
+    display: none;
     overflow: auto;
     border-radius: 20px;
     position: absolute;
