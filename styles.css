@@ -283,6 +283,7 @@ div.tab {
 }
 
 div.tab:hover {
+    backdrop-filter: saturate(150%) brightness(1);
     transform: scale(1.02);
     transition: 0.25s;
     color: white;
@@ -320,7 +321,7 @@ div.popup {
     visibility: hidden;
     overflow: auto;
     border-radius: 20px;
-    position: absolute;
+    position: fixed;
     width: 60%;
     height: 65%;
     left: 20%;
@@ -329,7 +330,8 @@ div.popup {
     background: #8080803f;
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.4s;
+    transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
     backdrop-filter: saturate(40%) blur(10px);
 }
 
