@@ -354,7 +354,6 @@ div.CloseIcon:hover {
 }
 
 div.CloseIcon:active {
-    transform: scale(0.95);
     opacity: 0.5;
     transition: 0s;
 }
