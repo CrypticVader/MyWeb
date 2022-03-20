@@ -39,7 +39,7 @@ function CloseFreeCcModal() {
     popup.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     popup.style.scale = '0.5'
-    popup.style.opacity = '0.3'
+    popup.style.opacity = '0'
     document.body.style.animationPlayState = 'running'
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ function CloseCodCadModal() {
     popup.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     popup.style.scale = '0.5'
-    popup.style.opacity = '0.3'
+    popup.style.opacity = '0'
     document.body.style.animationPlayState = 'running'
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ function CloseW3SModal() {
     popup.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     popup.style.scale = '0.5'
-    popup.style.opacity = '0.3'
+    popup.style.opacity = '0'
     document.body.style.animationPlayState = 'running'
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ function CloseGitLearnModal() {
     popup.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     popup.style.scale = '0.5'
-    popup.style.opacity = '0.3'
+    popup.style.opacity = '0'
     document.body.style.animationPlayState = 'running'
 }
 //----------------------------------------------------------------------------------------------------------------------
