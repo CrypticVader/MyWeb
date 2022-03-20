@@ -26,11 +26,6 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-a:hover {
-    transition: 0.2s;
-    opacity: 0.6;
-}
-
 div.nav-bar {
     /* to make sure it is on top, :/ */
     z-index: 999;
@@ -307,7 +302,7 @@ div.tooltip:hover .tooltiptext {
 }
 
 
-/*Popup stuff*/
+/* Popup stuff */
 
 div.overlay {
     position: fixed;
@@ -317,9 +312,9 @@ div.overlay {
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.527);
-    backdrop-filter: blur(20px) brightness(0.8) saturate(250%);
+    backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
+    z-index: 99;
     transition: 0.5s;
-    z-index: 2;
 }
 
 div.popup {
@@ -331,31 +326,36 @@ div.popup {
     left: 20%;
     top: 20%;
     padding: 20px;
-    background: rgba(185, 185, 185, 0.123);
+    background: #8080803f;
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     transform: scale(1);
     transition: 0.5s;
+    backdrop-filter: saturate(0%);
 }
 
 div.CloseIcon {
+    background-color: #ff000059;
     opacity: 0.6;
     cursor: pointer;
     float: right;
     padding: 4px;
     padding-bottom: 0px;
     transition: 0.2s;
-    background-color: rgba(134, 134, 134, 0.39);
     border-radius: 20%;
     -webkit-tap-highlight-color: transparent;
 }
 
 div.CloseIcon:hover {
-    background-color: rgba(253, 0, 0, 0.5);
+    background-color: rgb(253, 0, 0);
     opacity: 1;
     transition: 0.2s;
 }
 
 div.CloseIcon:active {
+    transform: scale(0.95);
     opacity: 0.5;
     transition: 0s;
 }
+
+
+/* End of popup stuff */
