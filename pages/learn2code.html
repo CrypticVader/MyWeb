@@ -47,10 +47,12 @@
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
-    <div class="overlay" id="overlay" onclick="CloseMsftModal()"></div>
+    <div class="overlay" id="overlay" onclick="CloseModal()"></div>
+
+    <!-- Popups, not visible -->
 
     <div class="popup" id="MsftPopup">
-        <div onclick="CloseMsftModal()" class="CloseIcon">
+        <div onclick="CloseModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>Microsoft Learn</h3>
@@ -61,7 +63,7 @@
     </div>
 
     <div class="popup" id="CodCadPopup">
-        <div onclick="CloseCodCadModal()" class="CloseIcon">
+        <div onclick="CloseModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>Codecademy</h3>
@@ -71,8 +73,8 @@
         </a>
     </div>
 
-    <div class="popup" id="FreeCcPopup">
-        <div onclick="CloseFreeCcModal()" class="CloseIcon">
+    <div class="popup" id="FreeCCPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>FreeCodeCamp</h3>
@@ -83,7 +85,7 @@
     </div>
 
     <div class="popup" id="W3SPopup">
-        <div onclick="CloseW3SModal()" class="CloseIcon">
+        <div onclick="CloseModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>W3Schools</h3>
@@ -94,7 +96,7 @@
     </div>
 
     <div class="popup" id="GitLearnPopup">
-        <div onclick="CloseGitLearnModal()" class="CloseIcon">
+        <div onclick="CloseModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>GitHub Learning Lab</h3>
@@ -104,6 +106,10 @@
         </a>
     </div>
 
+    <!-- End of Popups -->
+
+    <!-- Tabs -->
+
     <div class="tab" onclick="OpenMsftModal()">
         <p>Microsoft Learn</p>
     </div>
@@ -112,7 +118,7 @@
         <p>Codecademy</p>
     </div>
 
-    <div class="tab" onclick="OpenFreeCcModal()">
+    <div class="tab" onclick="OpenFreeCCModal()">
         <p>FreeCodeCamp</p>
     </div>
 
@@ -124,6 +130,7 @@
         <p>GitHub Learning Lab</p>
     </div>
 
+    <!-- End of tabs -->
 
     <p>WIP :/</p>
 
