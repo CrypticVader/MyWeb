@@ -47,92 +47,90 @@
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
+    <div class="overlay" id="overlay" onclick="CloseModal()"></div>
 
-    <div class="overlay" id="MsftOverlay">
-        <div class="popup">
-            <div onclick="CloseMsftModal()" class="CloseIcon">
-                <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-            </div>
-            <h3>Microsoft Learn</h3>
-            <p>Does this even work?</p>
-            <a href="https://docs.microsoft.com/en-us/learn/" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
-                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
-            </a>
+    <!-- Popups, not visible -->
+
+    <div class="popup" id="MsftPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
+            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
+        <h3>Microsoft Learn</h3>
+        <p>Does this even work?</p>
+        <a href="https://docs.microsoft.com/en-us/learn/" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+            <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+        </a>
     </div>
 
-    <div class="overlay" id="CodCadOverlay">
-        <div class="popup">
-            <div onclick="CloseCodCadModal()" class="CloseIcon">
-                <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-            </div>
-            <h3>Codecademy</h3>
-            <p>Does this even work?</p>
-            <a href="https://www.codecademy.com/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
-                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
-            </a>
+    <div class="popup" id="CodCadPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
+            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
+        <h3>Codecademy</h3>
+        <p>Does this even work?</p>
+        <a href="https://www.codecademy.com/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+            <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+        </a>
     </div>
 
-    <div class="overlay" id="FreeCcOverlay">
-        <div class="popup">
-            <div onclick="CloseFreeCcModal()" class="CloseIcon">
-                <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-            </div>
-            <h3>FreeCodeCamp</h3>
-            <p>Does this even work?</p>
-            <a href="https://www.freecodecamp.org/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
-                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
-            </a>
+    <div class="popup" id="FreeCCPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
+            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
+        <h3>FreeCodeCamp</h3>
+        <p>Does this even work?</p>
+        <a href="https://www.freecodecamp.org/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+            <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+        </a>
     </div>
 
-    <div class="overlay" id="W3SOverlay">
-        <div class="popup">
-            <div onclick="CloseW3SModal()" class="CloseIcon">
-                <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-            </div>
-            <h3>W3Schools</h3>
-            <p>Does this even work?</p>
-            <a href="https://my-learning.w3schools.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
-                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
-            </a>
+    <div class="popup" id="W3SPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
+            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
+        <h3>W3Schools</h3>
+        <p>Does this even work?</p>
+        <a href="https://my-learning.w3schools.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+            <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+        </a>
     </div>
 
-    <div class="overlay" id="GitLearnOverlay">
-        <div class="popup">
-            <div onclick="CloseGitLearnModal()" class="CloseIcon">
-                <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-            </div>
-            <h3>GitHub Learning Lab</h3>
-            <p>Does this even work?</p>
-            <a href="https://lab.github.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
-                <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
-            </a>
+    <div class="popup" id="GitLearnPopup">
+        <div onclick="CloseModal()" class="CloseIcon">
+            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
+        <h3>GitHub Learning Lab</h3>
+        <p>Does this even work?</p>
+        <a href="https://lab.github.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 110px; padding: 10px;">
+            <span class="material-icons-round md-32" style="margin-top:-0.2em; padding-right: 0.2em;">launch</span> Go here
+        </a>
     </div>
 
-    <div class="tab" onclick="OpenMsftModal()">
+    <!-- End of Popups -->
+
+    <!-- Tabs -->
+
+    <div class="tab" onclick="OpenModal('MsftPopup')">
         <p>Microsoft Learn</p>
     </div>
 
-    <div class="tab" onclick="OpenCodCadModal()">
+    <div class="tab" onclick="OpenModal('CodCadPopup')">
         <p>Codecademy</p>
     </div>
 
-    <div class="tab" onclick="OpenFreeCcModal()">
+    <div class="tab" onclick="OpenModal('FreeCCPopup')">
         <p>FreeCodeCamp</p>
     </div>
 
-    <div class="tab" onclick="OpenW3SModal()">
+    <div class="tab" onclick="OpenModal('W3SPopup')">
         <p>W3Schools</p>
     </div>
 
-    <div class="tab" onclick="OpenGitLearnModal()">
+    <div class="tab" onclick="OpenModal('GitLearnPopup')">
         <p>GitHub Learning Lab</p>
     </div>
 
+    <!-- End of tabs -->
 
     <p>WIP :/</p>
 

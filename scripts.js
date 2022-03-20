@@ -1,54 +1,29 @@
-function OpenMsftModal() {
-    let element = document.getElementById('MsftOverlay')
-    element.style.display = 'block'
-}
+var overlay = document.getElementById('overlay')
+var currentPopup
 
-function CloseMsftModal() {
-    let element = document.getElementById('MsftOverlay')
-    element.style.display = 'none'
-}
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenFreeCcModal() {
-    let element = document.getElementById('FreeCcOverlay')
-    element.style.display = 'block'
+function CloseModal() {
+    overlay.style.visibility = 'hidden'
+    overlay.style.opacity = '0'
+    currentPopup.style.visibility = 'hidden'
+    currentPopup.style.scale = '0.4'
+    currentPopup.style.opacity = '0'
+    currentPopup.style.top = '50%'
+    document.body.style.animationPlayState = 'running'
 }
 
-function CloseFreeCcModal() {
-    let element = document.getElementById('FreeCcOverlay')
-    element.style.display = 'none'
-}
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenCodCadModal() {
-    let element = document.getElementById('CodCadOverlay')
-    element.style.display = 'block'
+function OpenModal(id) {
+    currentPopup = document.getElementById(id)
+    currentPopup.style.top = '20%'
+    currentPopup.style.visibility = 'visible'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
+    overlay.style.visibility = 'visible'
+    overlay.style.opacity = '1'
+    document.body.style.animationPlayState = 'paused'
 }
 
-function CloseCodCadModal() {
-    let element = document.getElementById('CodCadOverlay')
-    element.style.display = 'none'
-}
-//----------------------------------------------------------------------------------------------------------------------
-
-function OpenW3SModal() {
-    let element = document.getElementById('W3SOverlay')
-    element.style.display = 'block'
-}
-
-function CloseW3SModal() {
-    let element = document.getElementById('W3SOverlay')
-    element.style.display = 'none'
-}
-//----------------------------------------------------------------------------------------------------------------------
-
-function OpenGitLearnModal() {
-    let element = document.getElementById('GitLearnOverlay')
-    element.style.display = 'block'
-}
-
-function CloseGitLearnModal() {
-    let element = document.getElementById('GitLearnOverlay')
-    element.style.display = 'none'
-}
 //----------------------------------------------------------------------------------------------------------------------

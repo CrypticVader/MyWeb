@@ -133,43 +133,6 @@ hr {
     animation: gradient 60s ease infinite;
 }
 
-div.tab {
-    background-color: #171d1f00;
-    color: white;
-    font-size: 20px;
-    font-family: "Comfortaa", sans-serif;
-    width: 40%;
-    text-align: left;
-    backdrop-filter: blur(0px) brightness(0.8);
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 3%;
-    padding-right: 2%;
-    margin: 1%;
-    border-radius: 10px;
-    transition: 0.25s;
-    position: relative;
-    display: inline-block;
-}
-
-div.tab:hover {
-    transform: scale(1.02);
-    transition: 0.25s;
-    color: white;
-    font-family: "Comfortaa", sans-serif;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
-div.tab:active {
-    opacity: 0.7;
-    transition: opacity 0s, box-shadow 0.4s;
-    color: white;
-    font-size: 20px;
-    font-family: "Comfortaa", sans-serif;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
-}
-
 .material-icons-round.md-18 {
     font-size: 18px;
 }
@@ -301,23 +264,60 @@ div.tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
+div.tab {
+    background-color: #00000031;
+    color: white;
+    font-size: 1em;
+    font-family: "Comfortaa", sans-serif;
+    width: auto;
+    text-align: middle;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 2%;
+    margin: 1%;
+    border-radius: 17px;
+    transition: 0.25s;
+    position: relative;
+    display: inline-block;
+}
+
+div.tab:hover {
+    transform: scale(1.02);
+    transition: 0.25s;
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.tab:active {
+    opacity: 0.6;
+    transition: opacity 0s, box-shadow 0.4s;
+    color: white;
+    font-family: "Comfortaa", sans-serif;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
+}
+
 
 /* Popup stuff */
 
 div.overlay {
+    z-index: 9;
     position: fixed;
-    display: none;
+    visibility: hidden;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.527);
     backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
-    z-index: 99;
-    transition: 0.5s;
+    opacity: 0;
+    transition: 0.7s;
 }
 
 div.popup {
+    z-index: 99;
+    visibility: hidden;
     overflow: auto;
     border-radius: 20px;
     position: absolute;
@@ -328,33 +328,35 @@ div.popup {
     padding: 20px;
     background: #8080803f;
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
-    transform: scale(1);
-    transition: 0.5s;
-    backdrop-filter: saturate(0%);
+    opacity: 0;
+    transition: 0.3s;
+    backdrop-filter: saturate(40%) blur(10px);
 }
 
 div.CloseIcon {
     background-color: #ff000059;
-    opacity: 0.6;
+    opacity: 0.8;
     cursor: pointer;
     float: right;
     padding: 4px;
     padding-bottom: 0px;
     transition: 0.2s;
-    border-radius: 20%;
+    border-radius: 25%;
     -webkit-tap-highlight-color: transparent;
 }
 
 div.CloseIcon:hover {
     background-color: rgb(253, 0, 0);
+    box-shadow: 0 10px 14px 0 rgba(255, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     opacity: 1;
     transition: 0.2s;
 }
 
 div.CloseIcon:active {
-    transform: scale(0.95);
-    opacity: 0.5;
-    transition: 0s;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
+    background-color: rgb(92, 23, 23);
+    opacity: 0.7;
+    transition: box-shadow 0.2s, opacity 0s;
 }
 
 
