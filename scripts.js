@@ -1,69 +1,75 @@
 var overlay = document.getElementById('overlay')
-var popup
+var currentPopup
 
 //----------------------------------------------------------------------------------------------------------------------
 
 function CloseModal() {
     overlay.style.visibility = 'hidden'
-    popup.style.visibility = 'hidden'
+    currentPopup.style.visibility = 'hidden'
     overlay.style.opacity = '0'
-    popup.style.scale = '0.5'
-    popup.style.opacity = '0'
+    currentPopup.style.scale = '0.5'
+    currentPopup.style.opacity = '0'
+    currentPopup.style.top = '50%'
     document.body.style.animationPlayState = 'running'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenMsftModal() {
-    popup = document.getElementById('MsftPopup')
+    currentPopup = document.getElementById('MsftPopup')
+    currentPopup.style.top = '20%'
     overlay.style.visibility = 'visible'
-    popup.style.visibility = 'visible'
+    currentPopup.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    popup.style.scale = '1'
-    popup.style.opacity = '1'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenFreeCCModal() {
-    popup = document.getElementById('FreeCCPopup')
+    currentPopup = document.getElementById('FreeCCPopup')
+    currentPopup.style.top = '20%'
     overlay.style.visibility = 'visible'
-    popup.style.visibility = 'visible'
+    currentPopup.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    popup.style.scale = '1'
-    popup.style.opacity = '1'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenCodCadModal() {
-    popup = document.getElementById('CodCadPopup')
+    currentPopup = document.getElementById('CodCadPopup')
+    currentPopup.style.top = '20%'
     overlay.style.visibility = 'visible'
-    popup.style.visibility = 'visible'
+    currentPopup.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    popup.style.scale = '1'
-    popup.style.opacity = '1'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenW3SModal() {
-    popup = document.getElementById('W3SPopup')
+    currentPopup = document.getElementById('W3SPopup')
+    currentPopup.style.top = '20%'
     overlay.style.visibility = 'visible'
-    popup.style.visibility = 'visible'
+    currentPopup.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    popup.style.scale = '1'
-    popup.style.opacity = '1'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenGitLearnModal() {
-    popup = document.getElementById('GitLearnPopup')
+    currentPopup = document.getElementById('GitLearnPopup')
+    currentPopup.style.top = '20%'
     overlay.style.visibility = 'visible'
-    popup.style.visibility = 'visible'
+    currentPopup.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    popup.style.scale = '1'
-    popup.style.opacity = '1'
+    currentPopup.style.scale = '1'
+    currentPopup.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
 }
 //----------------------------------------------------------------------------------------------------------------------

@@ -302,6 +302,7 @@ div.tooltip:hover .tooltiptext {
 /* Popup stuff */
 
 div.overlay {
+    z-index: 9;
     position: fixed;
     visibility: hidden;
     top: 0;
@@ -310,7 +311,6 @@ div.overlay {
     left: 0;
     background: rgba(0, 0, 0, 0.527);
     backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
-    z-index: 9;
     opacity: 0;
     transition: 0.7s;
 }
