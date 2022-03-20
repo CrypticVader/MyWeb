@@ -332,7 +332,7 @@ div.popup {
     opacity: 0;
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    backdrop-filter: saturate(40%) blur(10px);
+    backdrop-filter: saturate(40%) blur(15px);
 }
 
 div.CloseIcon {
@@ -348,7 +348,7 @@ div.CloseIcon {
 }
 
 div.CloseIcon:hover {
-    background-color: rgb(253, 0, 0);
+    background-color: rgb(168, 0, 0);
     box-shadow: 0 10px 14px 0 rgba(255, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     opacity: 1;
     transition: 0.2s;
