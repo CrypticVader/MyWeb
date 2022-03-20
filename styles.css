@@ -134,19 +134,18 @@ hr {
 }
 
 div.tab {
-    background-color: #171d1f00;
+    background-color: #00000031;
     color: white;
-    font-size: 20px;
+    font-size: 2vw;
     font-family: "Comfortaa", sans-serif;
-    width: 40%;
-    text-align: left;
-    backdrop-filter: blur(0px) brightness(0.8);
+    width: auto;
+    text-align: middle;
     padding-top: 2%;
     padding-bottom: 2%;
     padding-left: 3%;
     padding-right: 2%;
     margin: 1%;
-    border-radius: 10px;
+    border-radius: 17px;
     transition: 0.25s;
     position: relative;
     display: inline-block;
@@ -161,12 +160,10 @@ div.tab:hover {
 }
 
 div.tab:active {
-    opacity: 0.7;
+    opacity: 0.6;
     transition: opacity 0s, box-shadow 0.4s;
     color: white;
-    font-size: 20px;
     font-family: "Comfortaa", sans-serif;
-    border-radius: 10px;
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
