@@ -265,11 +265,11 @@ div.tooltip:hover .tooltiptext {
 }
 
 div.tab {
+    width: 40%;
     background-color: #00000031;
     color: white;
     font-size: 1em;
     font-family: "Comfortaa", sans-serif;
-    width: auto;
     text-align: middle;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -363,3 +363,15 @@ div.CloseIcon:active {
 
 
 /* End of popup stuff */
+
+img.blurred {
+    width: 100%;
+    transition: 0.4s;
+}
+
+img.blurred:hover {
+    transition: 0.5s;
+    -webkit-filter: blur(20px);
+    /* Chrome, Safari, Opera */
+    filter: blur(20px);
+}
