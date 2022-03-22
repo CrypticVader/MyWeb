@@ -187,6 +187,14 @@ h1.gradient-text {
     }
 }
 
+@media (hover: none) {
+    h1.gradient-text:active {
+        opacity: 1;
+        text-shadow: rgba(255, 255, 255, 0.466) 0px 0px 0px;
+        ;
+    }
+}
+
 div.center-text {
     text-align: center;
     display: block;
