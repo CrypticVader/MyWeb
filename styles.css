@@ -266,8 +266,6 @@ div.tooltip:hover .tooltiptext {
 
 div.tab {
     width: 40%;
-    max-height: 10%;
-    max-width: 40%;
     background-color: #00000031;
     color: white;
     font-size: 1em;
@@ -323,12 +321,19 @@ div.tab:active {
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
+#wipSmol {
+    display: none;
+}
+
 @media (max-width: 700px) {
-    body {
-        background-color: #ffffff;
-    }
     div.tab {
         width: 90%;
+    }
+    #wipBig {
+        display: none;
+    }
+    #wipSmol {
+        display: block;
     }
 }
 
