@@ -408,3 +408,8 @@ img.blurred {
     display: inline-block;
     border-radius: 10px;
 }
+
+@media (hover: hover) {
+    /* No hover on touch devices */
+    /* Nothing for now D: */
+}
