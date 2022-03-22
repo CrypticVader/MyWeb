@@ -11,6 +11,7 @@ function CloseModal() {
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
     document.body.style.animationPlayState = 'running'
+    document.body.style.overflow = 'auto'
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ function OpenModal(id) {
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
+    document.body.style.overflow = 'hidden'
 }
 
 //----------------------------------------------------------------------------------------------------------------------
