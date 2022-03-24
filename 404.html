@@ -26,6 +26,8 @@
     <!-- Load external CSS styles -->
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Andika New Basic|Indie Flower">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
 
 </head>
 
@@ -37,22 +39,36 @@
         background-size: 100vmin 100vmin;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        background-position: center;
         margin-left: 2vw;
         position: relative;
+    }
+    
+    @media (min-width: 900px) {
+        body {
+            background-size: 100vmin 100vmin;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            background-position: right;
+        }
     }
 </style>
 
 <!-- HTML body -->
 
-<body>
+<body style="padding: 10px;">
 
     <h1 style="padding-top: 3.8em; opacity: 1; font-size: 3em; line-height: 100%; margin: 0; margin-bottom: 0.4em; text-align: left;color: white;">
         Page not found :(
     </h1>
+
     <ins style="text-decoration: none; padding: 0; opacity: 0.8; font-size: 1.3em; margin: 0;">
         Error code: 404
     </ins><br>
-    <a class="link-button" style="margin-top: 1em;" href="/">
-        Home
+
+    <a id="navBarHomeButton" class='link-button' style="width: 80px; padding: 8px; margin-top: 0.7em;" href="/">
+        <span class="material-icons-round md-24">home</span> Home
     </a>
+
 </body>
