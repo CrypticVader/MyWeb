@@ -35,18 +35,26 @@
 
 <body>
 
+    <div class="overlay" id="overlay" onclick="CloseModal()"></div>
+
     <div class="nav-bar">
 
         <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span id="navBarHello" style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
-
-        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;">
-            <span class="material-icons-round md-24">menu</span>
-        </button>
 
         <a id="navBarMoreButton" class='link-button' style="float: right; padding: 8px;" href="/pages/learn2code.html">
             <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0.4em;">dashboard</span> See More
         </a>
 
+        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="OpenModal('overflow')">
+            <span class="material-icons-round md-24">menu</span>
+        </button>
+
+    </div>
+
+    <div class="popup" style="height: 10%; top: -20%;" id="overflow">
+        <a class='link-button' style="padding: 8px; width: 115px;" href="/pages/learn2code.html">
+            <span class="material-icons-round md-24" style="padding-right: 0.2em;">dashboard</span> See More
+        </a>
     </div>
 
     <div style="position: block; margin-left: 0; margin-right: 0;">

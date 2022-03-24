@@ -39,19 +39,25 @@
 
         <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span id="navBarHello" style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
 
-        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;">
-            <span class="material-icons-round md-24">menu</span>
-        </button>
-
         <a id="navBarHomeButton" class='link-button' style="float: right; padding: 8px;" href="/">
             <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
         </a>
+
+        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="OpenModal('overflow')">
+            <span class="material-icons-round md-24">menu</span>
+        </button>
 
     </div>
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
     <div class="overlay" id="overlay" onclick="CloseModal()"></div>
+
+    <div class="popup" id="overflow" style="height: 10%; top: -20%;">
+        <a class='link-button' style="padding: 8px; width: 80px;" href="/">
+            <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
+        </a>
+    </div>
 
     <!-- Popups, not visible -->
 
