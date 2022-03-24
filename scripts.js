@@ -15,6 +15,7 @@ function OpenModal(id) {
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
+    document.body.style.overflow = 'hidden'
 }
 
 function CloseModal() {
@@ -31,7 +32,7 @@ function CloseModal() {
 
 function OpenOverflow(id) {
     overflow = document.getElementById(id)
-    overflow.style.top = '20%'
+    overflow.style.top = '15%'
     overflow.style.visibility = 'visible'
     overflow.style.scale = '1'
     overflow.style.opacity = '1'
@@ -49,7 +50,7 @@ function CloseOverflow() {
     overflow.style.visibility = 'hidden'
     overflow.style.scale = '0.4'
     overflow.style.opacity = '0'
-    overflow.style.top = '-50%'
+    overflow.style.top = '10%'
     document.body.style.animationPlayState = 'running'
     divider.style.animationPlayState = 'running'
     headAnimated.style.animationPlayState = 'running'
