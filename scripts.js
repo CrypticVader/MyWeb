@@ -1,4 +1,6 @@
 var overlay = document.getElementById('overlay')
+var divider = document.getElementById('divider')
+var headAnimated = document.getElementById('headAnimated')
 var currentPopup
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -11,6 +13,8 @@ function CloseModal() {
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
     document.body.style.animationPlayState = 'running'
+    divider.style.animationPlayState = 'running'
+    headAnimated.style.animationPlayState = 'running'
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -24,6 +28,8 @@ function OpenModal(id) {
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.animationPlayState = 'paused'
+    divider.style.animationPlayState = 'paused'
+    headAnimated.style.animationPlayState = 'paused'
 }
 
 //----------------------------------------------------------------------------------------------------------------------
