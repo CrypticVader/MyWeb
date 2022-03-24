@@ -439,6 +439,26 @@ div.popup {
     backdrop-filter: saturate(40%) blur(15px);
 }
 
+div.overflow {
+    z-index: 99;
+    visibility: hidden;
+    overflow: auto;
+    border-radius: 20px;
+    position: fixed;
+    left: 20%;
+    padding: 20px;
+    background: #8080803f;
+    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
+    opacity: 0;
+    transition: 0.4s;
+    transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    backdrop-filter: saturate(40%) blur(15px);
+    height: 10%;
+    width: 40%;
+    top: 0%;
+    text-align: center;
+}
+
 div.CloseIcon {
     background-color: #ff000059;
     opacity: 0.8;
