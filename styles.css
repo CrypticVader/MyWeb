@@ -467,3 +467,15 @@ div.CloseIcon:active {
 
 
 /* End of popup stuff */
+
+@media (max-width: 400px) {
+    #navBarHomeButton {
+        visibility: hidden;
+    }
+    #navBarMoreButton {
+        visibility: hidden;
+    }
+    #overflow {
+        visibility: visible;
+    }
+}
