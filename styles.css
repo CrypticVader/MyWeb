@@ -48,7 +48,6 @@ a.link-button {
     /* This is to vertically center the text */
     line-height: 25px;
     /**/
-    width: 100px;
     -webkit-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     font-size: 17px;
@@ -98,7 +97,6 @@ button {
     /* This is to vertically center the text */
     line-height: 25px;
     /**/
-    width: 100px;
     -webkit-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     font-size: 17px;
