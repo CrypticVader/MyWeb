@@ -25,6 +25,7 @@ function CloseModal() {
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
     document.body.style.animationPlayState = 'running'
+    document.body.style.overflow = 'auto'
 }
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -39,6 +40,7 @@ function OpenOverflow(id) {
     document.body.style.animationPlayState = 'paused'
     divider.style.animationPlayState = 'paused'
     headAnimated.style.animationPlayState = 'paused'
+
 }
 
 function CloseOverflow() {
