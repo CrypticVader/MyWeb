@@ -1,8 +1,21 @@
-# MyWeb
-Personal website (WIP)
+# [MyWeb](https://vader.social)
 
-![2022-03-18 (14)](https://user-images.githubusercontent.com/61494838/159061168-94ac9dbf-8b86-4c6d-9201-85e9195caa51.png)
+#### 👨‍🏭 Work-in-Progress personal website
 
-![2022-03-18 (17)](https://user-images.githubusercontent.com/61494838/159060867-ae6b9701-1a5a-4645-a47e-c2b20717e338.png)
+- ### Main Page
+![2022-03-27 (97)](https://user-images.githubusercontent.com/61494838/160291365-65440a96-b7bf-419d-a707-5335c3a25857.png)
 
-![2022-03-18 (19)](https://user-images.githubusercontent.com/61494838/159060877-bc22fd19-2f82-49f0-8a3a-117ee53c99dd.png)
+---
+
+- ### Geek Stuff  (Responsive Layout)
+![2022-03-27 (98)](https://user-images.githubusercontent.com/61494838/160291383-37baada3-c581-4581-810b-3834ffa8dce9.png)
+
+---
+
+- ### Popup/Modal
+![2022-03-27 (99)](https://user-images.githubusercontent.com/61494838/160291397-ae91b401-dc70-454a-a4bf-fdfbd21c86c6.png)
+
+---
+
+- ### Error 404 page
+![2022-03-27 (101)](https://user-images.githubusercontent.com/61494838/160291410-639873fa-5292-4e7e-a709-9dd75d7cfe09.png)
