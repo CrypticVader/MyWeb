@@ -1,5 +1,7 @@
 # [MyWeb](https://vader.social)
 
+![](https://img.shields.io/badge/license-GPL-green)
+
 #### 👨‍🏭 Work-in-Progress personal website
 
 - ### Main Page
