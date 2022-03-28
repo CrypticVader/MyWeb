@@ -5,6 +5,8 @@ var divider = document.getElementById('divider')
 var headAnimated = document.getElementById('headAnimated')
 var resumeButton = document.getElementById('ResumeButton')
 var pauseButton = document.getElementById('PauseButton')
+var playAlert = document.getElementById("PlayAlert")
+var pauseAlert = document.getElementById("PauseAlert")
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -69,5 +71,28 @@ function ResumeAnimation() {
     document.body.style.animationPlayState = 'running'
     divider.style.animationPlayState = 'running'
     headAnimated.style.animationPlayState = 'running'
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+function PlayAlert() {
+    playAlert.style.visibility = 'visible'
+    playAlert.style.scale = '1';
+    playAlert.style.opacity = '1';
+    setTimeout(function HideAlert() {
+        playAlert.style.scale = '0.6';
+        playAlert.style.opacity = '0';
+        playAlert.style.visibility = 'hidden';
+    }, 1500)
+}
+
+function PauseAlert() {
+    pauseAlert.style.visibility = 'visible'
+    pauseAlert.style.scale = '1';
+    pauseAlert.style.opacity = '1';
+    setTimeout(function HideAlert() {
+        pauseAlert.style.scale = '0.6';
+        pauseAlert.style.opacity = '0';
+        pauseAlert.style.visibility = 'hidden';
+    }, 1500)
 }
 //----------------------------------------------------------------------------------------------------------------------
