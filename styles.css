@@ -1,13 +1,18 @@
 body {
-    background: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
-    background-size: 600vw 600vh;
+    background: linear-gradient(130deg, blue, #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab);
+    background-size: 400% 400%;
     background-attachment: fixed;
     animation: gradient 60s ease infinite;
     background-color: #000000;
-    /* overscroll-behavior: none; */
     color: white;
     font-size: 20px;
     font-family: "Comfortaa", sans-serif;
+}
+
+@media (hover: hover) {
+    body {
+        overscroll-behavior: none;
+    }
 }
 
 @keyframes gradient {
@@ -152,7 +157,7 @@ h1 {
 hr {
     border: 0;
     height: 2.5px;
-    background-image: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
+    background: linear-gradient(130deg, blue, #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab);
     background-size: 600vw 600vh;
     animation: gradient 60s ease infinite;
 }
@@ -185,7 +190,7 @@ h1.gradient-text {
     line-height: 100%;
     margin-top: 0.8em;
     /* Create the gradient. */
-    background-image: linear-gradient(130deg, #45daffbb, #106f869a, #83200e9c, #7c1c41bb, #a06e76b2, #43047096, #69006998, #01598ba4, #00c4799a);
+    background: linear-gradient(130deg, blue, #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab);
     /* Set the background size and repeat properties. */
     background-size: 600vw 600vh;
     /* Use the text as a mask for the background. */
@@ -370,7 +375,7 @@ div.tab:active {
 }
 
 div.OverShadow {
-    background-image: linear-gradient(#00000010, #03030371, #000000e8);
+    background-image: linear-gradient(#00000000, #14141446, #1b1b1bef);
     height: 100%;
     width: 100%;
     bottom: 0%;
@@ -434,8 +439,8 @@ div.overlay {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.527);
-    backdrop-filter: blur(15px) brightness(0.7) saturate(200%);
+    background: rgba(0, 0, 0, 0.637);
+    backdrop-filter: brightness(0.25);
     opacity: 0;
     transition: 0.7s;
 }
@@ -456,7 +461,7 @@ div.popup {
     opacity: 0;
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    backdrop-filter: saturate(40%) blur(15px);
+    backdrop-filter: brightness(0.5) blur(10px);
 }
 
 div.overflow {
