@@ -3,7 +3,7 @@ body {
     background-size: 600vw 600vh;
     background-attachment: fixed;
     animation: gradient 60s ease infinite;
-    background-color: #171d1f;
+    background-color: #000000;
     /* overscroll-behavior: none; */
     color: white;
     font-size: 20px;
