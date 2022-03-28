@@ -514,6 +514,14 @@ div.CloseIcon:active {
     display: none;
 }
 
+#PauseButton {
+    display: flex;
+}
+
+#ResumeButton {
+    display: none;
+}
+
 @media (max-width: 400px) {
     #navBarHomeButton {
         display: none;

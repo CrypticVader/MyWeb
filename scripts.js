@@ -3,6 +3,8 @@ var overflow = document.getElementById('overflow')
 var overlay = document.getElementById('overlay')
 var divider = document.getElementById('divider')
 var headAnimated = document.getElementById('headAnimated')
+var resumeButton = document.getElementById('ResumeButton')
+var pauseButton = document.getElementById('PauseButton')
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -14,8 +16,8 @@ function OpenModal(id) {
     currentPopup.style.opacity = '1'
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
-    document.body.style.animationPlayState = 'paused'
     document.body.style.overflow = 'hidden'
+    PauseAnimation()
 }
 
 function CloseModal() {
@@ -25,8 +27,8 @@ function CloseModal() {
     currentPopup.style.scale = '0.4'
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
-    document.body.style.animationPlayState = 'running'
     document.body.style.overflow = 'auto'
+    ResumeAnimation()
 }
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -38,10 +40,7 @@ function OpenOverflow(id) {
     overflow.style.opacity = '1'
     overflowLayer.style.visibility = 'visible'
     overflowLayer.style.opacity = '1'
-    document.body.style.animationPlayState = 'paused'
-    divider.style.animationPlayState = 'paused'
-    headAnimated.style.animationPlayState = 'paused'
-
+    PauseAnimation()
 }
 
 function CloseOverflow() {
@@ -51,6 +50,22 @@ function CloseOverflow() {
     overflow.style.scale = '0.4'
     overflow.style.opacity = '0'
     overflow.style.top = '10%'
+    ResumeAnimation()
+}
+//----------------------------------------------------------------------------------------------------------------------
+
+function PauseAnimation() {
+    pauseButton.style.display = 'none'
+    resumeButton.style.display = 'flex'
+    document.body.style.animationPlayState = 'paused'
+    divider.style.animationPlayState = 'paused'
+    headAnimated.style.animationPlayState = 'paused'
+}
+
+// This functions results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
+function ResumeAnimation() {
+    resumeButton.style.display = 'none'
+    pauseButton.style.display = 'flex'
     document.body.style.animationPlayState = 'running'
     divider.style.animationPlayState = 'running'
     headAnimated.style.animationPlayState = 'running'
