@@ -1,3 +1,8 @@
+/*
+Big problem, transform properties do not work on smartphones if percentages are used D:
+dafuq
+*/
+
 body {
     background: linear-gradient(130deg, blue, #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab);
     background-size: 400% 400%;
@@ -54,7 +59,7 @@ div.alert {
     display: inline-block;
     z-index: 999;
     width: 210px;
-    top: 95vh;
+    top: 95%;
     left: 50%;
     margin-left: -105px;
     background-color: #00000034;
@@ -63,6 +68,7 @@ div.alert {
     padding: 12px;
     border-radius: 17px;
     opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
     transition: 0.5s;
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
