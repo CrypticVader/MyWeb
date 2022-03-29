@@ -56,7 +56,9 @@ function CloseOverflow() {
 }
 //----------------------------------------------------------------------------------------------------------------------
 
+// This function results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
 function PauseAnimation() {
+    console.log('Ignore error, caused my referencing missing elements.')
     pauseButton.style.display = 'none'
     resumeButton.style.display = 'flex'
     document.body.style.animationPlayState = 'paused'
@@ -64,8 +66,8 @@ function PauseAnimation() {
     headAnimated.style.animationPlayState = 'paused'
 }
 
-// This functions results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
 function ResumeAnimation() {
+    console.log('Ignore error, caused my referencing missing elements.')
     resumeButton.style.display = 'none'
     pauseButton.style.display = 'flex'
     document.body.style.animationPlayState = 'running'
