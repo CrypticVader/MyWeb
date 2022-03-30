@@ -572,6 +572,7 @@ div.CloseIcon:active {
 
 #PauseButton {
     display: flex;
+    transform: scale(0);
 }
 
 #ResumeButton {

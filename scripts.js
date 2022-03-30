@@ -100,10 +100,7 @@ function PauseAlert() {
 //----------------------------------------------------------------------------------------------------------------------
 
 function copyText(text) {
-    /* Copy the text inside the text field */
     navigator.clipboard.writeText(text);
-
-    /* Alert the copied text */
     document.getElementById('copyId').style.transform = 'scale(0)'
     setTimeout(function back2one() { document.getElementById('copyId').style.transform = 'scale(1)' }, 100)
     document.getElementById('copyId').innerHTML = 'done'
