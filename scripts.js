@@ -113,17 +113,23 @@ function PauseAlert() {
 
 function copyText(text) {
     navigator.clipboard.writeText(text);
-    document.getElementById('copyId').style.transform = 'scale(0.5)'
-    document.getElementById('copyId').style.opacity = '0.2'
+
+    // Below code is for the icon morph effect
+    let copyIcon = document.getElementById('copyIcon')
+    copyIcon.style.transform = 'scale(0.5)'
+    copyIcon.style.opacity = '0.2'
+
     setTimeout(function back2one() {
-        document.getElementById('copyId').style.transform = 'scale(1)';
-        document.getElementById('copyId').style.opacity = '1'
-        document.getElementById('copyId').innerHTML = 'done'
+        copyIcon.style.transform = 'scale(1)';
+        copyIcon.style.opacity = '1'
+        copyIcon.innerHTML = 'done'
     }, 300)
-    setTimeout(function fade() { document.getElementById('copyId').style.opacity = '0.2' }, 1700)
+
+    setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1700)
+
     setTimeout(function back2copy() {
-        document.getElementById('copyId').innerHTML = 'copy'
-        document.getElementById('copyId').style.opacity = '1'
+        copyIcon.innerHTML = 'copy'
+        copyIcon.style.opacity = '1'
     }, 2001)
 }
 //----------------------------------------------------------------------------------------------------------------------
