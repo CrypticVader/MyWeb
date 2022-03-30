@@ -115,7 +115,7 @@ function copyText(text) {
     navigator.clipboard.writeText(text);
 
     // Below code is for the icon morph effect
-    let copyIcon = document.getElementById('copyIcon')
+    let copyIcon = document.getElementById('copyId')
     copyIcon.style.transform = 'scale(0.5)'
     copyIcon.style.opacity = '0.2'
 
