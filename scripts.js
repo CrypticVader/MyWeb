@@ -5,6 +5,7 @@ var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
 var popupAlert = document.getElementById("PopupAlert")
 var bgPlayState = "running"
+var popupText = "lorem ipsum"
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ function CloseModal() {
     document.body.style.overflow = 'auto'
     togglePlayState()
 }
+
 //----------------------------------------------------------------------------------------------------------------------
 
 function OpenOverflow(id) {
@@ -52,9 +54,13 @@ function CloseOverflow() {
     overflow.style.top = '10%'
     togglePlayState()
 }
+
 //----------------------------------------------------------------------------------------------------------------------
 
 function PopupAlert(text) {
+    if (text == undefined) {
+        text = popupText
+    }
     popupAlert.style.visibility = 'visible'
     popupAlert.style.scale = '1';
     popupAlert.style.opacity = '1';
@@ -84,13 +90,14 @@ function copyText(text) {
         copyIcon.style.opacity = '1'
     }, 2001)
 }
+
 //----------------------------------------------------------------------------------------------------------------------
 
 function togglePlayState() {
     let playStateIcon = document.getElementById("PlayStateIcon")
     if (bgPlayState == "running") {
         bgPlayState = "paused"
-        PopupAlert("Background paused")
+        popupText = "Background paused"
         playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
         try {
@@ -101,7 +108,7 @@ function togglePlayState() {
         }
     } else if (bgPlayState == "paused") {
         bgPlayState = "running"
-        PopupAlert("Background resumed")
+        popupText = "Background resumed"
         playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
         try {
@@ -112,3 +119,4 @@ function togglePlayState() {
         }
     }
 }
+//----------------------------------------------------------------------------------------------------------------------

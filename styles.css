@@ -62,7 +62,7 @@ div.alert {
     z-index: 999;
     top: 95%;
     left: 50%;
-    margin-left: -105px;
+    margin-left: -115px;
     background-color: #00000034;
     -webkit-backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
     backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
