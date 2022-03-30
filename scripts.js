@@ -3,8 +3,7 @@ var overflow = document.getElementById('overflow')
 var overlay = document.getElementById('overlay')
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
-var playAlert = document.getElementById("PlayAlert")
-var pauseAlert = document.getElementById("PauseAlert")
+var popupAlert = document.getElementById("PopupAlert")
 var bgPlayState = "running"
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -55,25 +54,15 @@ function CloseOverflow() {
 }
 //----------------------------------------------------------------------------------------------------------------------
 
-function PlayAlert() {
-    playAlert.style.visibility = 'visible'
-    playAlert.style.scale = '1';
-    playAlert.style.opacity = '1';
+function PopupAlert(text) {
+    popupAlert.style.visibility = 'visible'
+    popupAlert.style.scale = '1';
+    popupAlert.style.opacity = '1';
+    document.getElementById("AlertText").innerHTML = text;
     setTimeout(function HideAlert() {
-        playAlert.style.scale = '0.6';
-        playAlert.style.opacity = '0';
-        playAlert.style.visibility = 'hidden';
-    }, 1500)
-}
-
-function PauseAlert() {
-    pauseAlert.style.visibility = 'visible'
-    pauseAlert.style.scale = '1';
-    pauseAlert.style.opacity = '1';
-    setTimeout(function HideAlert() {
-        pauseAlert.style.scale = '0.6';
-        pauseAlert.style.opacity = '0';
-        pauseAlert.style.visibility = 'hidden';
+        popupAlert.style.scale = '0.6';
+        popupAlert.style.opacity = '0';
+        popupAlert.style.visibility = 'hidden';
     }, 1500)
 }
 //----------------------------------------------------------------------------------------------------------------------
@@ -101,18 +90,18 @@ function togglePlayState() {
     let playStateIcon = document.getElementById("PlayStateIcon")
     if (bgPlayState == "running") {
         bgPlayState = "paused"
-        PauseAlert()
+        PopupAlert("Background paused")
         playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
         try {
-            divider.style.animationPlayState = 'running'
-            headingAnimated.style.animationPlayState = 'running'
+            divider.style.animationPlayState = 'paused'
+            headingAnimated.style.animationPlayState = 'paused'
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
     } else if (bgPlayState == "paused") {
         bgPlayState = "running"
-        PlayAlert()
+        PopupAlert("Background resumed")
         playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
         try {

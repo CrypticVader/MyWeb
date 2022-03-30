@@ -60,7 +60,6 @@ div.alert {
     position: fixed;
     display: inline-block;
     z-index: 999;
-    width: 210px;
     top: 95%;
     left: 50%;
     margin-left: -105px;
