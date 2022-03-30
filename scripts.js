@@ -59,8 +59,8 @@ function CloseOverflow() {
 // This function results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
 function PauseAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
-    pauseButton.style.display = 'none'
-    resumeButton.style.display = 'flex'
+    pauseButton.style.transform = 'scale(0)'
+    resumeButton.style.transform = 'scale(1)'
     document.body.style.animationPlayState = 'paused'
     divider.style.animationPlayState = 'paused'
     headAnimated.style.animationPlayState = 'paused'
@@ -68,8 +68,8 @@ function PauseAnimation() {
 
 function ResumeAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
-    resumeButton.style.display = 'none'
-    pauseButton.style.display = 'flex'
+    resumeButton.style.transform = 'scale(0)'
+    pauseButton.style.transform = 'scale(1)'
     document.body.style.animationPlayState = 'running'
     divider.style.animationPlayState = 'running'
     headAnimated.style.animationPlayState = 'running'
@@ -104,6 +104,9 @@ function copyText(text) {
     navigator.clipboard.writeText(text);
 
     /* Alert the copied text */
-    alert("Copied the text: " + text);
+    document.getElementById('copyId').style.transform = 'scale(0)'
+    setTimeout(function back2one() { document.getElementById('copyId').style.transform = 'scale(1)' }, 100)
+    document.getElementById('copyId').innerHTML = 'done'
+    setTimeout(function back2copy() { document.getElementById('copyId').innerHTML = 'copy' }, 900)
 }
 //----------------------------------------------------------------------------------------------------------------------

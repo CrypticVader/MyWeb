@@ -50,11 +50,11 @@
             <span class="material-icons-round md-24">menu</span>
         </button>
 
-        <button id="PauseButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="PauseAlert(); PauseAnimation();">
+        <button id="PauseButton" style="transition: 0.2s; float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="PauseAlert(); PauseAnimation();">
             <span class="material-icons-round md-24">pause</span>
         </button>
 
-        <button id="ResumeButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="PlayAlert(); ResumeAnimation();">
+        <button id="ResumeButton" style="transition: 0.2s; float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="PlayAlert(); ResumeAnimation();">
             <span class="material-icons-round md-24">play_arrow</span>
         </button>
 
@@ -105,8 +105,8 @@
         <a href="https://www.reddit.com/user/Unfair-Expert-1153"><img alt="Redddit-logo" src="/assets/reddit-icon-698x698.png" class="squeeze" width="30" height="30"></a>
 
         <div class="tooltip">
-            <img alt="Discord-logo" src="/assets/discord-logo-circle.png" class="squeeze" width="30" height="30"><span class="tooltiptext" style="width: 220px; margin-left: -100px; margin-top: -10px;">CrypticVader#4644
-                <span class="material-icons-round md-18" style="background-color: rgba(0, 0, 0, 0.39); padding: 4px; border-radius: 7px;" onclick="copyText('CrypticVader#4644')">copy</span>
+            <img alt="Discord-logo" src="/assets/discord-logo-circle.png" class="squeeze" width="30" height="30"><span class="tooltiptext" style="line-height: 40px; width: 200px; margin-left: -110px; margin-top: -10px; padding-top: 0px;">CrypticVader#4644
+                <span id="copyId" class="material-icons-round md-18" onclick="copyText('CrypticVader#4644')">copy</span>
             </span>
         </div>
 
