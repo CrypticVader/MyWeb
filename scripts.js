@@ -7,6 +7,7 @@ var resumeButton = document.getElementById('ResumeButton')
 var pauseButton = document.getElementById('PauseButton')
 var playAlert = document.getElementById("PlayAlert")
 var pauseAlert = document.getElementById("PauseAlert")
+var bgPlayState = "running"
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -113,23 +114,37 @@ function PauseAlert() {
 
 function copyText(text) {
     navigator.clipboard.writeText(text);
-
     // Below code is for the icon morph effect
-    let copyIcon = document.getElementById('copyIcon')
+    let copyIcon = document.getElementById('copyId')
     copyIcon.style.transform = 'scale(0.5)'
     copyIcon.style.opacity = '0.2'
-
     setTimeout(function back2one() {
         copyIcon.style.transform = 'scale(1)';
         copyIcon.style.opacity = '1'
         copyIcon.innerHTML = 'done'
     }, 300)
-
     setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1700)
-
     setTimeout(function back2copy() {
         copyIcon.innerHTML = 'copy'
         copyIcon.style.opacity = '1'
     }, 2001)
 }
 //----------------------------------------------------------------------------------------------------------------------
+
+function togglePlayState() {
+    if (bgPlayState == "running") {
+        bgPlayState = "paused"
+        PauseAlert()
+        console.log('Ignore error, caused by referencing missing elements.')
+        document.body.style.animationPlayState = 'paused'
+        divider.style.animationPlayState = 'paused'
+        headAnimated.style.animationPlayState = 'paused'
+    } else if (bgPlayState == "paused") {
+        bgPlayState = "running"
+        PlayAlert()
+        console.log('Ignore error, caused by referencing missing elements.')
+        document.body.style.animationPlayState = 'running'
+        divider.style.animationPlayState = 'running'
+        headAnimated.style.animationPlayState = 'running'
+    }
+}
