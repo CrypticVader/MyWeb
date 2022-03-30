@@ -59,8 +59,10 @@ function CloseOverflow() {
 // This function results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
 function PauseAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
-    pauseButton.style.transform = 'scale(0)'
+    pauseButton.style.transform = 'scale(0.4)'
+    pauseButton.style.opacity = '0.2'
     resumeButton.style.transform = 'scale(1)'
+    resumeButton.style.opacity = '1'
     setTimeout(function removePause() {
         pauseButton.style.display = 'none';
         resumeButton.style.display = 'flex'
@@ -72,8 +74,10 @@ function PauseAnimation() {
 
 function ResumeAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
-    resumeButton.style.transform = 'scale(0)'
+    resumeButton.style.transform = 'scale(0.4)'
+    resumeButton.style.opacity = '0.2'
     pauseButton.style.transform = 'scale(1)'
+    pauseButton.style.opacity = '1'
     setTimeout(function removeResume() {
         resumeButton.style.display = 'none';
         pauseButton.style.display = 'flex'
@@ -109,9 +113,17 @@ function PauseAlert() {
 
 function copyText(text) {
     navigator.clipboard.writeText(text);
-    document.getElementById('copyId').style.transform = 'scale(0)'
-    setTimeout(function back2one() { document.getElementById('copyId').style.transform = 'scale(1)' }, 100)
-    document.getElementById('copyId').innerHTML = 'done'
-    setTimeout(function back2copy() { document.getElementById('copyId').innerHTML = 'copy' }, 900)
+    document.getElementById('copyId').style.transform = 'scale(0.5)'
+    document.getElementById('copyId').style.opacity = '0.2'
+    setTimeout(function back2one() {
+        document.getElementById('copyId').style.transform = 'scale(1)';
+        document.getElementById('copyId').style.opacity = '1'
+        document.getElementById('copyId').innerHTML = 'done'
+    }, 300)
+    setTimeout(function fade() { document.getElementById('copyId').style.opacity = '0.2' }, 1700)
+    setTimeout(function back2copy() {
+        document.getElementById('copyId').innerHTML = 'copy'
+        document.getElementById('copyId').style.opacity = '1'
+    }, 2001)
 }
 //----------------------------------------------------------------------------------------------------------------------
