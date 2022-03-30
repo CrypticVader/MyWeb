@@ -61,6 +61,8 @@ function PauseAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
     pauseButton.style.transform = 'scale(0)'
     resumeButton.style.transform = 'scale(1)'
+    setTimeout(function removePause() { pauseButton.style.display = 'none';
+        resumeButton.style.display = 'flex' }, 0)
     document.body.style.animationPlayState = 'paused'
     divider.style.animationPlayState = 'paused'
     headAnimated.style.animationPlayState = 'paused'
@@ -70,6 +72,8 @@ function ResumeAnimation() {
     console.log('Ignore error, caused by referencing missing elements.')
     resumeButton.style.transform = 'scale(0)'
     pauseButton.style.transform = 'scale(1)'
+    setTimeout(function removeResume() { resumeButton.style.display = 'none';
+        pauseButton.style.display = 'flex' }, 0)
     document.body.style.animationPlayState = 'running'
     divider.style.animationPlayState = 'running'
     headAnimated.style.animationPlayState = 'running'
