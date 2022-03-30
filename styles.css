@@ -570,15 +570,6 @@ div.CloseIcon:active {
     display: none;
 }
 
-#PauseButton {
-    display: flex;
-}
-
-#ResumeButton {
-    display: flex;
-    transform: scale(0);
-}
-
 #copyId {
     cursor: default;
     display: inline-block;
