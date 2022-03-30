@@ -18,7 +18,7 @@ function OpenModal(id) {
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.overflow = 'hidden'
-    PauseAnimation()
+    togglePlayState()
 }
 
 function CloseModal() {
@@ -29,7 +29,7 @@ function CloseModal() {
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
     document.body.style.overflow = 'auto'
-    ResumeAnimation()
+    togglePlayState()
 }
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ function OpenOverflow(id) {
     overflow.style.opacity = '1'
     overflowLayer.style.visibility = 'visible'
     overflowLayer.style.opacity = '1'
-    PauseAnimation()
+    togglePlayState()
 }
 
 function CloseOverflow() {
@@ -51,10 +51,8 @@ function CloseOverflow() {
     overflow.style.scale = '0.4'
     overflow.style.opacity = '0'
     overflow.style.top = '10%'
-    ResumeAnimation()
+    togglePlayState()
 }
-//----------------------------------------------------------------------------------------------------------------------
-
 //----------------------------------------------------------------------------------------------------------------------
 
 function PlayAlert() {
@@ -100,10 +98,12 @@ function copyText(text) {
 //----------------------------------------------------------------------------------------------------------------------
 
 function togglePlayState() {
+    let playStateIcon = document.getElementById("PlayStateIcon")
     if (bgPlayState == "running") {
         console.log('Ignore error, caused by referencing missing elements.')
         bgPlayState = "paused"
         PauseAlert()
+        playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
         divider.style.animationPlayState = 'paused'
         headingAnimated.style.animationPlayState = 'paused'
@@ -111,6 +111,7 @@ function togglePlayState() {
         console.log('Ignore error, caused by referencing missing elements.')
         bgPlayState = "running"
         PlayAlert()
+        playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
         divider.style.animationPlayState = 'running'
         headingAnimated.style.animationPlayState = 'running'
