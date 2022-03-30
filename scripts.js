@@ -100,20 +100,26 @@ function copyText(text) {
 function togglePlayState() {
     let playStateIcon = document.getElementById("PlayStateIcon")
     if (bgPlayState == "running") {
-        console.log('Ignore error, caused by referencing missing elements.')
         bgPlayState = "paused"
         PauseAlert()
         playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
-        divider.style.animationPlayState = 'paused'
-        headingAnimated.style.animationPlayState = 'paused'
+        try {
+            divider.style.animationPlayState = 'running'
+            headingAnimated.style.animationPlayState = 'running'
+        } catch (error) {
+            console.log('Missing elements referenced, error suppressed.')
+        }
     } else if (bgPlayState == "paused") {
-        console.log('Ignore error, caused by referencing missing elements.')
         bgPlayState = "running"
         PlayAlert()
         playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
-        divider.style.animationPlayState = 'running'
-        headingAnimated.style.animationPlayState = 'running'
+        try {
+            divider.style.animationPlayState = 'running'
+            headingAnimated.style.animationPlayState = 'running'
+        } catch (error) {
+            console.log('Missing elements referenced, error suppressed.')
+        }
     }
 }
