@@ -50,7 +50,7 @@
             <span class="material-icons-round md-24">menu</span>
         </button>
 
-        <button id="PlayStateButton" style="transition: 0.2s; float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); PopupAlert();">
+        <button id="PlayStateButton" style="transition: 0.2s; float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); spawnAlert();">
             <span class="material-icons-round md-24" id="PlayStateIcon">pause</span>
         </button>
 
@@ -117,9 +117,7 @@
 
     </div>
 
-    <div style="visibility: hidden;" id="PopupAlert" class="alert">
-        <span id="AlertText">lorem ipsum</span>
-    </div>
+    <div style="visibility: hidden;" id="PopupAlert" class="alert">lorem ipsum</div>
 
     <!-- Load external JavaScript -->
     <script src="/scripts.js"></script>

@@ -3,7 +3,6 @@ var overflow = document.getElementById('overflow')
 var overlay = document.getElementById('overlay')
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
-var popupAlert = document.getElementById("PopupAlert")
 var bgPlayState = "running"
 var popupText = "lorem ipsum"
 
@@ -57,20 +56,14 @@ function CloseOverflow() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function PopupAlert(text) {
-    if (text == undefined) {
-        text = popupText
-    }
-    popupAlert.style.visibility = 'visible'
-    popupAlert.style.scale = '1';
-    popupAlert.style.opacity = '1';
-    document.getElementById("AlertText").innerHTML = text;
-    setTimeout(function HideAlert() {
-        popupAlert.style.scale = '0.6';
-        popupAlert.style.opacity = '0';
-        popupAlert.style.visibility = 'hidden';
-    }, 1500)
+function spawnAlert(text = popupText, timeout = 1200) {
+    var popup = document.createElement('div');
+    popup.innerHTML = text;
+    popup.className = 'alert'
+    document.body.appendChild(popup);
+    setTimeout(function delDiv() { popup.remove() }, timeout)
 }
+
 //----------------------------------------------------------------------------------------------------------------------
 
 function copyText(text) {
@@ -119,4 +112,5 @@ function togglePlayState() {
         }
     }
 }
+
 //----------------------------------------------------------------------------------------------------------------------
