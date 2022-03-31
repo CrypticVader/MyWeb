@@ -1,6 +1,7 @@
 var currentPopup
-var overflow = document.getElementById('overflow')
 var overlay = document.getElementById('overlay')
+var overflow = document.getElementById('overflow')
+var overflowLayer = document.getElementById('overflowLayer')
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
 var bgPlayState = "running"
@@ -11,9 +12,9 @@ var popupText = "lorem&nbspipsum"
 function openModal(id) {
     currentPopup = document.getElementById(id)
     currentPopup.style.top = '20%'
-    currentPopup.style.visibility = 'visible'
-    currentPopup.style.transform = 'scale(1)'
     currentPopup.style.opacity = '1'
+    currentPopup.style.transform = 'scale(1)'
+    currentPopup.style.visibility = 'visible'
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.overflow = 'hidden'
@@ -26,19 +27,18 @@ function closeModal() {
     currentPopup.style.visibility = 'hidden'
     currentPopup.style.transform = 'scale(0.4)'
     currentPopup.style.opacity = '0'
-    currentPopup.style.top = '50%'
+    currentPopup.style.top = '70%'
     document.body.style.overflow = 'auto'
     togglePlayState()
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function openOverflow(id) {
-    overflow = document.getElementById(id)
-    overflow.style.top = '15%'
-    overflow.style.visibility = 'visible'
-    overflow.style.transform = 'scale(1)'
+function openOverflow() {
+    overflow.style.top = '20%'
     overflow.style.opacity = '1'
+    overflow.style.transform = 'scale(1)'
+    overflow.style.visibility = 'visible'
     overflowLayer.style.visibility = 'visible'
     overflowLayer.style.opacity = '1'
     togglePlayState()
@@ -56,12 +56,14 @@ function closeOverflow() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function spawnAlert(text = popupText, timeout = 1200) {
+function spawnAlert(text = popupText, timeout = 2000) {
     // For "text" use &nbsp instead of space to avoid line break.
     var popup = document.createElement('div');
     popup.innerHTML = text;
     popup.className = 'alert'
     document.body.appendChild(popup);
+    setTimeout(function morph() { popup.style.opacity = '1' }, 0)
+    setTimeout(function remove() { popup.style.opacity = '0' }, timeout - 300)
     setTimeout(function delDiv() { popup.remove() }, timeout)
 }
 

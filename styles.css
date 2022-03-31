@@ -57,6 +57,7 @@ div.alert {
     z-index: 999;
     top: 95%;
     left: 50%;
+    opacity: 0;
     -webkit-transform: translate3d(-50%, -100%, 0);
     transform: translate3d(-50%, -100%, 0);
     background-color: #00000034;
@@ -356,6 +357,7 @@ div.tooltip:hover span.tooltiptext {
 
 div.tab {
     width: 45%;
+    height: 100%;
     background-color: #00000031;
     color: white;
     font-size: 1em;
@@ -495,13 +497,14 @@ div.popup {
     width: 60%;
     height: 65%;
     left: 20%;
-    top: 20%;
+    top: 70%;
     padding: 20px;
     background: #8080803f;
     box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
     opacity: 0;
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: scale(0);
     -webkit-backdrop-filter: brightness(0.5) blur(10px);
     backdrop-filter: brightness(0.5) blur(10px);
 }
@@ -522,6 +525,7 @@ div.overflow {
     opacity: 0;
     transition: 0.4s;
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: scale(0);
     -webkit-backdrop-filter: saturate(40%) blur(15px);
     backdrop-filter: saturate(40%) blur(15px);
     text-align: center;
