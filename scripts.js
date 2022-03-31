@@ -8,7 +8,7 @@ var popupText = "lorem&nbspipsum"
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenModal(id) {
+function openModal(id) {
     currentPopup = document.getElementById(id)
     currentPopup.style.top = '20%'
     currentPopup.style.visibility = 'visible'
@@ -20,7 +20,7 @@ function OpenModal(id) {
     togglePlayState()
 }
 
-function CloseModal() {
+function closeModal() {
     overlay.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     currentPopup.style.visibility = 'hidden'
@@ -33,7 +33,7 @@ function CloseModal() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenOverflow(id) {
+function openOverflow(id) {
     overflow = document.getElementById(id)
     overflow.style.top = '15%'
     overflow.style.visibility = 'visible'
@@ -44,7 +44,7 @@ function OpenOverflow(id) {
     togglePlayState()
 }
 
-function CloseOverflow() {
+function closeOverflow() {
     overflowLayer.style.visibility = 'hidden'
     overflowLayer.style.opacity = '0'
     overflow.style.visibility = 'hidden'
@@ -82,13 +82,13 @@ function copyText(text = "undefined") {
     setTimeout(function back2copy() {
         copyIcon.innerHTML = 'copy'
         copyIcon.style.opacity = '1'
-    }, 1801)
+    }, 1800)
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
 function togglePlayState() {
-    let playStateIcon = document.getElementById("PlayStateIcon")
+    let playStateIcon = document.getElementById("playStateIcon")
     if (bgPlayState == "running") {
         bgPlayState = "paused"
         popupText = "Background&nbsppaused"

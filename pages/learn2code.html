@@ -44,20 +44,20 @@
             <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
         </a>
 
-        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="OpenOverflow('overflow')">
+        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="openOverflow('overflow')">
             <span class="material-icons-round md-24">menu</span>
         </button>
 
-        <button id="PlayStateButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); spawnAlert();">
-            <span style="transition: 0.2s;" class="material-icons-round md-24" id="PlayStateIcon">pause</span>
+        <button id="playStateButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); spawnAlert();">
+            <span style="transition: 0.2s;" class="material-icons-round md-24" id="playStateIcon">pause</span>
         </button>
 
     </div>
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
-    <div class="overlay" id="overlay" onclick="CloseModal()"></div>
-    <div class="overlay" id="overflowLayer" onclick="CloseOverflow()"></div>
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div class="overlay" id="overflowLayer" onclick="closeOverflow()"></div>
 
     <div class="overflow" id="overflow">
         <a class='link-button' style="padding: 8px; width: 80px;" href="/">
@@ -67,8 +67,8 @@
 
     <!-- Popups, not visible -->
 
-    <div class="popup" id="MsftPopup">
-        <div onclick="CloseModal()" class="CloseIcon">
+    <div class="popup" id="msftPopup">
+        <div onclick="closeModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>Microsoft Learn</h3>
@@ -78,8 +78,8 @@
         </a>
     </div>
 
-    <div class="popup" id="CodCadPopup">
-        <div onclick="CloseModal()" class="CloseIcon">
+    <div class="popup" id="codCadPopup">
+        <div onclick="closeModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>Codecademy</h3>
@@ -89,8 +89,8 @@
         </a>
     </div>
 
-    <div class="popup" id="FreeCCPopup">
-        <div onclick="CloseModal()" class="CloseIcon">
+    <div class="popup" id="freeCCPopup">
+        <div onclick="closeModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>FreeCodeCamp</h3>
@@ -100,8 +100,8 @@
         </a>
     </div>
 
-    <div class="popup" id="W3SPopup">
-        <div onclick="CloseModal()" class="CloseIcon">
+    <div class="popup" id="w3SPopup">
+        <div onclick="closeModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>W3Schools</h3>
@@ -111,8 +111,8 @@
         </a>
     </div>
 
-    <div class="popup" id="GitLearnPopup">
-        <div onclick="CloseModal()" class="CloseIcon">
+    <div class="popup" id="gitLearnPopup">
+        <div onclick="closeModal()" class="CloseIcon">
             <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
         </div>
         <h3>GitHub Learning Lab</h3>
@@ -127,27 +127,27 @@
     <!-- Tabs -->
 
     <div class="center-text">
-        <div class="tab" onclick="OpenModal('MsftPopup')">
+        <div class="tab" onclick="openModal('msftPopup')">
             <img src="/assets/code/msLearn.png" class="blurred">
             <div class="OverShadow"><span>Microsoft Learn</span></div>
         </div>
 
-        <div class="tab" onclick="OpenModal('CodCadPopup')">
+        <div class="tab" onclick="openModal('codCadPopup')">
             <img src="/assets/code/codCad.png" class="blurred">
             <div class="OverShadow"><span>Codecademy</span></div>
         </div>
 
-        <div class="tab" onclick="OpenModal('FreeCCPopup')">
+        <div class="tab" onclick="openModal('freeCCPopup')">
             <img src="/assets/code/freeCc.png" class="blurred">
             <div class="OverShadow"><span>FreeCodeCamp</span></div>
         </div>
 
-        <div class="tab" onclick="OpenModal('W3SPopup')">
+        <div class="tab" onclick="openModal('w3SPopup')">
             <img src="/assets/code/W3S.png" class="blurred">
             <div class="OverShadow"><span>W3Schools</span></div>
         </div>
 
-        <div class="tab" onclick="OpenModal('GitLearnPopup')">
+        <div class="tab" onclick="openModal('gitLearnPopup')">
             <img src="/assets/code/GitLearn.png" class="blurred">
             <div class="OverShadow"><span>GitHub Learning Lab</span></div>
         </div>
