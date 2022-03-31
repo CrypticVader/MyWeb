@@ -58,8 +58,8 @@ div.alert {
     top: 95%;
     left: 50%;
     opacity: 0;
-    -webkit-transform: translate3d(-50%, -100%, 0);
-    transform: translate3d(-50%, -100%, 0);
+    -webkit-transform: translate3d(0%, -100%, 0);
+    transform: scale(0) translate3d(0%, -100%, 0);
     background-color: #00000034;
     -webkit-backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
     backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
