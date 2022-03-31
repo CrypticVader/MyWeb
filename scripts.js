@@ -45,14 +45,14 @@ function spawnAlert(text = popupText, timeout = 1900) {
     // For 'text' use &nbsp instead of space to avoid line break.
     var popup = document.createElement('div');
     popup.innerHTML = text;
-    let margin = text.length * 5.6
+    let margin = text.length * 5.4
     popup.className = 'alert'
     popup.style.marginLeft = -margin + 'px'
     document.body.appendChild(popup);
     setTimeout(function morph() {
         popup.style.transform = 'scale(1) translate3d(0%, -100%, 0)';
         popup.style.opacity = '1'
-    }, 0)
+    }, 100)
     setTimeout(function remove() {
         popup.style.transform = 'scale(0) translate3d(0%, -100%, 0)';
         popup.style.opacity = '0'
