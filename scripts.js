@@ -4,7 +4,7 @@ var overlay = document.getElementById('overlay')
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
 var bgPlayState = "running"
-var popupText = "lorem ipsum"
+var popupText = "lorem&nbspipsum"
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -57,6 +57,7 @@ function CloseOverflow() {
 //----------------------------------------------------------------------------------------------------------------------
 
 function spawnAlert(text = popupText, timeout = 1200) {
+    // For "text" use &nbsp instead of space to avoid line break.
     var popup = document.createElement('div');
     popup.innerHTML = text;
     popup.className = 'alert'
@@ -90,7 +91,7 @@ function togglePlayState() {
     let playStateIcon = document.getElementById("PlayStateIcon")
     if (bgPlayState == "running") {
         bgPlayState = "paused"
-        popupText = "Background paused"
+        popupText = "Background&nbsppaused"
         playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
         try {
@@ -101,7 +102,7 @@ function togglePlayState() {
         }
     } else if (bgPlayState == "paused") {
         bgPlayState = "running"
-        popupText = "Background resumed"
+        popupText = "Background&nbspresumed"
         playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
         try {
