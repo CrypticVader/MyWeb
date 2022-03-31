@@ -76,8 +76,7 @@ function copyText(text = 'undefined') {
 
 function togglePlayState(forceState = 'toggle') {
     let playStateIcon = document.getElementById('playStateIcon')
-
-    // Decide what to do based on the current state & forceState
+        // Decide what to do based on the current state & forceState
     if (forceState == 'toggle') {
         if (bgPlayState == 'running') {
             bgPlayState = 'paused'
@@ -104,7 +103,6 @@ function togglePlayState(forceState = 'toggle') {
     else {
         console.log("Invalid forceState argument.\n Available options: 'toggle', 'pause', 'play'")
     }
-
     // Log the current state
     if (logData) {
         console.log('bgPlayState: ' + bgPlayState)
@@ -113,7 +111,6 @@ function togglePlayState(forceState = 'toggle') {
         console.log('skipOverride: ' + skipOverride)
         console.log('\n')
     }
-
     if (skipOverride == false) {
         // Change play state
         document.body.style.animationPlayState = bgPlayState
@@ -136,6 +133,5 @@ function togglePlayState(forceState = 'toggle') {
         }, 200)
     }
 }
-
 
 //----------------------------------------------------------------------------------------------------------------------
