@@ -92,7 +92,6 @@ function togglePlayState() {
     if (bgPlayState == "running") {
         bgPlayState = "paused"
         popupText = "Background&nbsppaused"
-        playStateIcon.innerHTML = "play_arrow"
         document.body.style.animationPlayState = 'paused'
         try {
             divider.style.animationPlayState = 'paused'
@@ -100,10 +99,16 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
+        playStateIcon.style.scale = '0.65'
+        playStateIcon.style.opacity = '0.2'
+        setTimeout(function changeIcon() { playStateIcon.innerHTML = "play_arrow" }, 150)
+        setTimeout(function morphIcon() {
+            playStateIcon.style.scale = '1';
+            playStateIcon.style.opacity = '1'
+        }, 200)
     } else if (bgPlayState == "paused") {
         bgPlayState = "running"
         popupText = "Background&nbspresumed"
-        playStateIcon.innerHTML = "pause"
         document.body.style.animationPlayState = 'running'
         try {
             divider.style.animationPlayState = 'running'
@@ -111,6 +116,13 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
+        playStateIcon.style.scale = '0.65'
+        playStateIcon.style.opacity = '0.2'
+        setTimeout(function changeIcon() { playStateIcon.innerHTML = "pause" }, 150)
+        setTimeout(function morphIcon() {
+            playStateIcon.style.scale = '1';
+            playStateIcon.style.opacity = '1'
+        }, 200)
     }
 }
 
