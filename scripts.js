@@ -82,9 +82,12 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
-        playStateIcon.style.transform = 'scale(0.65)'
-        playStateIcon.style.opacity = '0.2'
-        setTimeout(function changeIcon() { playStateIcon.innerHTML = "play_arrow" }, 150)
+        playStateIcon.style.transform = 'scale(0.6)'
+        playStateIcon.style.opacity = '0.7'
+        setTimeout(function changeIcon() {
+            playStateIcon.innerHTML = "play_arrow";
+            playStateIcon.style.transform = 'rotate(180deg)';
+        }, 150)
         setTimeout(function morphIcon() {
             playStateIcon.style.transform = 'scale(1)'
             playStateIcon.style.opacity = '1'
@@ -99,9 +102,12 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
-        playStateIcon.style.transform = 'scale(0.65)'
-        playStateIcon.style.opacity = '0.2'
-        setTimeout(function changeIcon() { playStateIcon.innerHTML = "pause" }, 150)
+        playStateIcon.style.transform = 'scale(0.6)'
+        playStateIcon.style.opacity = '0.7'
+        setTimeout(function changeIcon() {
+            playStateIcon.innerHTML = "pause";
+            playStateIcon.style.transform = 'rotate(180deg)'
+        }, 150)
         setTimeout(function morphIcon() {
             playStateIcon.style.transform = 'scale(1)'
             playStateIcon.style.opacity = '1'
