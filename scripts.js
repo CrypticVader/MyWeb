@@ -1,135 +1,145 @@
+var logData = false
+
 var currentPopup
-var overflow = document.getElementById('overflow')
 var overlay = document.getElementById('overlay')
+var topPercent
+
 var divider = document.getElementById('divider')
-var headAnimated = document.getElementById('headAnimated')
-var resumeButton = document.getElementById('ResumeButton')
-var pauseButton = document.getElementById('PauseButton')
-var playAlert = document.getElementById("PlayAlert")
-var pauseAlert = document.getElementById("PauseAlert")
+var headingAnimated = document.getElementById('headAnimated')
+
+var bgPlayState = 'running'
+var playStateIconText
+var skipOverride = false
+
+var popupText = 'lorem&nbspipsum'
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenModal(id) {
+function openModal(id, topHold = '70%') {
+    topPercent = topHold
     currentPopup = document.getElementById(id)
     currentPopup.style.top = '20%'
-    currentPopup.style.visibility = 'visible'
-    currentPopup.style.scale = '1'
     currentPopup.style.opacity = '1'
+    currentPopup.style.transform = 'scale(1)'
+    currentPopup.style.visibility = 'visible'
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.overflow = 'hidden'
-    PauseAnimation()
+    togglePlayState('pause')
 }
 
-function CloseModal() {
+function closeModal() {
     overlay.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     currentPopup.style.visibility = 'hidden'
-    currentPopup.style.scale = '0.4'
+    currentPopup.style.transform = 'scale(0.4)'
     currentPopup.style.opacity = '0'
-    currentPopup.style.top = '50%'
+    currentPopup.style.top = topPercent
     document.body.style.overflow = 'auto'
-    ResumeAnimation()
+    togglePlayState('play')
 }
+
 //----------------------------------------------------------------------------------------------------------------------
 
-function OpenOverflow(id) {
-    overflow = document.getElementById(id)
-    overflow.style.top = '15%'
-    overflow.style.visibility = 'visible'
-    overflow.style.scale = '1'
-    overflow.style.opacity = '1'
-    overflowLayer.style.visibility = 'visible'
-    overflowLayer.style.opacity = '1'
-    PauseAnimation()
+function spawnAlert(text = popupText, timeout = 1900) {
+    // For 'text' use &nbsp instead of space to avoid line break.
+    var popup = document.createElement('div');
+    popup.innerHTML = text;
+    let margin = text.length * 5.4
+    popup.className = 'alert'
+    popup.style.marginLeft = -margin + 'px'
+    document.body.appendChild(popup);
+    setTimeout(function morph() {
+        popup.style.transform = 'scale(1) translate3d(0%, -100%, 0)';
+        popup.style.opacity = '1'
+    }, 100)
+    setTimeout(function remove() {
+        popup.style.transform = 'scale(0) translate3d(0%, -100%, 0)';
+        popup.style.opacity = '0'
+    }, timeout)
+    setTimeout(function delDiv() { popup.remove() }, timeout + 300)
 }
 
-function CloseOverflow() {
-    overflowLayer.style.visibility = 'hidden'
-    overflowLayer.style.opacity = '0'
-    overflow.style.visibility = 'hidden'
-    overflow.style.scale = '0.4'
-    overflow.style.opacity = '0'
-    overflow.style.top = '10%'
-    ResumeAnimation()
-}
 //----------------------------------------------------------------------------------------------------------------------
 
-// This function results in an error when called in learn2code.html cuz missing elements, but it works(ik its not proper :P )
-function PauseAnimation() {
-    console.log('Ignore error, caused by referencing missing elements.')
-    pauseButton.style.transform = 'scale(0.4)'
-    pauseButton.style.opacity = '0.2'
-    resumeButton.style.transform = 'scale(1)'
-    resumeButton.style.opacity = '1'
-    setTimeout(function removePause() {
-        pauseButton.style.display = 'none';
-        resumeButton.style.display = 'flex'
-    }, 200)
-    document.body.style.animationPlayState = 'paused'
-    divider.style.animationPlayState = 'paused'
-    headAnimated.style.animationPlayState = 'paused'
-}
-
-function ResumeAnimation() {
-    console.log('Ignore error, caused by referencing missing elements.')
-    resumeButton.style.transform = 'scale(0.4)'
-    resumeButton.style.opacity = '0.2'
-    pauseButton.style.transform = 'scale(1)'
-    pauseButton.style.opacity = '1'
-    setTimeout(function removeResume() {
-        resumeButton.style.display = 'none';
-        pauseButton.style.display = 'flex'
-    }, 200)
-    document.body.style.animationPlayState = 'running'
-    divider.style.animationPlayState = 'running'
-    headAnimated.style.animationPlayState = 'running'
-}
-//----------------------------------------------------------------------------------------------------------------------
-
-function PlayAlert() {
-    playAlert.style.visibility = 'visible'
-    playAlert.style.scale = '1';
-    playAlert.style.opacity = '1';
-    setTimeout(function HideAlert() {
-        playAlert.style.scale = '0.6';
-        playAlert.style.opacity = '0';
-        playAlert.style.visibility = 'hidden';
-    }, 1500)
-}
-
-function PauseAlert() {
-    pauseAlert.style.visibility = 'visible'
-    pauseAlert.style.scale = '1';
-    pauseAlert.style.opacity = '1';
-    setTimeout(function HideAlert() {
-        pauseAlert.style.scale = '0.6';
-        pauseAlert.style.opacity = '0';
-        pauseAlert.style.visibility = 'hidden';
-    }, 1500)
-}
-//----------------------------------------------------------------------------------------------------------------------
-
-function copyText(text) {
+function copyText(text = 'undefined') {
     navigator.clipboard.writeText(text);
-
     // Below code is for the icon morph effect
     let copyIcon = document.getElementById('copyId')
     copyIcon.style.transform = 'scale(0.5)'
     copyIcon.style.opacity = '0.2'
-
     setTimeout(function back2one() {
         copyIcon.style.transform = 'scale(1)';
         copyIcon.style.opacity = '1'
         copyIcon.innerHTML = 'done'
     }, 300)
-
-    setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1700)
-
+    setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1500)
     setTimeout(function back2copy() {
         copyIcon.innerHTML = 'copy'
         copyIcon.style.opacity = '1'
-    }, 2001)
+    }, 1800)
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+
+function togglePlayState(forceState = 'toggle') {
+    let playStateIcon = document.getElementById('playStateIcon')
+        // Decide what to do based on the current state & forceState
+    if (forceState == 'toggle') {
+        if (bgPlayState == 'running') {
+            bgPlayState = 'paused'
+            popupText = 'Background&nbsppaused'
+            playStateIconText = 'play_arrow'
+        } else {
+            bgPlayState = 'running'
+            popupText = 'Background&nbsprunning'
+            playStateIconText = 'pause'
+        }
+        skipOverride = false
+    } else if (forceState == 'play') {
+        skipOverride = (bgPlayState == 'running') ? true : false
+        bgPlayState = 'running'
+        popupText = 'Background&nbsprunning'
+        playStateIconText = 'pause'
+    } else if (forceState == 'pause') {
+        skipOverride = (bgPlayState == 'paused') ? true : false
+        bgPlayState = 'paused'
+        popupText = 'Background&nbsppaused'
+        playStateIconText = 'play_arrow'
+    }
+    // Error handling
+    else {
+        console.log("Invalid forceState argument.\n Available options: 'toggle', 'pause', 'play'")
+    }
+    // Log the current state
+    if (logData) {
+        console.log('bgPlayState: ' + bgPlayState)
+        console.log('popupText: ' + popupText)
+        console.log('playStateIconText: ' + playStateIconText)
+        console.log('skipOverride: ' + skipOverride)
+        console.log('\n')
+    }
+    if (skipOverride == false) {
+        // Change play state
+        document.body.style.animationPlayState = bgPlayState
+        try {
+            divider.style.animationPlayState = bgPlayState
+            headingAnimated.style.animationPlayState = bgPlayState
+        } catch (error) {
+            console.log('Missing elements referenced, error suppressed.')
+        }
+        // Icon change & effect
+        playStateIcon.style.transform = 'scale(0.6)'
+        playStateIcon.style.opacity = '0.7'
+        setTimeout(function changeIcon() {
+            playStateIcon.innerHTML = playStateIconText;
+            playStateIcon.style.transform = 'rotate(180deg)'
+        }, 150)
+        setTimeout(function morphIcon() {
+            playStateIcon.style.transform = 'scale(1)'
+            playStateIcon.style.opacity = '1'
+        }, 200)
+    }
+}
+
 //----------------------------------------------------------------------------------------------------------------------
