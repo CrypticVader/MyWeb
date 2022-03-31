@@ -12,7 +12,7 @@ function OpenModal(id) {
     currentPopup = document.getElementById(id)
     currentPopup.style.top = '20%'
     currentPopup.style.visibility = 'visible'
-    currentPopup.style.scale = '1'
+    currentPopup.style.transform = 'scale(1)'
     currentPopup.style.opacity = '1'
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
@@ -24,7 +24,7 @@ function CloseModal() {
     overlay.style.visibility = 'hidden'
     overlay.style.opacity = '0'
     currentPopup.style.visibility = 'hidden'
-    currentPopup.style.scale = '0.4'
+    currentPopup.style.transform = 'scale(0.4)'
     currentPopup.style.opacity = '0'
     currentPopup.style.top = '50%'
     document.body.style.overflow = 'auto'
@@ -37,7 +37,7 @@ function OpenOverflow(id) {
     overflow = document.getElementById(id)
     overflow.style.top = '15%'
     overflow.style.visibility = 'visible'
-    overflow.style.scale = '1'
+    overflow.style.transform = 'scale(1)'
     overflow.style.opacity = '1'
     overflowLayer.style.visibility = 'visible'
     overflowLayer.style.opacity = '1'
@@ -48,7 +48,7 @@ function CloseOverflow() {
     overflowLayer.style.visibility = 'hidden'
     overflowLayer.style.opacity = '0'
     overflow.style.visibility = 'hidden'
-    overflow.style.scale = '0.4'
+    overflow.style.transform = 'scale(0.4)'
     overflow.style.opacity = '0'
     overflow.style.top = '10%'
     togglePlayState()
@@ -99,11 +99,11 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
-        playStateIcon.style.scale = '0.65'
+        playStateIcon.style.transform = 'scale(0.65)'
         playStateIcon.style.opacity = '0.2'
         setTimeout(function changeIcon() { playStateIcon.innerHTML = "play_arrow" }, 150)
         setTimeout(function morphIcon() {
-            playStateIcon.style.scale = '1';
+            playStateIcon.style.transform = 'scale(1)'
             playStateIcon.style.opacity = '1'
         }, 200)
     } else if (bgPlayState == "paused") {
@@ -116,11 +116,11 @@ function togglePlayState() {
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
-        playStateIcon.style.scale = '0.65'
+        playStateIcon.style.transform = 'scale(0.65)'
         playStateIcon.style.opacity = '0.2'
         setTimeout(function changeIcon() { playStateIcon.innerHTML = "pause" }, 150)
         setTimeout(function morphIcon() {
-            playStateIcon.style.scale = '1';
+            playStateIcon.style.transform = 'scale(1)'
             playStateIcon.style.opacity = '1'
         }, 200)
     }
