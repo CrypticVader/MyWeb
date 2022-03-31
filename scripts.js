@@ -1,15 +1,18 @@
 var currentPopup
 var overlay = document.getElementById('overlay')
-var overflow = document.getElementById('overflow')
-var overflowLayer = document.getElementById('overflowLayer')
+var topPercent
+
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
+
 var bgPlayState = "running"
+
 var popupText = "lorem&nbspipsum"
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function openModal(id) {
+function openModal(id, topHold = '70%') {
+    topPercent = topHold
     currentPopup = document.getElementById(id)
     currentPopup.style.top = '20%'
     currentPopup.style.opacity = '1'
@@ -27,30 +30,8 @@ function closeModal() {
     currentPopup.style.visibility = 'hidden'
     currentPopup.style.transform = 'scale(0.4)'
     currentPopup.style.opacity = '0'
-    currentPopup.style.top = '70%'
+    currentPopup.style.top = topPercent
     document.body.style.overflow = 'auto'
-    togglePlayState()
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-
-function openOverflow() {
-    overflow.style.top = '20%'
-    overflow.style.opacity = '1'
-    overflow.style.transform = 'scale(1)'
-    overflow.style.visibility = 'visible'
-    overflowLayer.style.visibility = 'visible'
-    overflowLayer.style.opacity = '1'
-    togglePlayState()
-}
-
-function closeOverflow() {
-    overflowLayer.style.visibility = 'hidden'
-    overflowLayer.style.opacity = '0'
-    overflow.style.visibility = 'hidden'
-    overflow.style.transform = 'scale(0.4)'
-    overflow.style.opacity = '0'
-    overflow.style.top = '10%'
     togglePlayState()
 }
 

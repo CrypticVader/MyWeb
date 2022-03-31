@@ -510,25 +510,10 @@ div.popup {
 }
 
 div.overflow {
-    z-index: 99;
-    visibility: hidden;
-    overflow: auto;
-    border-radius: 20px;
-    position: fixed;
     left: 25%;
     height: 10%;
     width: 40%;
     top: 0%;
-    padding: 20px;
-    background: #8080803f;
-    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137), 0 15px 40px 0 rgba(0, 0, 0, 0.116);
-    opacity: 0;
-    transition: 0.4s;
-    transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    transform: scale(0);
-    -webkit-backdrop-filter: saturate(40%) blur(15px);
-    backdrop-filter: saturate(40%) blur(15px);
-    text-align: center;
 }
 
 div.CloseIcon {

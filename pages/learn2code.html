@@ -36,6 +36,8 @@
 
 <body style="padding: 0; margin: 0;">
 
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
     <div class="nav-bar">
 
         <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span id="navBarHello" style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
@@ -44,7 +46,7 @@
             <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
         </a>
 
-        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="openOverflow('overflow')">
+        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="openModal('overflow', topHold = '10%')">
             <span class="material-icons-round md-24">menu</span>
         </button>
 
@@ -56,10 +58,7 @@
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
 
-    <div class="overlay" id="overlay" onclick="closeModal()"></div>
-    <div class="overlay" id="overflowLayer" onclick="closeOverflow()"></div>
-
-    <div class="overflow" id="overflow">
+    <div class="popup overflow" id="overflow" style="padding-left: 15%;">
         <a class='link-button' style="padding: 8px; width: 80px;" href="/">
             <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
         </a>
