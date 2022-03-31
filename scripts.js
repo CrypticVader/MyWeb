@@ -66,7 +66,7 @@ function spawnAlert(text = popupText, timeout = 1200) {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function copyText(text) {
+function copyText(text = "undefined") {
     navigator.clipboard.writeText(text);
     // Below code is for the icon morph effect
     let copyIcon = document.getElementById('copyId')
@@ -77,11 +77,11 @@ function copyText(text) {
         copyIcon.style.opacity = '1'
         copyIcon.innerHTML = 'done'
     }, 300)
-    setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1700)
+    setTimeout(function fade() { copyIcon.style.opacity = '0.2' }, 1500)
     setTimeout(function back2copy() {
         copyIcon.innerHTML = 'copy'
         copyIcon.style.opacity = '1'
-    }, 2001)
+    }, 1801)
 }
 
 //----------------------------------------------------------------------------------------------------------------------
