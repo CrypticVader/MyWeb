@@ -1,3 +1,5 @@
+var logData = false
+
 var currentPopup
 var overlay = document.getElementById('overlay')
 var topPercent
@@ -5,9 +7,11 @@ var topPercent
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
 
-var bgPlayState = "running"
+var bgPlayState = 'running'
+var playStateIconText
+var skipOverride = false
 
-var popupText = "lorem&nbspipsum"
+var popupText = 'lorem&nbspipsum'
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +25,7 @@ function openModal(id, topHold = '70%') {
     overlay.style.visibility = 'visible'
     overlay.style.opacity = '1'
     document.body.style.overflow = 'hidden'
-    togglePlayState()
+    togglePlayState('pause')
 }
 
 function closeModal() {
@@ -32,13 +36,13 @@ function closeModal() {
     currentPopup.style.opacity = '0'
     currentPopup.style.top = topPercent
     document.body.style.overflow = 'auto'
-    togglePlayState()
+    togglePlayState('play')
 }
 
 //----------------------------------------------------------------------------------------------------------------------
 
 function spawnAlert(text = popupText, timeout = 2000) {
-    // For "text" use &nbsp instead of space to avoid line break.
+    // For 'text' use &nbsp instead of space to avoid line break.
     var popup = document.createElement('div');
     popup.innerHTML = text;
     popup.className = 'alert'
@@ -50,7 +54,7 @@ function spawnAlert(text = popupText, timeout = 2000) {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function copyText(text = "undefined") {
+function copyText(text = 'undefined') {
     navigator.clipboard.writeText(text);
     // Below code is for the icon morph effect
     let copyIcon = document.getElementById('copyId')
@@ -70,42 +74,60 @@ function copyText(text = "undefined") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-function togglePlayState() {
-    let playStateIcon = document.getElementById("playStateIcon")
-    if (bgPlayState == "running") {
-        bgPlayState = "paused"
-        popupText = "Background&nbsppaused"
-        document.body.style.animationPlayState = 'paused'
+function togglePlayState(forceState = 'toggle') {
+    let playStateIcon = document.getElementById('playStateIcon')
+
+    // Decide what to do based on the current state & forceState
+    if (forceState == 'toggle') {
+        if (bgPlayState == 'running') {
+            bgPlayState = 'paused'
+            popupText = 'Background&nbsppaused'
+            playStateIconText = 'play_arrow'
+        } else {
+            bgPlayState = 'running'
+            popupText = 'Background&nbsprunning'
+            playStateIconText = 'pause'
+        }
+        skipOverride = false
+    } else if (forceState == 'play') {
+        skipOverride = (bgPlayState == 'running') ? true : false
+        bgPlayState = 'running'
+        popupText = 'Background&nbsprunning'
+        playStateIconText = 'pause'
+    } else if (forceState == 'pause') {
+        skipOverride = (bgPlayState == 'paused') ? true : false
+        bgPlayState = 'paused'
+        popupText = 'Background&nbsppaused'
+        playStateIconText = 'play_arrow'
+    }
+    // Error handling
+    else {
+        console.log("Invalid forceState argument.\n Available options: 'toggle', 'pause', 'play'")
+    }
+
+    // Log the current state
+    if (logData) {
+        console.log('bgPlayState: ' + bgPlayState)
+        console.log('popupText: ' + popupText)
+        console.log('playStateIconText: ' + playStateIconText)
+        console.log('skipOverride: ' + skipOverride)
+        console.log('\n')
+    }
+
+    if (skipOverride == false) {
+        // Change play state
+        document.body.style.animationPlayState = bgPlayState
         try {
-            divider.style.animationPlayState = 'paused'
-            headingAnimated.style.animationPlayState = 'paused'
+            divider.style.animationPlayState = bgPlayState
+            headingAnimated.style.animationPlayState = bgPlayState
         } catch (error) {
             console.log('Missing elements referenced, error suppressed.')
         }
+        // Icon change & effect
         playStateIcon.style.transform = 'scale(0.6)'
         playStateIcon.style.opacity = '0.7'
         setTimeout(function changeIcon() {
-            playStateIcon.innerHTML = "play_arrow";
-            playStateIcon.style.transform = 'rotate(180deg)';
-        }, 150)
-        setTimeout(function morphIcon() {
-            playStateIcon.style.transform = 'scale(1)'
-            playStateIcon.style.opacity = '1'
-        }, 200)
-    } else if (bgPlayState == "paused") {
-        bgPlayState = "running"
-        popupText = "Background&nbspresumed"
-        document.body.style.animationPlayState = 'running'
-        try {
-            divider.style.animationPlayState = 'running'
-            headingAnimated.style.animationPlayState = 'running'
-        } catch (error) {
-            console.log('Missing elements referenced, error suppressed.')
-        }
-        playStateIcon.style.transform = 'scale(0.6)'
-        playStateIcon.style.opacity = '0.7'
-        setTimeout(function changeIcon() {
-            playStateIcon.innerHTML = "pause";
+            playStateIcon.innerHTML = playStateIconText;
             playStateIcon.style.transform = 'rotate(180deg)'
         }, 150)
         setTimeout(function morphIcon() {
@@ -114,5 +136,6 @@ function togglePlayState() {
         }, 200)
     }
 }
+
 
 //----------------------------------------------------------------------------------------------------------------------
