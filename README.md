@@ -1,6 +1,6 @@
 # [MyWeb](https://vader.social)
 
-![](https://img.shields.io/badge/license-GPL-green)
+![](https://img.shields.io/badge/license-MIT-blue)
 
 #### 👨‍🏭 Work-in-Progress personal website
 
