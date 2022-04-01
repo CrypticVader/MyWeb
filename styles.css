@@ -377,24 +377,6 @@ div.tab img {
     border-radius: 18px;
 }
 
-@media (hover: hover) {
-    div.tab:hover img {
-        -webkit-transform: scale(1.01);
-        transform: scale(1.01);
-        opacity: 0.5;
-        -webkit-filter: blur(10px);
-        filter: blur(10px);
-    }
-    div.tab:hover {
-        -webkit-backdrop-filter: saturate(150%);
-        backdrop-filter: saturate(150%);
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
-        transition: 0.25s;
-        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    }
-}
-
 div.tab:active {
     opacity: 0.6;
     transition: opacity 0s, box-shadow 0.4s;
@@ -404,7 +386,7 @@ div.tab:active {
 @media (hover: none) {
     div.tab:active {
         -webkit-transform: scale(0.95);
-        transform: scale(0.95);
+        transform: scale(0.93);
         -webkit-filter: saturate(150%);
         filter: saturate(150%);
         transition: 0.25s;
@@ -413,21 +395,23 @@ div.tab:active {
 }
 
 div.OverShadow {
-    background-image: linear-gradient(#00000000, #00000023, #00000054, #181818da);
-    height: 100%;
+    background-image: url(/assets/noisy-texture-100x100-o3-d10-c-1a1a1a80-t1.png);
+    background-color: #1a1a1a80;
+    height: 20%;
     width: 100%;
-    bottom: 0%;
+    bottom: -1px;
     left: 0%;
-    border-radius: 17px;
+    border-radius: 0px 0px 17px 17px;
     transition: 0.25s;
     position: absolute;
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
 div.OverShadow span {
     position: absolute;
     font-size: auto;
-    top: 89%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -435,16 +419,36 @@ div.OverShadow span {
 }
 
 @media (hover: hover) {
-    div.OverShadow:hover {
-        opacity: 0.6;
+    div.tab:hover {
+        -webkit-backdrop-filter: saturate(100%);
+        backdrop-filter: saturate(100%);
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
         transition: 0.25s;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+    div.tab:hover div.OverShadow {
+        background-color: #00000000;
+        border-radius: 17px;
+        opacity: 1;
+        transition: 0.25s;
+        height: 100%;
+        backdrop-filter: blur(0px) brightness(1);
+    }
+    div.tab:hover img {
+        -webkit-transform: scale(1.01);
+        transform: scale(1.01);
+        opacity: 0.3;
+        -webkit-filter: blur(10px);
+        filter: blur(10px);
+        transition: 0.4s;
     }
     div.tab:hover div.OverShadow span {
         opacity: 1;
-        font-size: 160%;
+        font-size: 170%;
         top: 50%;
         left: 50%;
-        transition: 0.25s;
+        transition: 0.2s;
     }
 }
 
