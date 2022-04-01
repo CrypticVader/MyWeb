@@ -133,7 +133,7 @@ function togglePlayState(forceState = 'toggle') {
         playStateIcon.style.opacity = '0.7'
         setTimeout(function changeIcon() {
             playStateIcon.innerHTML = playStateIconText;
-            playStateIcon.style.transform = 'rotate(180deg)'
+            playStateIcon.style.transform = 'rotate(-180deg)'
         }, 150)
         setTimeout(function morphIcon() {
             playStateIcon.style.transform = 'scale(1)'

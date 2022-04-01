@@ -1,7 +1,8 @@
 body {
-    background: linear-gradient(130deg, blue, #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab);
-    background-size: 500% 400%;
-    background-attachment: fixed;
+    background: linear-gradient(130deg, rgba(31, 31, 190, 0.737), #104d86a8, #7c0034a4, #83200e9c, #7c1c41bb, #a06e76b2, #865e46b2, #43047096, #a80041ab), url(/assets/noisy-texture-100x100-o3-d10-c-1a1a1a80-t1.png);
+    background-size: 500% 400%, 20% 20%;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, fixed;
     -webkit-animation: gradient 60s ease infinite;
     animation: gradient 60s ease infinite;
     background-color: #000000;
@@ -18,13 +19,13 @@ body {
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 40%, 0% 0%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 40%, 0% 0%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 40%, 0% 0%;
     }
 }
 
