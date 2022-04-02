@@ -134,11 +134,11 @@ function togglePlayState(forceState = 'toggle') {
         setTimeout(function changeIcon() {
             playStateIcon.innerHTML = playStateIconText;
             playStateIcon.style.transform = 'rotate(-180deg)'
-        }, 150)
+        }, 100)
         setTimeout(function morphIcon() {
             playStateIcon.style.transform = 'scale(1)'
             playStateIcon.style.opacity = '1'
-        }, 200)
+        }, 150)
     }
 }
 
@@ -173,14 +173,39 @@ function overflowMenuHandler() {
 }
 
 var overflowMenuVisibility = 'hidden'
+var overflowMenuToggleButtonIcon = document.getElementById('overflowMenuToggleButtonText')
 
 function toggleOverflowMenu() {
     if (overflowMenuVisibility == 'hidden') {
         overflowMenu.style.visibility = 'visible'
+        overflowMenu.style.transform = 'translateX(0%)'
         overflowMenuVisibility = 'visible'
+            // Icon change & effect
+        overflowMenuToggleButtonIcon.style.transform = 'scale(0.6)'
+        overflowMenuToggleButtonIcon.style.opacity = '1'
+        setTimeout(function changeIcon() {
+            overflowMenuToggleButtonIcon.innerHTML = 'close';
+            overflowMenuToggleButtonIcon.style.transform = 'rotate(-180deg)'
+        }, 100)
+        setTimeout(function morphIcon() {
+            overflowMenuToggleButtonIcon.style.transform = 'scale(1)'
+            overflowMenuToggleButtonIcon.style.opacity = '1'
+        }, 140)
     } else {
+        overflowMenu.style.transform = 'translateX(100%)'
         overflowMenu.style.visibility = 'hidden'
-        overflowMenuVisibility = 'hidden'
+            // Icon change & effect
+        overflowMenuToggleButtonIcon.style.transform = 'scale(0.6)'
+        overflowMenuToggleButtonIcon.style.opacity = '1'
+        setTimeout(function changeIcon() {
+            overflowMenuToggleButtonIcon.innerHTML = 'menu';
+            overflowMenuToggleButtonIcon.style.transform = 'rotate(-180deg)'
+        }, 100)
+        setTimeout(function morphIcon() {
+            overflowMenuToggleButtonIcon.style.transform = 'scale(1)'
+            overflowMenuToggleButtonIcon.style.opacity = '1'
+        }, 140)
+        setTimeout(function hideMenu() { overflowMenuVisibility = 'hidden' }, 250)
     }
 }
 
