@@ -144,22 +144,34 @@ function togglePlayState(forceState = 'toggle') {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var newOverflow = document.getElementById('wipOverflowMenu')
-var navBarItems = document.getElementsByClassName('overflowMenuButton')
-console.log(navBarItems)
+var overflowMenu = document.getElementById('wipOverflowMenu')
+var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
+var navBarItems = ['navBarSourceButton', 'navBarHomeButton', 'navBarMoreButton']
 
-function navBarHandler() {
-    // WIP
+function overflowMenuHandler() {
     var windowWidth = window.innerWidth
-    console.log("windowWidth: " + windowWidth)
     if (windowWidth < 600) {
-        newOverflow.style.display = 'block'
+        overflowMenu.style.display = 'block'
+        for (let i = 0; i < navBarItems.length; i++) {
+            try {
+                document.getElementById(navBarItems[i]).style.display = 'none'
+            } catch (error) {
+                console.log("Missing elements referenced, error suppressed.")
+            }
+        }
     } else {
-        newOverflow.style.display = 'none'
+        overflowMenu.style.display = 'none'
+        for (let i = 0; i < navBarItems.length; i++) {
+            try {
+                document.getElementById(navBarItems[i]).style.display = 'flex'
+            } catch (error) {
+                console.log("Missing elements referenced, error suppressed.")
+            }
+        }
     }
 }
 
-document.addEventListener("DOMContentLoaded", navBarHandler)
-window.addEventListener('resize', navBarHandler)
+document.addEventListener("DOMContentLoaded", overflowMenuHandler)
+window.addEventListener('resize', overflowMenuHandler)
 
 //----------------------------------------------------------------------------------------------------------------------
