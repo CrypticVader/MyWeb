@@ -143,3 +143,23 @@ function togglePlayState(forceState = 'toggle') {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+
+var newOverflow = document.getElementById('wipOverflowMenu')
+var navBarItems = document.getElementsByClassName('overflowMenuButton')
+console.log(navBarItems)
+
+function navBarHandler() {
+    // WIP
+    var windowWidth = window.innerWidth
+    console.log("windowWidth: " + windowWidth)
+    if (windowWidth < 600) {
+        newOverflow.style.display = 'block'
+    } else {
+        newOverflow.style.display = 'none'
+    }
+}
+
+document.addEventListener("DOMContentLoaded", navBarHandler)
+window.addEventListener('resize', navBarHandler)
+
+//----------------------------------------------------------------------------------------------------------------------
