@@ -147,6 +147,7 @@ function togglePlayState(forceState = 'toggle') {
 var overflowMenu = document.getElementById('wipOverflowMenu')
 var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
 var navBarItems = ['navBarSourceButton', 'navBarHomeButton', 'navBarMoreButton']
+var remainingWidth = window.innerWidth - (overflowMenuItems.length * 100)
 
 function overflowMenuHandler() {
     var windowWidth = window.innerWidth
@@ -155,19 +156,31 @@ function overflowMenuHandler() {
         for (let i = 0; i < navBarItems.length; i++) {
             try {
                 document.getElementById(navBarItems[i]).style.display = 'none'
-            } catch (error) {
-                console.log("Missing elements referenced, error suppressed.")
-            }
+                    //remainingWidth -= 100
+                    //console.log('remainingWidth: ' + remainingWidth)
+            } catch (error) {}
         }
     } else {
         overflowMenu.style.display = 'none'
         for (let i = 0; i < navBarItems.length; i++) {
             try {
                 document.getElementById(navBarItems[i]).style.display = 'flex'
-            } catch (error) {
-                console.log("Missing elements referenced, error suppressed.")
-            }
+                    //remainingWidth += 100
+                    //console.log('remainingWidth: ' + remainingWidth)
+            } catch (error) {}
         }
+    }
+}
+
+var overflowMenuVisibility = 'hidden'
+
+function toggleOverflowMenu() {
+    if (overflowMenuVisibility == 'hidden') {
+        overflowMenu.style.visibility = 'visible'
+        overflowMenuVisibility = 'visible'
+    } else {
+        overflowMenu.style.visibility = 'hidden'
+        overflowMenuVisibility = 'hidden'
     }
 }
 
