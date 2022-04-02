@@ -537,13 +537,6 @@ div.popup {
     backdrop-filter: brightness(0.5) blur(10px);
 }
 
-div.overflow {
-    left: 25%;
-    height: 10%;
-    width: 40%;
-    top: 0%;
-}
-
 div.CloseIcon {
     background-color: #ff000059;
     opacity: 0.8;
@@ -575,10 +568,6 @@ div.CloseIcon:active {
 
 /* End of popup stuff */
 
-#overflowButton {
-    display: none;
-}
-
 #copyId {
     cursor: default;
     display: inline-block;
@@ -600,22 +589,4 @@ div.CloseIcon:active {
     background-color: #ffffff36;
     border-color: #8b8b8b5e;
     transition: 0.3s;
-}
-
-@media (max-width: 400px) {
-    #navBarHomeButton {
-        display: none;
-    }
-    #navBarMoreButton {
-        display: none;
-    }
-    #overflowButton {
-        display: flex;
-    }
-}
-
-@media (max-width: 200px) {
-    #navBarHello {
-        display: none;
-    }
 }
