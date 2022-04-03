@@ -38,35 +38,55 @@
 
     <div class="overlay" id="overlay" onclick="closeModal()"></div>
 
+    <div class="overlay" id="overlayThin" onclick="toggleOverflowMenu()"></div>
+
+    <div id="OverflowMenu" class="overflowMenu">
+
+        <a class="overflowMenuButton" href="/">
+            <span class="material-icons-round md-18" style="padding-right: 0.4em;">home</span> Home
+        </a>
+
+        <a class="overflowMenuButton" href="/pages/learn2code.html">
+            <span class="material-icons-round md-18" style="padding-right: 0.4em;">dashboard</span> See More
+        </a>
+
+        <a class="overflowMenuButton" href="https://github.com/CrypticVader/MyWeb">
+            <span class="material-icons-round md-18" style="padding-right: 0.4em;">source</span> View source
+        </a>
+
+        <a class="overflowMenuButton disabled" href="/pages/projects">
+            <span class="material-icons-round md-18" style="padding-right: 0.4em;">build</span> My projects
+        </a>
+
+    </div>
+
     <div class="nav-bar">
 
-        <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span id="navBarHello" style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
+        <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
 
-        <button id="overflowButton" style="float: right; vertical-align: middle; padding: 8px;" onclick="openModal('overflow', topHold = '10%')">
-            <span class="material-icons-round md-24">menu</span>
+        <button id="overflowMenuToggleButton" style="float: right; padding: 8px;" onclick="toggleOverflowMenu()">
+            <span style="transition: 0.2s;" id="overflowMenuToggleButtonText" class="material-icons-round md-24" style="margin-top: 0em;">menu</span>
         </button>
 
-        <a id="navBarHomeButton" class='link-button' style="float: right; padding: 8px;" href="/">
+        <a id="navBarHomeButton" class='link-button' style="float: right; padding: 8px; margin-right: 7px;" href="/">
             <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
         </a>
 
-        <a class='link-button' style="float: right; padding: 8px; margin-right: 7px;" href="https://github.com/CrypticVader/MyWeb">
-            <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0em;">source</span>
+        <a id="navBarProjectButton" class='link-button disabled' style="float: right; padding: 8px; margin-right: 7px;" href="https://github.com/CrypticVader/MyWeb">
+            <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0.4em;">build</span> My projects
+        </a>
+
+        <a id="navBarSourceButton" class='link-button' style="float: right; padding: 8px; margin-right: 7px;" href="https://github.com/CrypticVader/MyWeb">
+            <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0.4em;">source</span> View Source
         </a>
 
         <button id="playStateButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); spawnAlert();">
-            <span style="transition: 0.2s;" class="material-icons-round md-24" id="playStateIcon">pause</span>
+            <span id="playStateIcon" style="transition: 0.2s;" class="material-icons-round md-24">pause</span>
         </button>
 
     </div>
 
     <p style="margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
-
-    <div class="popup overflow" id="overflow" style="padding-left: 15%;">
-        <a class='link-button' style="padding: 8px; width: 80px;" href="/">
-            <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
-        </a>
-    </div>
 
     <!-- Popups, not visible -->
 

@@ -1,19 +1,13 @@
 var logData = false
 
-var currentPopup
-var overlay = document.getElementById('overlay')
-var topPercent
-
 var divider = document.getElementById('divider')
 var headingAnimated = document.getElementById('headAnimated')
 
-var bgPlayState = 'running'
-var playStateIconText
-var skipOverride = false
-
-var popupText = 'lorem&nbspipsum'
-
 //----------------------------------------------------------------------------------------------------------------------
+
+var currentPopup
+var overlay = document.getElementById('overlay')
+var topPercent
 
 function openModal(id, topHold = '70%') {
     topPercent = topHold
@@ -40,6 +34,25 @@ function closeModal() {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+
+function butttonIconTransition(elementId, iconText, delay = 50) {
+    let element = document.getElementById(elementId)
+    element.style.transform = 'scale(0.6)'
+    element.style.opacity = '0.7'
+    setTimeout(function changeIcon() {
+        element.innerHTML = iconText;
+        element.style.transform = 'rotate(-180deg)'
+    }, 100)
+    setTimeout(function morphIcon() {
+        element.style.transform = 'rotate(-180deg)'
+        element.style.transform = 'scale(1)'
+        element.style.opacity = '1'
+    }, 100 + delay)
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+var popupText = 'lorem&nbspipsum'
 
 function spawnAlert(text = popupText, timeout = 1900) {
     // For 'text' use &nbsp instead of space to avoid line break.
@@ -81,6 +94,11 @@ function copyText(text = 'undefined') {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+
+var bgPlayState = 'running'
+var playStateIconText
+var skipOverride = false
+var playStateIcon = document.getElementById('playStateIcon')
 
 function togglePlayState(forceState = 'toggle') {
     let playStateIcon = document.getElementById('playStateIcon')
@@ -129,17 +147,62 @@ function togglePlayState(forceState = 'toggle') {
             console.log('Missing elements referenced, error suppressed.')
         }
         // Icon change & effect
-        playStateIcon.style.transform = 'scale(0.6)'
-        playStateIcon.style.opacity = '0.7'
-        setTimeout(function changeIcon() {
-            playStateIcon.innerHTML = playStateIconText;
-            playStateIcon.style.transform = 'rotate(-180deg)'
-        }, 150)
-        setTimeout(function morphIcon() {
-            playStateIcon.style.transform = 'scale(1)'
-            playStateIcon.style.opacity = '1'
-        }, 200)
+        butttonIconTransition('playStateIcon', playStateIconText, delay = 50)
     }
 }
+
+//----------------------------------------------------------------------------------------------------------------------
+
+var overflowMenu = document.getElementById('OverflowMenu');
+// var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
+var navBarItems = ['navBarHomeButton', 'navBarMoreButton', 'navBarSourceButton', , 'navBarProjectButton']
+
+function overflowMenuHandler() {
+    var windowWidth = window.innerWidth
+    if (windowWidth < 730) {
+        overflowMenu.style.display = 'block'
+        for (let i = 0; i < navBarItems.length; i++) {
+            try {
+                document.getElementById(navBarItems[i]).style.display = 'none';
+            } catch (error) {}
+        }
+    } else {
+        overflowMenu.style.display = 'none'
+        for (let i = 0; i < navBarItems.length; i++) {
+            try {
+                document.getElementById(navBarItems[i]).style.display = 'flex';
+            } catch (error) {}
+        }
+    }
+}
+
+
+var overflowMenuVisibility = 'hidden'
+var overflowMenuToggleButtonIcon = document.getElementById('overflowMenuToggleButtonText')
+var overlayThin = document.getElementById('overlayThin')
+
+function toggleOverflowMenu() {
+    if (overflowMenuVisibility == 'hidden') {
+        togglePlayState(forceState = 'pause')
+        overlayThin.style.visibility = 'visible'
+        overlayThin.style.opacity = '1'
+        overflowMenu.style.visibility = 'visible'
+        overflowMenu.style.transform = 'translateX(0%)'
+        overflowMenuVisibility = 'visible'
+        butttonIconTransition(elementId = 'overflowMenuToggleButtonText', iconText = 'close', delay = 40)
+    } else {
+        togglePlayState(forceState = 'play')
+        overlayThin.style.visibility = 'hidden'
+        overlayThin.style.opacity = '0'
+        overflowMenu.style.transform = 'translateX(100%)'
+        overflowMenu.style.visibility = 'hidden'
+        butttonIconTransition(elementId = 'overflowMenuToggleButtonText', iconText = 'menu', delay = 40)
+        setTimeout(function hideMenu() { overflowMenuVisibility = 'hidden' }, 250)
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", overflowMenuHandler)
+window.addEventListener('resize', overflowMenuHandler)
 
 //----------------------------------------------------------------------------------------------------------------------
