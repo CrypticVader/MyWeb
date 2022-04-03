@@ -161,14 +161,21 @@ function overflowMenuHandler() {
 
 var overflowMenuVisibility = 'hidden'
 var overflowMenuToggleButtonIcon = document.getElementById('overflowMenuToggleButtonText')
+var overlayThin = document.getElementById('overlayThin')
 
 function toggleOverflowMenu() {
     if (overflowMenuVisibility == 'hidden') {
+        togglePlayState(forceState = 'pause')
+        overlayThin.style.visibility = 'visible'
+        overlayThin.style.opacity = '1'
         overflowMenu.style.visibility = 'visible'
         overflowMenu.style.transform = 'translateX(0%)'
         overflowMenuVisibility = 'visible'
         butttonIconTransition(elementId = 'overflowMenuToggleButtonText', iconText = 'close', delay = 40)
     } else {
+        togglePlayState(forceState = 'play')
+        overlayThin.style.visibility = 'hidden'
+        overlayThin.style.opacity = '0'
         overflowMenu.style.transform = 'translateX(100%)'
         overflowMenu.style.visibility = 'hidden'
         butttonIconTransition(elementId = 'overflowMenuToggleButtonText', iconText = 'menu', delay = 40)
