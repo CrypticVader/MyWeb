@@ -166,6 +166,7 @@ function togglePlayState(forceState = "toggle") {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
+// Deprecated function for handling overFlow menu
 
 var overflowMenu = document.getElementById("OverflowMenu");
 // var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
@@ -173,7 +174,6 @@ var navBarItems = [
 	"navBarHomeButton",
 	"navBarMoreButton",
 	"navBarSourceButton",
-	,
 	"navBarProjectButton",
 ];
 
@@ -195,6 +195,11 @@ function overflowMenuHandler() {
 		}
 	}
 }
+
+//document.addEventListener("DOMContentLoaded", overflowMenuHandler);
+//window.addEventListener("resize", overflowMenuHandler);
+
+//----------------------------------------------------------------------------------------------------------------------
 
 var overflowMenuVisibility = "hidden";
 var overflowMenuToggleButtonIcon = document.getElementById(
@@ -234,7 +239,73 @@ function toggleOverflowMenu() {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", overflowMenuHandler);
-window.addEventListener("resize", overflowMenuHandler);
+//----------------------------------------------------------------------------------------------------------------------
+// WiP function to dynamically handle the overflow menu
 
+//var overflowMenuItemsAll = document.getElementsByClassName("overflowMenuButton");
+
+var overflowMenu = document.getElementById("OverflowMenu");
+
+var overflowMenuItemsVisible = [];
+
+const navBarItemsAll = [
+	"navBarHomeButton",
+	"navBarMoreButton",
+	"navBarSourceButton",
+	"navBarProjectButton",
+];
+
+var navBarItemsVisible = [
+	"navBarHomeButton",
+	"navBarMoreButton",
+	"navBarSourceButton",
+	"navBarProjectButton",
+];
+
+function navBar2OverflowId(navBarId) {
+	switch (navBarId) {
+		case "navBarHomeButton":
+			return "overflowMenuHomeButton";
+		case "navBarMoreButton":
+			return "overflowMenuMoreButton";
+		case "navBarSourceButton":
+			return "overflowMenuSourceButton";
+		case "navBarProjectButton":
+			return "overflowMenuProjectButton";
+		default:
+			return "undefined";
+	}
+}
+
+var remainingNavBarWidth = window.innerWidth - navBarItemsAll.length * 185;
+
+function dynamicOverflowHandler() {
+	// Check if there's enough space for all navBarItems
+	if (remainingNavBarWidth <= 0) {
+		// Check if there's any items left to hide from the navBar
+		if (navBarItemsVisible.length > 0) {
+			for (var i = 0; i < navBarItemsVisible.length; i++) {
+				document.getElementById(navBarItemsVisible[i]).style.display = "none";
+				remainingNavBarWidth += 185;
+				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+				document.getElementById(
+					navBar2OverflowId(navBarItemsVisible[i])
+				).style.display = "flex";
+				overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[i]));
+				navBarItemsVisible.splice(i, 1);
+				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+				console.log("navBarItemsVisible: " + navBarItemsVisible);
+				if (remainingNavBarWidth > 185) {
+				}
+			}
+		}
+	}
+}
+
+function moveFromOver2Nav() {
+	console.log("moveFromOver2Nav");
+}
+
+document.addEventListener("DOMContentLoaded", dynamicOverflowHandler);
+window.addEventListener("resize", dynamicOverflowHandler);
 //----------------------------------------------------------------------------------------------------------------------

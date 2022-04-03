@@ -50,8 +50,9 @@
 
 		<div class="overlay" id="overlayThin" onclick="toggleOverflowMenu()"></div>
 
+		<!-- Start of overflow menu -->
 		<div id="OverflowMenu" class="overflowMenu">
-			<a class="overflowMenuButton" href="/">
+			<a id="overflowMenuHomeButton" class="overflowMenuButton" href="/">
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -61,7 +62,11 @@
 				Home
 			</a>
 
-			<a class="overflowMenuButton" href="/pages/learn2code.html">
+			<a
+				id="overflowMenuMoreButton"
+				class="overflowMenuButton"
+				href="/pages/learn2code.html"
+			>
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -72,6 +77,7 @@
 			</a>
 
 			<a
+				id="overflowMenuSourceButton"
 				class="overflowMenuButton"
 				href="https://github.com/CrypticVader/MyWeb"
 				target="_blank"
@@ -86,7 +92,11 @@
 				View source
 			</a>
 
-			<a class="overflowMenuButton disabled" href="/pages/projects">
+			<a
+				id="overflowMenuMenuProjectButton"
+				class="overflowMenuButton disabled"
+				href="/pages/projects"
+			>
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -96,10 +106,16 @@
 				My projects
 			</a>
 		</div>
+		<!-- End of overflow menu -->
 
+		<!-- Start of navBar -->
 		<div class="nav-bar">
-			<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo" />
-			<span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
+			<img
+				src="/assets/vader-grey.png"
+				height="40px"
+				width="40px"
+				alt="logo"
+			/><span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
 				Hello
 			</span>
 
@@ -109,10 +125,9 @@
 				onclick="toggleOverflowMenu()"
 			>
 				<span
-					style="transition: 0.2s"
+					style="transition: 0.2s; margin-top: 0em"
 					id="overflowMenuToggleButtonText"
 					class="material-icons-round md-24"
-					style="margin-top: 0em"
 				>
 					menu
 				</span>
@@ -128,6 +143,21 @@
 					home
 				</span>
 				Home
+			</a>
+
+			<a
+				id="navBarMoreButton"
+				class="link-button"
+				style="float: right; padding: 8px; margin-right: 7px"
+				href="/pages/learn2code.html"
+			>
+				<span
+					class="material-icons-round md-24"
+					style="margin-top: 0em; padding-right: 0.4em"
+				>
+					dashboard
+				</span>
+				See More
 			</a>
 
 			<a
@@ -165,6 +195,7 @@
 			<button
 				id="playStateButton"
 				style="
+					transition: 0.2s;
 					float: right;
 					vertical-align: middle;
 					padding: 8px;
@@ -181,6 +212,7 @@
 				</span>
 			</button>
 		</div>
+		<!-- End of navBar -->
 
 		<p
 			style="

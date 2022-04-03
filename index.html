@@ -50,8 +50,9 @@
 
 		<div class="overlay" id="overlayThin" onclick="toggleOverflowMenu()"></div>
 
+		<!-- Start of overflow menu -->
 		<div id="OverflowMenu" class="overflowMenu">
-			<a class="overflowMenuButton" href="/">
+			<a id="overflowMenuHomeButton" class="overflowMenuButton" href="/">
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -61,7 +62,11 @@
 				Home
 			</a>
 
-			<a class="overflowMenuButton" href="/pages/learn2code.html">
+			<a
+				id="overflowMenuMoreButton"
+				class="overflowMenuButton"
+				href="/pages/learn2code.html"
+			>
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -72,6 +77,7 @@
 			</a>
 
 			<a
+				id="overflowMenuSourceButton"
 				class="overflowMenuButton"
 				href="https://github.com/CrypticVader/MyWeb"
 				target="_blank"
@@ -86,7 +92,11 @@
 				View source
 			</a>
 
-			<a class="overflowMenuButton disabled" href="/pages/projects">
+			<a
+				id="overflowMenuMenuProjectButton"
+				class="overflowMenuButton disabled"
+				href="/pages/projects"
+			>
 				<span
 					class="material-icons-round md-18"
 					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
@@ -96,7 +106,9 @@
 				My projects
 			</a>
 		</div>
+		<!-- End of overflow menu -->
 
+		<!-- Start of navBar -->
 		<div class="nav-bar">
 			<img
 				src="/assets/vader-grey.png"
@@ -120,6 +132,18 @@
 					menu
 				</span>
 			</button>
+
+			<a
+				id="navBarHomeButton"
+				class="link-button"
+				style="float: right; padding: 8px; margin-right: 7px"
+				href="/"
+			>
+				<span class="material-icons-round md-24" style="padding-right: 0.2em">
+					home
+				</span>
+				Home
+			</a>
 
 			<a
 				id="navBarMoreButton"
@@ -188,6 +212,7 @@
 				</span>
 			</button>
 		</div>
+		<!-- End of navBar -->
 
 		<div style="margin-left: 0; margin-right: 0">
 			<h1 id="headAnimated" class="gradient-text" style="padding: 0">

@@ -173,7 +173,8 @@ a.overflowMenuButton {
 	font-size: 20px;
 	border-radius: 12px;
 	cursor: pointer;
-	display: flex;
+	/*display: flex;*/
+	display: none;
 	padding: 12px;
 	padding-left: 25px;
 	padding-right: 50px;
