@@ -82,7 +82,7 @@ function copyText(text = 'undefined') {
     copyIcon.style.transform = 'scale(0.5)'
     copyIcon.style.opacity = '0.2'
     setTimeout(function back2one() {
-        copyIcon.style.transform = 'scale(1)';
+        copyIcon.style.transform = 'scale(1.25)';
         copyIcon.style.opacity = '1'
         copyIcon.innerHTML = 'done'
     }, 300)
