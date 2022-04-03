@@ -1,191 +1,400 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-<head>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+            gtag("config", "G-VBXMPEFNYR");
+        </script>
+        <!-- End of (gtag.js) -->
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+        <meta
+            charset="utf-8"
+            name="viewport"
+            content="width=device-width, minimum-scale=1, initial-scale=1"
+        />
+        <meta name="description" content="Personal website." />
 
-        gtag('config', 'G-VBXMPEFNYR');
-    </script>
-    <!-- End of (gtag.js) -->
+        <title>Geek stuff</title>
 
-    <meta charset="utf-8" name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-    <meta name="description" content="Personal website.">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <title>Geek stuff</title>
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="/styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Comfortaa"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+        />
+    </head>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- HTML body -->
 
-    <!-- Load external CSS styles -->
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <body style="padding: 0; margin: 0">
+        <div class="overlay" id="overlay" onclick="closeModal()"></div>
 
-</head>
+        <div
+            class="overlay"
+            id="overlayThin"
+            onclick="toggleOverflowMenu()"
+        ></div>
 
-<!-- HTML body -->
+        <div id="OverflowMenu" class="overflowMenu">
+            <a class="overflowMenuButton" href="/">
+                <span
+                    class="material-icons-round md-18"
+                    style="
+                        transform: scale(1.1);
+                        font-size: 20px;
+                        padding-right: 0.4em;
+                    "
+                    >home</span
+                >
+                Home
+            </a>
 
-<body style="padding: 0; margin: 0;">
+            <a class="overflowMenuButton" href="/pages/learn2code.html">
+                <span
+                    class="material-icons-round md-18"
+                    style="
+                        transform: scale(1.1);
+                        font-size: 20px;
+                        padding-right: 0.4em;
+                    "
+                    >dashboard</span
+                >
+                See More
+            </a>
 
-    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+            <a
+                class="overflowMenuButton"
+                href="https://github.com/CrypticVader/MyWeb"
+            >
+                <span
+                    class="material-icons-round md-18"
+                    style="
+                        transform: scale(1.1);
+                        font-size: 20px;
+                        padding-right: 0.4em;
+                    "
+                    >source</span
+                >
+                View source
+            </a>
 
-    <div class="overlay" id="overlayThin" onclick="toggleOverflowMenu()"></div>
-
-    <div id="OverflowMenu" class="overflowMenu">
-
-        <a class="overflowMenuButton" href="/">
-            <span class="material-icons-round md-18" style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em;">home</span> Home
-        </a>
-
-        <a class="overflowMenuButton" href="/pages/learn2code.html">
-            <span class="material-icons-round md-18" style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em;">dashboard</span> See More
-        </a>
-
-        <a class="overflowMenuButton" href="https://github.com/CrypticVader/MyWeb">
-            <span class="material-icons-round md-18" style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em;">source</span> View source
-        </a>
-
-        <a class="overflowMenuButton disabled" href="/pages/projects">
-            <span class="material-icons-round md-18" style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em;">build</span> My projects
-        </a>
-
-    </div>
-
-    <div class="nav-bar">
-
-        <img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"><span style="font-size: 25px; vertical-align: 10px; padding-left:10px;">Hello</span>
-
-        <button id="overflowMenuToggleButton" style="float: right; padding: 8px;" onclick="toggleOverflowMenu()">
-            <span style="transition: 0.2s;" id="overflowMenuToggleButtonText" class="material-icons-round md-24" style="margin-top: 0em;">menu</span>
-        </button>
-
-        <a id="navBarHomeButton" class='link-button' style="float: right; padding: 8px; margin-right: 7px;" href="/">
-            <span class="material-icons-round md-24" style="padding-right: 0.2em;">home</span> Home
-        </a>
-
-        <a id="navBarProjectButton" class='link-button disabled' style="float: right; padding: 8px; margin-right: 7px;" href="https://github.com/CrypticVader/MyWeb">
-            <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0.4em;">build</span> My projects
-        </a>
-
-        <a id="navBarSourceButton" class='link-button' style="float: right; padding: 8px; margin-right: 7px;" href="https://github.com/CrypticVader/MyWeb">
-            <span class="material-icons-round md-24" style="margin-top: 0em; padding-right: 0.4em;">source</span> View Source
-        </a>
-
-        <button id="playStateButton" style="float: right; vertical-align: middle; padding: 8px; margin-right: 7px;" onclick="togglePlayState(); spawnAlert();">
-            <span id="playStateIcon" style="transition: 0.2s;" class="material-icons-round md-24">pause</span>
-        </button>
-
-    </div>
-
-    <p style="padding: 10px; font-size: 20px; margin-top:5em;text-align: center;">Just a bunch of places to learn to code that I've used:</p>
-
-    <!-- Popups, not visible -->
-
-    <div class="popup" id="msftPopup">
-        <div onclick="closeModal()" class="CloseIcon">
-            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-        </div>
-        <h3>Microsoft Learn</h3>
-        <p>Does this even work?</p>
-        <a href="https://docs.microsoft.com/en-us/learn/" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 100px; padding: 8px;">
-            <span class="material-icons-round md-32" style="padding-right: 0.2em;">launch</span> Go here
-        </a>
-    </div>
-
-    <div class="popup" id="codCadPopup">
-        <div onclick="closeModal()" class="CloseIcon">
-            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-        </div>
-        <h3>Codecademy</h3>
-        <p>Does this even work?</p>
-        <a href="https://www.codecademy.com/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 100px; padding: 8px;">
-            <span class="material-icons-round md-32" style="padding-right: 0.2em;">launch</span> Go here
-        </a>
-    </div>
-
-    <div class="popup" id="freeCCPopup">
-        <div onclick="closeModal()" class="CloseIcon">
-            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-        </div>
-        <h3>FreeCodeCamp</h3>
-        <p>Does this even work?</p>
-        <a href="https://www.freecodecamp.org/learn" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 100px; padding: 8px;">
-            <span class="material-icons-round md-32" style="padding-right: 0.2em;">launch</span> Go here
-        </a>
-    </div>
-
-    <div class="popup" id="w3SPopup">
-        <div onclick="closeModal()" class="CloseIcon">
-            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-        </div>
-        <h3>W3Schools</h3>
-        <p>Does this even work?</p>
-        <a href="https://my-learning.w3schools.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 100px; padding: 8px;">
-            <span class="material-icons-round md-32" style="padding-right: 0.2em;">launch</span> Go here
-        </a>
-    </div>
-
-    <div class="popup" id="gitLearnPopup">
-        <div onclick="closeModal()" class="CloseIcon">
-            <span class="material-icons-round md-36" style="font-size: 32px;">close</span>
-        </div>
-        <h3>GitHub Learning Lab</h3>
-        <p>Does this even work?</p>
-        <a href="https://lab.github.com" target="_blank" class='link-button' style="display: flex; vertical-align: middle; width: 100px; padding: 8px;">
-            <span class="material-icons-round md-32" style="padding-right: 0.2em;">launch</span> Go here
-        </a>
-    </div>
-
-    <!-- End of Popups -->
-
-    <!-- Tabs -->
-
-    <div style="text-align: center">
-        <div class="tab" onclick="openModal('msftPopup')">
-            <img src="/assets/code/msLearn.png" class="blurred">
-            <div class="tabTextContainer"><span>Microsoft&nbspLearn</span></div>
+            <a class="overflowMenuButton disabled" href="/pages/projects">
+                <span
+                    class="material-icons-round md-18"
+                    style="
+                        transform: scale(1.1);
+                        font-size: 20px;
+                        padding-right: 0.4em;
+                    "
+                    >build</span
+                >
+                My projects
+            </a>
         </div>
 
-        <div class="tab" onclick="openModal('codCadPopup')">
-            <img src="/assets/code/codCad.png" class="blurred">
-            <div class="tabTextContainer"><span>Codecademy</span></div>
+        <div class="nav-bar">
+            <img
+                src="/assets/vader-grey.png"
+                height="40px"
+                width="40px"
+                alt="logo"
+            /><span
+                style="
+                    font-size: 25px;
+                    vertical-align: 10px;
+                    padding-left: 10px;
+                "
+                >Hello</span
+            >
+
+            <button
+                id="overflowMenuToggleButton"
+                style="float: right; padding: 8px"
+                onclick="toggleOverflowMenu()"
+            >
+                <span
+                    style="transition: 0.2s"
+                    id="overflowMenuToggleButtonText"
+                    class="material-icons-round md-24"
+                    style="margin-top: 0em"
+                    >menu</span
+                >
+            </button>
+
+            <a
+                id="navBarHomeButton"
+                class="link-button"
+                style="float: right; padding: 8px; margin-right: 7px"
+                href="/"
+            >
+                <span
+                    class="material-icons-round md-24"
+                    style="padding-right: 0.2em"
+                    >home</span
+                >
+                Home
+            </a>
+
+            <a
+                id="navBarProjectButton"
+                class="link-button disabled"
+                style="float: right; padding: 8px; margin-right: 7px"
+                href="https://github.com/CrypticVader/MyWeb"
+            >
+                <span
+                    class="material-icons-round md-24"
+                    style="margin-top: 0em; padding-right: 0.4em"
+                    >build</span
+                >
+                My projects
+            </a>
+
+            <a
+                id="navBarSourceButton"
+                class="link-button"
+                style="float: right; padding: 8px; margin-right: 7px"
+                href="https://github.com/CrypticVader/MyWeb"
+            >
+                <span
+                    class="material-icons-round md-24"
+                    style="margin-top: 0em; padding-right: 0.4em"
+                    >source</span
+                >
+                View Source
+            </a>
+
+            <button
+                id="playStateButton"
+                style="
+                    float: right;
+                    vertical-align: middle;
+                    padding: 8px;
+                    margin-right: 7px;
+                "
+                onclick="togglePlayState(); spawnAlert();"
+            >
+                <span
+                    id="playStateIcon"
+                    style="transition: 0.2s"
+                    class="material-icons-round md-24"
+                    >pause</span
+                >
+            </button>
         </div>
 
-        <div class="tab" onclick="openModal('freeCCPopup')">
-            <img src="/assets/code/freeCc.png" class="blurred">
-            <div class="tabTextContainer"><span>FreeCodeCamp</span></div>
+        <p
+            style="
+                padding: 10px;
+                font-size: 20px;
+                margin-top: 5em;
+                text-align: center;
+            "
+        >
+            Just a bunch of places to learn to code that I've used:
+        </p>
+
+        <!-- Popups, not visible -->
+
+        <div class="popup" id="msftPopup">
+            <div onclick="closeModal()" class="CloseIcon">
+                <span class="material-icons-round md-36" style="font-size: 32px"
+                    >close</span
+                >
+            </div>
+            <h3>Microsoft Learn</h3>
+            <p>Does this even work?</p>
+            <a
+                href="https://docs.microsoft.com/en-us/learn/"
+                target="_blank"
+                class="link-button"
+                style="
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    padding: 8px;
+                "
+            >
+                <span
+                    class="material-icons-round md-32"
+                    style="padding-right: 0.2em"
+                    >launch</span
+                >
+                Go here
+            </a>
         </div>
 
-        <div class="tab" onclick="openModal('w3SPopup')">
-            <img src="/assets/code/W3S.png" class="blurred">
-            <div class="tabTextContainer"><span>W3Schools</span></div>
+        <div class="popup" id="codCadPopup">
+            <div onclick="closeModal()" class="CloseIcon">
+                <span class="material-icons-round md-36" style="font-size: 32px"
+                    >close</span
+                >
+            </div>
+            <h3>Codecademy</h3>
+            <p>Does this even work?</p>
+            <a
+                href="https://www.codecademy.com/learn"
+                target="_blank"
+                class="link-button"
+                style="
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    padding: 8px;
+                "
+            >
+                <span
+                    class="material-icons-round md-32"
+                    style="padding-right: 0.2em"
+                    >launch</span
+                >
+                Go here
+            </a>
         </div>
 
-        <div class="tab" onclick="openModal('gitLearnPopup')">
-            <img src="/assets/code/GitLearn.png" class="blurred">
-            <div class="tabTextContainer"><span>GitHub&nbspLearning&nbspLab</span></div>
+        <div class="popup" id="freeCCPopup">
+            <div onclick="closeModal()" class="CloseIcon">
+                <span class="material-icons-round md-36" style="font-size: 32px"
+                    >close</span
+                >
+            </div>
+            <h3>FreeCodeCamp</h3>
+            <p>Does this even work?</p>
+            <a
+                href="https://www.freecodecamp.org/learn"
+                target="_blank"
+                class="link-button"
+                style="
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    padding: 8px;
+                "
+            >
+                <span
+                    class="material-icons-round md-32"
+                    style="padding-right: 0.2em"
+                    >launch</span
+                >
+                Go here
+            </a>
         </div>
 
-    </div>
+        <div class="popup" id="w3SPopup">
+            <div onclick="closeModal()" class="CloseIcon">
+                <span class="material-icons-round md-36" style="font-size: 32px"
+                    >close</span
+                >
+            </div>
+            <h3>W3Schools</h3>
+            <p>Does this even work?</p>
+            <a
+                href="https://my-learning.w3schools.com"
+                target="_blank"
+                class="link-button"
+                style="
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    padding: 8px;
+                "
+            >
+                <span
+                    class="material-icons-round md-32"
+                    style="padding-right: 0.2em"
+                    >launch</span
+                >
+                Go here
+            </a>
+        </div>
 
-    <!-- End of tabs -->
+        <div class="popup" id="gitLearnPopup">
+            <div onclick="closeModal()" class="CloseIcon">
+                <span class="material-icons-round md-36" style="font-size: 32px"
+                    >close</span
+                >
+            </div>
+            <h3>GitHub Learning Lab</h3>
+            <p>Does this even work?</p>
+            <a
+                href="https://lab.github.com"
+                target="_blank"
+                class="link-button"
+                style="
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    padding: 8px;
+                "
+            >
+                <span
+                    class="material-icons-round md-32"
+                    style="padding-right: 0.2em"
+                    >launch</span
+                >
+                Go here
+            </a>
+        </div>
 
-    <p id="wipBig">WIP :/ 💻</p>
-    <p id="wipSmol">WIP :/ 📱</p>
+        <!-- End of Popups -->
 
-    <!-- Load external JavaScript -->
-    <script src="/scripts.js"></script>
+        <!-- Tabs -->
 
-</body>
+        <div style="text-align: center">
+            <div class="tab" onclick="openModal('msftPopup')">
+                <img src="/assets/code/msLearn.png" class="blurred" />
+                <div class="tabTextContainer">
+                    <span>Microsoft&nbspLearn</span>
+                </div>
+            </div>
 
+            <div class="tab" onclick="openModal('codCadPopup')">
+                <img src="/assets/code/codCad.png" class="blurred" />
+                <div class="tabTextContainer"><span>Codecademy</span></div>
+            </div>
+
+            <div class="tab" onclick="openModal('freeCCPopup')">
+                <img src="/assets/code/freeCc.png" class="blurred" />
+                <div class="tabTextContainer"><span>FreeCodeCamp</span></div>
+            </div>
+
+            <div class="tab" onclick="openModal('w3SPopup')">
+                <img src="/assets/code/W3S.png" class="blurred" />
+                <div class="tabTextContainer"><span>W3Schools</span></div>
+            </div>
+
+            <div class="tab" onclick="openModal('gitLearnPopup')">
+                <img src="/assets/code/GitLearn.png" class="blurred" />
+                <div class="tabTextContainer">
+                    <span>GitHub&nbspLearning&nbspLab</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- End of tabs -->
+
+        <p id="wipBig">WIP :/ 💻</p>
+        <p id="wipSmol">WIP :/ 📱</p>
+
+        <!-- Load external JavaScript -->
+        <script src="/scripts.js"></script>
+    </body>
 </html>

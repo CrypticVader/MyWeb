@@ -1,72 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-<head>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+            gtag("config", "G-VBXMPEFNYR");
+        </script>
+        <!-- End of (gtag.js) -->
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+        <meta
+            charset="utf-8"
+            name="viewport"
+            content="width=device-width, minimum-scale=1, initial-scale=1"
+        />
 
-        gtag('config', 'G-VBXMPEFNYR');
-    </script>
-    <!-- End of (gtag.js) -->
+        <title>Error 404 (Not Found)</title>
 
-    <meta charset="utf-8" name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <title>Error 404 (Not Found)</title>
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="/styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Comfortaa|Andika New Basic|Indie Flower"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+        />
+    </head>
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
-    <!-- Load external CSS styles -->
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa|Andika New Basic|Indie Flower">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
-
-</head>
-
-<style>
-    body {
-        background-image: url(/assets/404-dark.png);
-        background-color: rgb(18, 23, 37);
-        animation: none;
-        background-size: 100vmin 100vmin;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        margin-left: 2vw;
-        position: relative;
-    }
-    
-    @media (min-width: 900px) {
+    <style>
         body {
+            background-image: url(/assets/404-dark.png);
+            background-color: rgb(18, 23, 37);
+            animation: none;
             background-size: 100vmin 100vmin;
-            background-position: right;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin-left: 2vw;
+            position: relative;
         }
-    }
-</style>
 
-<!-- HTML body -->
+        @media (min-width: 900px) {
+            body {
+                background-size: 100vmin 100vmin;
+                background-position: right;
+            }
+        }
+    </style>
 
-<body style="padding: 10px;">
+    <!-- HTML body -->
 
-    <h1 style="padding-top: 3.8em; opacity: 1; font-size: 3em; line-height: 100%; margin: 0; margin-bottom: 0.4em; text-align: left;color: white;">
-        Page not found :(
-    </h1>
+    <body style="padding: 10px">
+        <h1
+            style="
+                padding-top: 3.8em;
+                opacity: 1;
+                font-size: 3em;
+                line-height: 100%;
+                margin: 0;
+                margin-bottom: 0.4em;
+                text-align: left;
+                color: white;
+            "
+        >
+            Page not found :(
+        </h1>
 
-    <ins style="text-decoration: none; padding: 0; opacity: 0.8; font-size: 1.3em; margin: 0;">
-        Error code: 404
-    </ins><br>
+        <ins
+            style="
+                text-decoration: none;
+                padding: 0;
+                opacity: 0.8;
+                font-size: 1.3em;
+                margin: 0;
+            "
+        >
+            Error code: 404 </ins
+        ><br />
 
-    <a id="navBarHomeButton" class='link-button' style="width: 80px; padding: 8px; margin-top: 0.7em;" href="/">
-        <span class="material-icons-round md-24">home</span> Home
-    </a>
-
-</body>
+        <a
+            id="navBarHomeButton"
+            class="link-button"
+            style="width: 80px; padding: 8px; margin-top: 0.7em"
+            href="/"
+        >
+            <span class="material-icons-round md-24">home</span> Home
+        </a>
+    </body>
+</html>
