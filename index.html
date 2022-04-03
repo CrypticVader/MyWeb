@@ -1,370 +1,370 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-VBXMPEFNYR"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-            gtag("config", "G-VBXMPEFNYR");
-        </script>
-        <!-- End of (gtag.js) -->
+			gtag("config", "G-VBXMPEFNYR");
+		</script>
+		<!-- End of (gtag.js) -->
 
-        <meta
-            charset="utf-8"
-            name="viewport"
-            content="width=device-width, minimum-scale=1, initial-scale=1"
-        />
-        <meta name="description" content="Personal website." />
+		<meta
+			charset="utf-8"
+			name="viewport"
+			content="width=device-width, minimum-scale=1, initial-scale=1"
+		/>
+		<meta name="description" content="Personal website." />
 
-        <title>Home</title>
+		<title>Home</title>
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-        <!-- Load external CSS styles -->
-        <link rel="stylesheet" href="/styles.css" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Comfortaa|Andika New Basic"
-        />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-        />
-    </head>
+		<!-- Load external CSS styles -->
+		<link rel="stylesheet" href="/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Comfortaa|Andika New Basic"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+		/>
+	</head>
 
-    <!-- HTML body -->
+	<!-- HTML body -->
 
-    <body>
-        <div class="overlay" id="overlay" onclick="closeModal()"></div>
+	<body>
+		<div class="overlay" id="overlay" onclick="closeModal()"></div>
 
-        <div
-            class="overlay"
-            id="overlayThin"
-            onclick="toggleOverflowMenu()"
-        ></div>
+		<div class="overlay" id="overlayThin" onclick="toggleOverflowMenu()"></div>
 
-        <div id="OverflowMenu" class="overflowMenu">
-            <a class="overflowMenuButton" href="/">
-                <span
-                    class="material-icons-round md-18"
-                    style="
-                        transform: scale(1.1);
-                        font-size: 20px;
-                        padding-right: 0.4em;
-                    "
-                    >home</span
-                >
-                Home
-            </a>
+		<div id="OverflowMenu" class="overflowMenu">
+			<a class="overflowMenuButton" href="/">
+				<span
+					class="material-icons-round md-18"
+					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+				>
+					home
+				</span>
+				Home
+			</a>
 
-            <a class="overflowMenuButton" href="/pages/learn2code.html">
-                <span
-                    class="material-icons-round md-18"
-                    style="
-                        transform: scale(1.1);
-                        font-size: 20px;
-                        padding-right: 0.4em;
-                    "
-                    >dashboard</span
-                >
-                See More
-            </a>
+			<a class="overflowMenuButton" href="/pages/learn2code.html">
+				<span
+					class="material-icons-round md-18"
+					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+				>
+					dashboard
+				</span>
+				See More
+			</a>
 
-            <a
-                class="overflowMenuButton"
-                href="https://github.com/CrypticVader/MyWeb"
-            >
-                <span
-                    class="material-icons-round md-18"
-                    style="
-                        transform: scale(1.1);
-                        font-size: 20px;
-                        padding-right: 0.4em;
-                    "
-                    >source</span
-                >
-                View source
-            </a>
+			<a
+				class="overflowMenuButton"
+				href="https://github.com/CrypticVader/MyWeb"
+			>
+				<span
+					class="material-icons-round md-18"
+					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+				>
+					source
+				</span>
+				View source
+			</a>
 
-            <a class="overflowMenuButton disabled" href="/pages/projects">
-                <span
-                    class="material-icons-round md-18"
-                    style="
-                        transform: scale(1.1);
-                        font-size: 20px;
-                        padding-right: 0.4em;
-                    "
-                    >build</span
-                >
-                My projects
-            </a>
-        </div>
+			<a class="overflowMenuButton disabled" href="/pages/projects">
+				<span
+					class="material-icons-round md-18"
+					style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+				>
+					build
+				</span>
+				My projects
+			</a>
+		</div>
 
-        <div class="nav-bar">
-            <img
-                src="/assets/vader-grey.png"
-                height="40px"
-                width="40px"
-                alt="logo"
-            /><span
-                style="
-                    font-size: 25px;
-                    vertical-align: 10px;
-                    padding-left: 10px;
-                "
-                >Hello</span
-            >
+		<div class="nav-bar">
+			<img
+				src="/assets/vader-grey.png"
+				height="40px"
+				width="40px"
+				alt="logo"
+			/><span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
+				Hello
+			</span>
 
-            <button
-                id="overflowMenuToggleButton"
-                style="float: right; padding: 8px"
-                onclick="toggleOverflowMenu()"
-            >
-                <span
-                    style="transition: 0.2s; margin-top: 0em"
-                    id="overflowMenuToggleButtonText"
-                    class="material-icons-round md-24"
-                    >menu</span
-                >
-            </button>
+			<button
+				id="overflowMenuToggleButton"
+				style="float: right; padding: 8px"
+				onclick="toggleOverflowMenu()"
+			>
+				<span
+					style="transition: 0.2s; margin-top: 0em"
+					id="overflowMenuToggleButtonText"
+					class="material-icons-round md-24"
+				>
+					menu
+				</span>
+			</button>
 
-            <a
-                id="navBarMoreButton"
-                class="link-button"
-                style="float: right; padding: 8px; margin-right: 7px"
-                href="/pages/learn2code.html"
-            >
-                <span
-                    class="material-icons-round md-24"
-                    style="margin-top: 0em; padding-right: 0.4em"
-                    >dashboard</span
-                >
-                See More
-            </a>
+			<a
+				id="navBarMoreButton"
+				class="link-button"
+				style="float: right; padding: 8px; margin-right: 7px"
+				href="/pages/learn2code.html"
+			>
+				<span
+					class="material-icons-round md-24"
+					style="margin-top: 0em; padding-right: 0.4em"
+				>
+					dashboard
+				</span>
+				See More
+			</a>
 
-            <a
-                id="navBarProjectButton"
-                class="link-button disabled"
-                style="float: right; padding: 8px; margin-right: 7px"
-                href="https://github.com/CrypticVader/MyWeb"
-            >
-                <span
-                    class="material-icons-round md-24"
-                    style="margin-top: 0em; padding-right: 0.4em"
-                    >build</span
-                >
-                My projects
-            </a>
+			<a
+				id="navBarProjectButton"
+				class="link-button disabled"
+				style="float: right; padding: 8px; margin-right: 7px"
+				href="https://github.com/CrypticVader/MyWeb"
+			>
+				<span
+					class="material-icons-round md-24"
+					style="margin-top: 0em; padding-right: 0.4em"
+				>
+					build
+				</span>
+				My projects
+			</a>
 
-            <a
-                id="navBarSourceButton"
-                class="link-button"
-                style="float: right; padding: 8px; margin-right: 7px"
-                href="https://github.com/CrypticVader/MyWeb"
-            >
-                <span
-                    class="material-icons-round md-24"
-                    style="margin-top: 0em; padding-right: 0.4em"
-                    >source</span
-                >
-                View Source
-            </a>
+			<a
+				id="navBarSourceButton"
+				class="link-button"
+				style="float: right; padding: 8px; margin-right: 7px"
+				href="https://github.com/CrypticVader/MyWeb"
+			>
+				<span
+					class="material-icons-round md-24"
+					style="margin-top: 0em; padding-right: 0.4em"
+				>
+					source
+				</span>
+				View Source
+			</a>
 
-            <button
-                id="playStateButton"
-                style="
-                    transition: 0.2s;
-                    float: right;
-                    vertical-align: middle;
-                    padding: 8px;
-                    margin-right: 7px;
-                "
-                onclick="togglePlayState(); spawnAlert();"
-            >
-                <span
-                    id="playStateIcon"
-                    style="transition: 0.2s"
-                    class="material-icons-round md-24"
-                    >pause</span
-                >
-            </button>
-        </div>
+			<button
+				id="playStateButton"
+				style="
+					transition: 0.2s;
+					float: right;
+					vertical-align: middle;
+					padding: 8px;
+					margin-right: 7px;
+				"
+				onclick="togglePlayState(); spawnAlert();"
+			>
+				<span
+					id="playStateIcon"
+					style="transition: 0.2s"
+					class="material-icons-round md-24"
+				>
+					pause
+				</span>
+			</button>
+		</div>
 
-        <div style="margin-left: 0; margin-right: 0">
-            <h1 id="headAnimated" class="gradient-text" style="padding: 0">
-                Hi there!
-            </h1>
-        </div>
+		<div style="margin-left: 0; margin-right: 0">
+			<h1 id="headAnimated" class="gradient-text" style="padding: 0">
+				Hi there!
+			</h1>
+		</div>
 
-        <div class="center-text">
-            <p>
-                I'm an aspiring programmer👀<br /><br />
-                I'm still new to all this, but I'm trying to improve.
-                <br /><br />
-                Knows:
-            </p>
+		<div class="center-text">
+			<p>
+				I'm an aspiring programmer👀
+				<br /><br />
+				I'm still new to all this, but I'm trying to improve.
+				<br /><br />
+				Knows:
+			</p>
 
-            <div class="tooltip">
-                <img
-                    alt="Python-logo"
-                    class="padded-InLine"
-                    src="/assets/python.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 80px; margin-left: -55px"
-                    >Python</span
-                >
-            </div>
+			<div class="tooltip">
+				<img
+					alt="Python-logo"
+					class="padded-InLine"
+					src="/assets/python.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 80px; margin-left: -55px">
+					Python
+				</span>
+			</div>
 
-            <div class="tooltip">
-                &nbsp;&nbsp;<img
-                    alt="Java-logo"
-                    class="padded-InLine"
-                    src="/assets/java.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 60px; margin-left: -45px"
-                    >Java</span
-                >
-            </div>
+			<div class="tooltip">
+				&nbsp;&nbsp;
+				<img
+					alt="Java-logo"
+					class="padded-InLine"
+					src="/assets/java.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 60px; margin-left: -45px">
+					Java
+				</span>
+			</div>
 
-            <div class="tooltip">
-                &nbsp;&nbsp;<img
-                    alt="c#-logo"
-                    class="padded-InLine"
-                    src="/assets/c-logo-icon-28402.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 120px; margin-left: -75px"
-                    >C# (noob😓)</span
-                >
-            </div>
+			<div class="tooltip">
+				&nbsp;&nbsp;<img
+					alt="c#-logo"
+					class="padded-InLine"
+					src="/assets/c-logo-icon-28402.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 120px; margin-left: -75px">
+					C# (noob😓)
+				</span>
+			</div>
 
-            <div class="tooltip">
-                &nbsp;&nbsp;<img
-                    alt="JSS-logo"
-                    class="padded-InLine"
-                    style="border-radius: 7px"
-                    src="/assets/javascript-logo.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 180px; margin-left: -100px"
-                    >JavaScript (noob😓)</span
-                >
-            </div>
+			<div class="tooltip">
+				&nbsp;&nbsp;<img
+					alt="JSS-logo"
+					class="padded-InLine"
+					style="border-radius: 7px"
+					src="/assets/javascript-logo.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 180px; margin-left: -100px">
+					JavaScript (noob😓)
+				</span>
+			</div>
 
-            <div class="tooltip">
-                &nbsp;&nbsp;<img
-                    alt="HTML-logo"
-                    class="padded-InLine"
-                    src="/assets/html-5.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 70px; margin-left: -50px"
-                    >HTML</span
-                >
-            </div>
+			<div class="tooltip">
+				&nbsp;&nbsp;
+				<img
+					alt="HTML-logo"
+					class="padded-InLine"
+					src="/assets/html-5.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 70px; margin-left: -50px">
+					HTML
+				</span>
+			</div>
 
-            <div class="tooltip">
-                &nbsp;&nbsp;<img
-                    alt="CSS-logo"
-                    class="padded-InLine"
-                    src="/assets/css-3.png"
-                    width="30"
-                    height="30"
-                /><span
-                    class="tooltiptext"
-                    style="width: 50px; margin-left: -40px"
-                    >CSS</span
-                >
-            </div>
+			<div class="tooltip">
+				&nbsp;&nbsp;
+				<img
+					alt="CSS-logo"
+					class="padded-InLine"
+					src="/assets/css-3.png"
+					width="30"
+					height="30"
+				/>
+				<span class="tooltiptext" style="width: 50px; margin-left: -40px">
+					CSS
+				</span>
+			</div>
 
-            <br /><br />Currently looking into web development.<br /><br />
+			<br /><br />
 
-            <hr id="divider" />
+			Currently looking into web development.
 
-            <br />
-        </div>
+			<br /><br />
 
-        <div class="center-text">
-            <a href="https://www.reddit.com/user/Unfair-Expert-1153"
-                ><img
-                    alt="Redddit-logo"
-                    src="/assets/reddit-icon-698x698.png"
-                    class="squeeze"
-                    width="30"
-                    height="30"
-            /></a>
+			<hr id="divider" />
 
-            <div class="tooltip">
-                <img
-                    alt="Discord-logo"
-                    src="/assets/discord-logo-circle.png"
-                    class="squeeze"
-                    width="30"
-                    height="30"
-                />
-                <span
-                    class="tooltiptext"
-                    style="
-                        width: 200px;
-                        margin-left: -110px;
-                        padding: 5px;
-                        font-size: 16px;
-                    "
-                    >CrypticVader#4644&nbsp
-                    <span
-                        id="copyId"
-                        class="material-icons-round md-18"
-                        onclick="copyText('CrypticVader#4644'); spawnAlert('Copied&nbspto&nbspclipboard');"
-                        >copy</span
-                    >
-                </span>
-            </div>
+			<br />
+		</div>
 
-            <br />
+		<div class="center-text">
+			<a
+				style="text-decoration: none; border-radius: 50%"
+				href="https://www.reddit.com/user/Unfair-Expert-1153"
+			>
+				<img
+					alt="Redddit-logo"
+					src="/assets/reddit-icon-698x698.png"
+					class="squeeze"
+					width="30"
+					height="30"
+				/>
+			</a>
 
-            <a href="https://github.com/CrypticVader"
-                ><img
-                    alt="GitHub-logo"
-                    src="/assets/GitHub-Mark-Light-120px-plus.png"
-                    class="squeeze"
-                    width="30"
-                    height="30"
-            /></a>
+			<div class="tooltip">
+				<img
+					alt="Discord-logo"
+					src="/assets/discord-logo-circle.png"
+					class="squeeze"
+					width="30"
+					height="30"
+				/>
+				<span
+					class="tooltiptext"
+					style="
+						width: 200px;
+						margin-left: -110px;
+						padding: 5px;
+						font-size: 16px;
+					"
+				>
+					CrypticVader#4644&nbsp
+					<span
+						id="copyId"
+						class="material-icons-round md-18"
+						onclick="copyText('CrypticVader#4644'); spawnAlert('Copied&nbspto&nbspclipboard');"
+					>
+						copy
+					</span>
+				</span>
+			</div>
 
-            <a href="https://www.linkedin.com/in/akhil-b-nair-424786191/"
-                ><img
-                    alt="LinkedIn-logo"
-                    src="/assets/linkedin.png"
-                    class="squeeze"
-                    width="30"
-                    height="30"
-            /></a>
-        </div>
+			<br />
 
-        <!-- Load external JavaScript -->
-        <script src="/scripts.js"></script>
-    </body>
+			<a
+				style="text-decoration: none; border-radius: 50%"
+				href="https://github.com/CrypticVader"
+			>
+				<img
+					alt="GitHub-logo"
+					src="/assets/GitHub-Mark-Light-120px-plus.png"
+					class="squeeze"
+					width="30"
+					height="30"
+				/>
+			</a>
+
+			<a
+				style="text-decoration: none; border-radius: 50%"
+				href="https://www.linkedin.com/in/akhil-b-nair-424786191/"
+			>
+				<img
+					alt="LinkedIn-logo"
+					src="/assets/linkedin.png"
+					class="squeeze"
+					width="30"
+					height="30"
+				/>
+			</a>
+		</div>
+
+		<!-- Load external JavaScript -->
+		<script src="/scripts.js"></script>
+	</body>
 </html>
