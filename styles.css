@@ -434,9 +434,9 @@ div.tooltip:hover span.tooltiptext {
 }
 
 div.tab {
-    width: 45%;
+    width: 45.8%;
     height: 100%;
-    background-color: #00000031;
+    background-color: #00000033;
     color: white;
     font-size: 1em;
     font-family: "Comfortaa", sans-serif;
@@ -446,7 +446,7 @@ div.tab {
     border-radius: 17px;
     transition: 0.25s;
     position: relative;
-    display: inline-block;
+    display: inline-grid;
 }
 
 div.tab img {
@@ -456,26 +456,26 @@ div.tab img {
 }
 
 div.tab:active {
-    opacity: 0.6;
-    transition: opacity 0s, box-shadow 0.4s;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
+    opacity: 0.5;
+    transition: opacity 0s, box-shadow 0.2s;
+    box-shadow: 0px 0px 0px 3px rgba(74, 74, 74, 0.18), 0px 0px 0px 3 rgba(79, 79, 79, 0.15);
 }
 
 @media (hover: none) {
     div.tab:active {
-        -webkit-transform: scale(0.95);
-        transform: scale(0.93);
+        -webkit-transform: scale(0.96);
+        transform: scale(0.96);
         -webkit-filter: saturate(150%);
         filter: saturate(150%);
         transition: 0.25s;
-        box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18), 0 3px 3px 3px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 0px 2px rgba(0, 0, 0, 0.18), 0 0px 0px 3px rgba(0, 0, 0, 0.15);
     }
 }
 
 div.tabTextContainer {
     background-image: url(/assets/noisy-texture-100x100-o3-d10-c-1a1a1a80-t1.png);
     background-color: #1a1a1a80;
-    height: 20%;
+    height: 3em;
     width: 100%;
     bottom: -1px;
     left: 0%;
@@ -488,7 +488,7 @@ div.tabTextContainer {
 
 div.tabTextContainer span {
     position: absolute;
-    font-size: auto;
+    font-size: 1.5em;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -524,7 +524,7 @@ div.tabTextContainer span {
     }
     div.tab:hover div.tabTextContainer span {
         opacity: 1;
-        font-size: 170%;
+        font-size: 2em;
         top: 50%;
         left: 50%;
         transition: 0.2s;
@@ -624,24 +624,22 @@ div.CloseIcon:active {
 /* End of popup stuff */
 
 #copyId {
+    font-size: 15px;
     cursor: default;
+    background-color: #ffffff23;
     display: inline-block;
-    height: 68%;
-    background-color: #b3b3b342;
-    border: solid 2px #00000000;
-    padding: 3px;
-    margin-top: 2px;
+    padding: 4px;
     border-radius: 9px;
     transition: 0.3s;
+    transform: scale(1.2);
 }
 
 #copyId:hover {
-    background-color: #66666671;
+    box-shadow: 0px 0px 0px 2px #ffffff38;
     transition: 0.3s;
 }
 
 #copyId:active {
-    background-color: #ffffff36;
-    border-color: #8b8b8b5e;
+    box-shadow: 0px 0px 0px 4px #9c9c9c72;
     transition: 0.3s;
 }
