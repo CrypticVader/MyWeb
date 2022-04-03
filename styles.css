@@ -474,7 +474,7 @@ div.tab:active {
 div.tabTextContainer {
     background-image: url(/assets/noisy-texture-100x100-o3-d10-c-1a1a1a80-t1.png);
     background-color: #1a1a1a80;
-    height: 3em;
+    height: 20%;
     width: 100%;
     bottom: -1px;
     left: 0%;
@@ -487,7 +487,7 @@ div.tabTextContainer {
 
 div.tabTextContainer span {
     position: absolute;
-    font-size: 1.5em;
+    font-size: auto;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -501,7 +501,7 @@ div.tabTextContainer span {
         backdrop-filter: saturate(100%);
         -webkit-transform: scale(1.05);
         transform: scale(1.05);
-        transition: 0.25s;
+        transition: 0.2s;
         box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
     div.tab:hover div.tabTextContainer {
@@ -509,7 +509,7 @@ div.tabTextContainer span {
         background-color: #00000000;
         border-radius: 17px;
         opacity: 1;
-        transition: 0.25s;
+        transition: 0.2s;
         height: 100%;
         backdrop-filter: blur(0px) brightness(1) contrast(2);
     }
@@ -519,11 +519,11 @@ div.tabTextContainer span {
         opacity: 0.3;
         -webkit-filter: blur(10px);
         filter: blur(10px);
-        transition: 0.4s;
+        transition: 0.1s;
     }
     div.tab:hover div.tabTextContainer span {
         opacity: 1;
-        font-size: 2em;
+        font-size: 200%;
         top: 50%;
         left: 50%;
         transition: 0.2s;
