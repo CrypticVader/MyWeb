@@ -35,6 +35,23 @@ function closeModal() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
+function butttonIconTransition(elementId, iconText, delay = 50) {
+    let element = document.getElementById(elementId)
+    element.style.transform = 'scale(0.6)'
+    element.style.opacity = '0.7'
+    setTimeout(function changeIcon() {
+        element.innerHTML = iconText;
+        element.style.transform = 'rotate(-180deg)'
+    }, 100)
+    setTimeout(function morphIcon() {
+        element.style.transform = 'rotate(-180deg)'
+        element.style.transform = 'scale(1)'
+        element.style.opacity = '1'
+    }, 100 + delay)
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
 var popupText = 'lorem&nbspipsum'
 
 function spawnAlert(text = popupText, timeout = 1900) {
@@ -136,13 +153,13 @@ function togglePlayState(forceState = 'toggle') {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenu = document.getElementById('wipOverflowMenu');
+var overflowMenu = document.getElementById('OverflowMenu');
 // var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
-var navBarItems = ['navBarSourceButton', 'navBarHomeButton', 'navBarMoreButton']
+var navBarItems = ['navBarHomeButton', 'navBarMoreButton', 'navBarSourceButton', , 'navBarProjectButton']
 
 function overflowMenuHandler() {
     var windowWidth = window.innerWidth
-    if (windowWidth < 600) {
+    if (windowWidth < 730) {
         overflowMenu.style.display = 'block'
         for (let i = 0; i < navBarItems.length; i++) {
             try {
@@ -158,6 +175,7 @@ function overflowMenuHandler() {
         }
     }
 }
+
 
 var overflowMenuVisibility = 'hidden'
 var overflowMenuToggleButtonIcon = document.getElementById('overflowMenuToggleButtonText')
@@ -183,24 +201,8 @@ function toggleOverflowMenu() {
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", overflowMenuHandler)
 window.addEventListener('resize', overflowMenuHandler)
-
-//----------------------------------------------------------------------------------------------------------------------
-
-function butttonIconTransition(elementId, iconText, delay = 50) {
-    let element = document.getElementById(elementId)
-    element.style.transform = 'scale(0.6)'
-    element.style.opacity = '0.7'
-    setTimeout(function changeIcon() {
-        element.innerHTML = iconText;
-        element.style.transform = 'rotate(-180deg)'
-    }, 100)
-    setTimeout(function morphIcon() {
-        element.style.transform = 'rotate(-180deg)'
-        element.style.transform = 'scale(1)'
-        element.style.opacity = '1'
-    }, 100 + delay)
-}
 
 //----------------------------------------------------------------------------------------------------------------------
