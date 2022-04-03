@@ -13,6 +13,7 @@ body {
 
 @media (hover: hover) {
     body {
+        -webkit-overscroll-behavior: none;
         overscroll-behavior: none;
     }
 }
@@ -38,11 +39,11 @@ h1.gradient-text {
     background-size: 500vw 400vh;
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
     background-clip: text;
     text-shadow: rgba(219, 219, 219, 0.24) 0px 0px 0px;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     -webkit-animation: gradient 60s ease infinite;
     animation: gradient 60s ease infinite;
@@ -85,6 +86,7 @@ hr {
 
 a {
     -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
 }
 
 div.nav-bar {
@@ -126,6 +128,7 @@ div.overflowMenu {
     background-color: #00000049;
     font-size: 18px;
     z-index: 999;
+    -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
     border-radius: 20px 0px 0px 20px;
     transform: translateX(100%);
@@ -200,6 +203,7 @@ a.link-button {
     /* This is to vertically center the text */
     line-height: 25px;
     /**/
+    -moz-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     font-size: 17px;
@@ -258,6 +262,7 @@ button {
     line-height: 25px;
     /**/
     -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
     font-family: "Comfortaa", sans-serif;
     font-size: 17px;
     background-color: #a1a1a131;
@@ -445,6 +450,7 @@ div.tab {
     border-radius: 17px;
     transition: 0.25s;
     position: relative;
+    display: -ms-inline-grid;
     display: inline-grid;
 }
 
@@ -482,6 +488,7 @@ div.tabTextContainer {
     transition: 0.25s;
     position: absolute;
     text-align: center;
+    -webkit-backdrop-filter: blur(5px) brightness(0.75);
     backdrop-filter: blur(5px) brightness(0.75);
 }
 
@@ -511,6 +518,7 @@ div.tabTextContainer span {
         opacity: 1;
         transition: 0.2s;
         height: 100%;
+        -webkit-backdrop-filter: blur(0px) brightness(1) contrast(2);
         backdrop-filter: blur(0px) brightness(1) contrast(2);
     }
     div.tab:hover img {
@@ -600,6 +608,7 @@ div.CloseIcon {
     padding-bottom: 0px;
     transition: 0.2s;
     border-radius: 25%;
+    -moz-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
 }
 
