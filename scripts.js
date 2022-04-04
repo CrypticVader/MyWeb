@@ -167,34 +167,164 @@ function togglePlayState(forceState = "toggle") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenu = document.getElementById("OverflowMenu");
-// var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
-var navBarItems = [
-	"navBarHomeButton",
-	"navBarMoreButton",
-	"navBarSourceButton",
-	,
-	"navBarProjectButton",
-];
+// Code for adding overflow and navBar to all pages
 
-function overflowMenuHandler() {
-	var windowWidth = window.innerWidth;
-	if (windowWidth < 730) {
-		overflowMenu.style.display = "block";
-		for (let i = 0; i < navBarItems.length; i++) {
-			try {
-				document.getElementById(navBarItems[i]).style.display = "none";
-			} catch (error) {}
-		}
-	} else {
-		overflowMenu.style.display = "none";
-		for (let i = 0; i < navBarItems.length; i++) {
-			try {
-				document.getElementById(navBarItems[i]).style.display = "flex";
-			} catch (error) {}
-		}
-	}
-}
+navBarTemplate = `<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"/>
+<span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
+Hello
+</span>
+
+<button
+id="overflowMenuToggleButton"
+style="float: right; padding: 8px"
+onclick="toggleOverflowMenu()"
+>
+<span
+	style="transition: 0.2s; margin-top: 0em"
+	id="overflowMenuToggleButtonText"
+	class="material-icons-round md-24"
+>
+	menu
+</span>
+</button>
+
+<a
+id="navBarHomeButton"
+class="link-button"
+style="float: right; padding: 8px; margin-right: 7px"
+href="/"
+>
+<span class="material-icons-round md-24" style="padding-right: 0.2em">
+	home
+</span>
+Home
+</a>
+
+<a
+id="navBarMoreButton"
+class="link-button"
+style="float: right; padding: 8px; margin-right: 7px"
+href="/pages/learn2code.html"
+>
+<span
+	class="material-icons-round md-24"
+	style="margin-top: 0em; padding-right: 0.4em"
+>
+	dashboard
+</span>
+See More
+</a>
+
+<a
+id="navBarProjectButton"
+class="link-button disabled"
+style="float: right; padding: 8px; margin-right: 7px"
+href="https://github.com/CrypticVader/MyWeb"
+>
+<span
+	class="material-icons-round md-24"
+	style="margin-top: 0em; padding-right: 0.4em"
+>
+	build
+</span>
+My projects
+</a>
+
+<a
+id="navBarSourceButton"
+class="link-button"
+style="float: right; padding: 8px; margin-right: 7px"
+href="https://github.com/CrypticVader/MyWeb"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span
+	class="material-icons-round md-24"
+	style="margin-top: 0em; padding-right: 0.4em"
+>
+	source
+</span>
+View Source
+</a>
+
+<button
+id="playStateButton"
+style="
+	transition: 0.2s;
+	float: right;
+	vertical-align: middle;
+	padding: 8px;
+	margin-right: 7px;
+"
+onclick="togglePlayState(); spawnAlert();"
+>
+<span
+	id="playStateIcon"
+	style="transition: 0.2s"
+	class="material-icons-round md-24"
+>
+	pause
+</span>
+</button>`;
+
+overflowMenutemplate = `<a id="overflowMenuHomeButton" class="overflowMenuButton" href="/">
+<span
+	class="material-icons-round md-18"
+	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+>
+	home
+</span>
+Home
+</a>
+
+<a
+id="overflowMenuMoreButton"
+class="overflowMenuButton"
+href="/pages/learn2code.html"
+>
+<span
+	class="material-icons-round md-18"
+	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+>
+	dashboard
+</span>
+See More
+</a>
+
+<a
+id="overflowMenuSourceButton"
+class="overflowMenuButton"
+href="https://github.com/CrypticVader/MyWeb"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span
+	class="material-icons-round md-18"
+	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+>
+	source
+</span>
+View source
+</a>
+
+<a
+id="overflowMenuProjectButton"
+class="overflowMenuButton disabled"
+href="/pages/projects"
+>
+<span
+	class="material-icons-round md-18"
+	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
+>
+	build
+</span>
+My projects
+</a>`;
+
+document.getElementById("overflowMenuId").innerHTML = overflowMenutemplate;
+document.getElementById("navBar").innerHTML = navBarTemplate;
+
+//----------------------------------------------------------------------------------------------------------------------
 
 var overflowMenuVisibility = "hidden";
 var overflowMenuToggleButtonIcon = document.getElementById(
@@ -234,7 +364,138 @@ function toggleOverflowMenu() {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", overflowMenuHandler);
-window.addEventListener("resize", overflowMenuHandler);
+//----------------------------------------------------------------------------------------------------------------------
 
+var overflowMenu = document.getElementById("overflowMenuId");
+
+var overflowMenuItemsVisible = [];
+
+var navBarItemsVisible = [
+	"navBarHomeButton",
+	"navBarMoreButton",
+	"navBarProjectButton",
+	"navBarSourceButton",
+];
+
+function navBar2OverflowId(navBarId) {
+	switch (navBarId) {
+		case "navBarHomeButton":
+			return "overflowMenuHomeButton";
+		case "navBarMoreButton":
+			return "overflowMenuMoreButton";
+		case "navBarSourceButton":
+			return "overflowMenuSourceButton";
+		case "navBarProjectButton":
+			return "overflowMenuProjectButton";
+		default:
+			return "undefined";
+	}
+}
+
+function overflow2NavBarId(overflowId) {
+	switch (overflowId) {
+		case "overflowMenuHomeButton":
+			return "navBarHomeButton";
+		case "overflowMenuMoreButton":
+			return "navBarMoreButton";
+		case "overflowMenuSourceButton":
+			return "navBarSourceButton";
+		case "overflowMenuProjectButton":
+			return "navBarProjectButton";
+		default:
+			return "undefined";
+	}
+}
+
+// Currently display overflow if innerWidth <= 970px
+var remainingNavBarWidth =
+	window.innerWidth - 200 - navBarItemsVisible.length * 185;
+
+function overflowHandler() {
+	remainingNavBarWidth =
+		window.innerWidth - 200 - navBarItemsVisible.length * 185;
+	// Initial log
+	if (logData == true) {
+		console.log(
+			" 'initial call'\nremainingNavBarWidth: " + remainingNavBarWidth
+		);
+	}
+	// * Check if there's enough space for all navBarItems.
+	// * Check if there's any items left to hide from the navBar
+	// * Displacing elements from navBar to overflowMenu.
+	if (remainingNavBarWidth <= 30 && navBarItemsVisible.length > 0) {
+		document.getElementById(navBarItemsVisible[0]).style.display = "none";
+		document.getElementById(
+			navBar2OverflowId(navBarItemsVisible[0])
+		).style.display = "flex";
+		overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[0]));
+		navBarItemsVisible.splice(0, 1);
+		remainingNavBarWidth =
+			window.innerWidth - 200 - navBarItemsVisible.length * 185;
+		// Log data
+		if (logData == true) {
+			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+			console.log("navBarItemsVisible: " + navBarItemsVisible);
+		}
+		// Display overflow toggle button if it's hidden and there's any
+		// button in overflowMenuItemsVisible & vice versa.
+		overflowMenuToggleButtonHandler();
+		// To handle the case where multiple elements will have
+		// to be hidden from navBar on page load.
+		if (remainingNavBarWidth <= 30 && navBarItemsVisible.length > 0) {
+			overflowHandler();
+		}
+	}
+	// Displacing elements from overflowMenu to navBar &,
+	// check if there's any items left to show in the navBar.
+	else if (remainingNavBarWidth > 215 && overflowMenuItemsVisible.length > 0) {
+		document.getElementById(
+			overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+		).style.display = "none";
+		document.getElementById(
+			overflow2NavBarId(
+				overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+			)
+		).style.display = "flex";
+		navBarItemsVisible.push(
+			overflow2NavBarId(
+				overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+			)
+		);
+		overflowMenuItemsVisible.splice(overflowMenuItemsVisible.length - 1, 1);
+		remainingNavBarWidth =
+			window.innerWidth - 200 - navBarItemsVisible.length * 185;
+		// Log data
+		if (logData == true) {
+			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+			console.log("navBarItemsVisible: " + navBarItemsVisible);
+		}
+		// Display overflow toggle button if it's hidden and there's any
+		// button in overflowMenuItemsVisible & vice versa.
+		overflowMenuToggleButtonHandler();
+	}
+}
+
+function overflowMenuToggleButtonHandler() {
+	if (
+		window
+			.getComputedStyle(overflowMenuToggleButton)
+			.getPropertyValue("display") == "none" &&
+		overflowMenuItemsVisible.length > 0
+	) {
+		overflowMenuToggleButton.style.display = "flex";
+	} else if (
+		window
+			.getComputedStyle(overflowMenuToggleButton)
+			.getPropertyValue("display") == "flex" &&
+		overflowMenuItemsVisible.length == 0
+	) {
+		overflowMenuToggleButton.style.display = "none";
+	}
+}
+
+overflowHandler();
+window.addEventListener("resize", overflowHandler);
 //----------------------------------------------------------------------------------------------------------------------
