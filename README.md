@@ -1,8 +1,8 @@
 # [MyWeb](https://vader.social)
 
-<a href="https://github.com/CrypticVader/MyWeb/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
+<a href="https://vercel.com/crypticvader/my-web"><img src="https://therealsujitk-vercel-badge.vercel.app/?app=my-web-crypticvader" /></a>&nbsp;&nbsp;<a href="https://github.com/CrypticVader/MyWeb/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
 
-<a href="https://vader.social"><img src="https://img.shields.io/badge/vercel-production-brightgreen" /></a>
+
 
 #### 👨‍🏭 Work-in-Progress personal website
 
