@@ -167,131 +167,6 @@ function togglePlayState(forceState = "toggle") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenuVisibility = "hidden";
-var overflowMenuToggleButtonIcon = document.getElementById(
-	"overflowMenuToggleButtonText"
-);
-var overlayThin = document.getElementById("overlayThin");
-
-function toggleOverflowMenu() {
-	if (overflowMenuVisibility == "hidden") {
-		togglePlayState((forceState = "pause"));
-		overlayThin.style.visibility = "visible";
-		overlayThin.style.opacity = "1";
-		overflowMenu.style.visibility = "visible";
-		overflowMenu.style.opacity = "1";
-		overflowMenu.style.transform = "translateX(0%)";
-		overflowMenuVisibility = "visible";
-		butttonIconTransition(
-			(elementId = "overflowMenuToggleButtonText"),
-			(iconText = "close"),
-			(delay = 40)
-		);
-	} else {
-		togglePlayState((forceState = "play"));
-		overlayThin.style.visibility = "hidden";
-		overlayThin.style.opacity = "0";
-		overflowMenu.style.transform = "translateX(100%)";
-		overflowMenu.style.opacity = "0.5";
-		overflowMenu.style.visibility = "hidden";
-		butttonIconTransition(
-			(elementId = "overflowMenuToggleButtonText"),
-			(iconText = "menu"),
-			(delay = 40)
-		);
-		setTimeout(function hideMenu() {
-			overflowMenuVisibility = "hidden";
-		}, 250);
-	}
-}
-
-//----------------------------------------------------------------------------------------------------------------------
-// WiP function to dynamically handle the overflow menu
-
-//var overflowMenuItemsAll = document.getElementsByClassName("overflowMenuButton");
-
-var overflowMenu = document.getElementById("overflowMenuId");
-
-var overflowMenuItemsVisible = [];
-
-const navBarItemsAll = [
-	"navBarHomeButton",
-	"navBarMoreButton",
-	"navBarSourceButton",
-	"navBarProjectButton",
-];
-
-var navBarItemsVisible = [
-	"navBarHomeButton",
-	"navBarMoreButton",
-	"navBarSourceButton",
-	"navBarProjectButton",
-];
-
-function navBar2OverflowId(navBarId) {
-	switch (navBarId) {
-		case "navBarHomeButton":
-			return "overflowMenuHomeButton";
-		case "navBarMoreButton":
-			return "overflowMenuMoreButton";
-		case "navBarSourceButton":
-			return "overflowMenuSourceButton";
-		case "navBarProjectButton":
-			return "overflowMenuProjectButton";
-		default:
-			return "undefined";
-	}
-}
-
-// Currently display overflow if innerWidth <= 1024px
-var remainingNavBarWidth =
-	window.innerWidth - 100 - navBarItemsAll.length * 185;
-
-function dynamicOverflowHandler() {
-	remainingNavBarWidth =
-		window.innerWidth - 100 - navBarItemsVisible.length * 185;
-	// Check if there's enough space for all navBarItems
-	if (remainingNavBarWidth <= 185) {
-		// Check if there's any items left to hide from the navBar
-		if (navBarItemsVisible.length > 0) {
-			for (var i = 0; i < navBarItemsVisible.length; i++) {
-				document.getElementById(navBarItemsVisible[i]).style.display = "none";
-				document.getElementById(
-					navBar2OverflowId(navBarItemsVisible[i])
-				).style.display = "flex";
-				overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[i]));
-				navBarItemsVisible.splice(i, 1);
-				remainingNavBarWidth =
-					window.innerWidth - 100 - navBarItemsVisible.length * 185;
-				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
-				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
-				console.log("navBarItemsVisible: " + navBarItemsVisible);
-
-				// Display overflow toggle button if it's hidden and there's any
-				// button in overflowMenuItemsVisible & vice versa.
-				if (
-					window
-						.getComputedStyle(overflowMenuToggleButton)
-						.getPropertyValue("display") == "none"
-				) {
-					if (overflowMenuItemsVisible.length > 0) {
-						overflowMenuToggleButton.style.display = "flex";
-					} else {
-						overflowMenuToggleButton.style.display = "none";
-					}
-				}
-			}
-		}
-	}
-}
-
-function moveFromOver2Nav() {
-	console.log("placeholder");
-}
-
-document.addEventListener("DOMContentLoaded", dynamicOverflowHandler);
-window.addEventListener("resize", dynamicOverflowHandler);
-//----------------------------------------------------------------------------------------------------------------------
 // Code for adding overflow and navBar to all pages
 
 navBarTemplate = `<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"/>
@@ -449,4 +324,130 @@ My projects
 document.getElementById("overflowMenuId").innerHTML = overflowMenutemplate;
 document.getElementById("navBar").innerHTML = navBarTemplate;
 
+//----------------------------------------------------------------------------------------------------------------------
+
+var overflowMenuVisibility = "hidden";
+var overflowMenuToggleButtonIcon = document.getElementById(
+	"overflowMenuToggleButtonText"
+);
+var overlayThin = document.getElementById("overlayThin");
+
+function toggleOverflowMenu() {
+	if (overflowMenuVisibility == "hidden") {
+		togglePlayState((forceState = "pause"));
+		overlayThin.style.visibility = "visible";
+		overlayThin.style.opacity = "1";
+		overflowMenu.style.visibility = "visible";
+		overflowMenu.style.opacity = "1";
+		overflowMenu.style.transform = "translateX(0%)";
+		overflowMenuVisibility = "visible";
+		butttonIconTransition(
+			(elementId = "overflowMenuToggleButtonText"),
+			(iconText = "close"),
+			(delay = 40)
+		);
+	} else {
+		togglePlayState((forceState = "play"));
+		overlayThin.style.visibility = "hidden";
+		overlayThin.style.opacity = "0";
+		overflowMenu.style.transform = "translateX(100%)";
+		overflowMenu.style.opacity = "0.5";
+		overflowMenu.style.visibility = "hidden";
+		butttonIconTransition(
+			(elementId = "overflowMenuToggleButtonText"),
+			(iconText = "menu"),
+			(delay = 40)
+		);
+		setTimeout(function hideMenu() {
+			overflowMenuVisibility = "hidden";
+		}, 250);
+	}
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// WiP function to dynamically handle the overflow menu
+
+//var overflowMenuItemsAll = document.getElementsByClassName("overflowMenuButton");
+
+var overflowMenu = document.getElementById("overflowMenuId");
+
+var overflowMenuItemsVisible = [];
+
+const navBarItemsAll = [
+	"navBarHomeButton",
+	"navBarMoreButton",
+	"navBarSourceButton",
+	"navBarProjectButton",
+];
+
+var navBarItemsVisible = [
+	"navBarHomeButton",
+	"navBarMoreButton",
+	"navBarSourceButton",
+	"navBarProjectButton",
+];
+
+function navBar2OverflowId(navBarId) {
+	switch (navBarId) {
+		case "navBarHomeButton":
+			return "overflowMenuHomeButton";
+		case "navBarMoreButton":
+			return "overflowMenuMoreButton";
+		case "navBarSourceButton":
+			return "overflowMenuSourceButton";
+		case "navBarProjectButton":
+			return "overflowMenuProjectButton";
+		default:
+			return "undefined";
+	}
+}
+
+// Currently display overflow if innerWidth <= 970px
+var remainingNavBarWidth =
+	window.innerWidth - 100 - navBarItemsAll.length * 185;
+
+function dynamicOverflowHandler() {
+	remainingNavBarWidth =
+		window.innerWidth - 100 - navBarItemsVisible.length * 185;
+	// Check if there's enough space for all navBarItems
+	if (remainingNavBarWidth <= 130) {
+		// Check if there's any items left to hide from the navBar
+		if (navBarItemsVisible.length > 0) {
+			for (var i = 0; i < navBarItemsVisible.length; i++) {
+				document.getElementById(navBarItemsVisible[i]).style.display = "none";
+				document.getElementById(
+					navBar2OverflowId(navBarItemsVisible[i])
+				).style.display = "flex";
+				overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[i]));
+				navBarItemsVisible.splice(i, 1);
+				remainingNavBarWidth =
+					window.innerWidth - 100 - navBarItemsVisible.length * 185;
+				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+				console.log("navBarItemsVisible: " + navBarItemsVisible);
+
+				// Display overflow toggle button if it's hidden and there's any
+				// button in overflowMenuItemsVisible & vice versa.
+				if (
+					window
+						.getComputedStyle(overflowMenuToggleButton)
+						.getPropertyValue("display") == "none"
+				) {
+					if (overflowMenuItemsVisible.length > 0) {
+						overflowMenuToggleButton.style.display = "flex";
+					} else {
+						overflowMenuToggleButton.style.display = "none";
+					}
+				}
+			}
+		}
+	}
+}
+
+function moveFromOver2Nav() {
+	console.log("placeholder");
+}
+
+document.addEventListener("DOMContentLoaded", dynamicOverflowHandler);
+window.addEventListener("resize", dynamicOverflowHandler);
 //----------------------------------------------------------------------------------------------------------------------
