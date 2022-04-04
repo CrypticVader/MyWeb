@@ -365,9 +365,6 @@ function toggleOverflowMenu() {
 }
 
 //----------------------------------------------------------------------------------------------------------------------
-// WiP function to dynamically handle the overflow menu
-
-//var overflowMenuItemsAll = document.getElementsByClassName("overflowMenuButton");
 
 var overflowMenu = document.getElementById("overflowMenuId");
 
@@ -402,11 +399,26 @@ function navBar2OverflowId(navBarId) {
 	}
 }
 
+function overflow2NavBarId(overflowId) {
+	switch (overflowId) {
+		case "overflowMenuHomeButton":
+			return "navBarHomeButton";
+		case "overflowMenuMoreButton":
+			return "navBarMoreButton";
+		case "overflowMenuSourceButton":
+			return "navBarSourceButton";
+		case "overflowMenuProjectButton":
+			return "navBarProjectButton";
+		default:
+			return "undefined";
+	}
+}
+
 // Currently display overflow if innerWidth <= 970px
 var remainingNavBarWidth =
 	window.innerWidth - 200 - navBarItemsAll.length * 185;
 
-function dynamicOverflowHandler() {
+function overflowHandler() {
 	remainingNavBarWidth =
 		window.innerWidth - 200 - navBarItemsVisible.length * 185;
 	console.log(" 'initial call'\nremainingNavBarWidth: " + remainingNavBarWidth);
@@ -422,15 +434,45 @@ function dynamicOverflowHandler() {
 			navBarItemsVisible.splice(0, 1);
 			remainingNavBarWidth =
 				window.innerWidth - 200 - navBarItemsVisible.length * 185;
+			// Log data
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
 			// Display overflow toggle button if it's hidden and there's any
 			// button in overflowMenuItemsVisible & vice versa.
 			overflowMenuToggleButtonHandler();
-			if (remainingNavBarWidth < 10 && navBarItemsVisible.length > 0) {
-				dynamicOverflowHandler();
+			// To handle the case where multiple elements will have
+			// to be hidden from navBar on page load.
+			if (remainingNavBarWidth <= 30 && navBarItemsVisible.length > 0) {
+				overflowHandler();
 			}
+		}
+	} else if (remainingNavBarWidth > 215) {
+		// Check if there's any items left to show in the navBar
+		if (overflowMenuItemsVisible.length > 0) {
+			document.getElementById(
+				overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+			).style.display = "none";
+			document.getElementById(
+				overflow2NavBarId(
+					overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+				)
+			).style.display = "flex";
+			navBarItemsVisible.push(
+				overflow2NavBarId(
+					overflowMenuItemsVisible[overflowMenuItemsVisible.length - 1]
+				)
+			);
+			overflowMenuItemsVisible.splice(overflowMenuItemsVisible.length - 1, 1);
+			remainingNavBarWidth =
+				window.innerWidth - 200 - navBarItemsVisible.length * 185;
+			// Log data
+			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+			console.log("navBarItemsVisible: " + navBarItemsVisible);
+			// Display overflow toggle button if it's hidden and there's any
+			// button in overflowMenuItemsVisible & vice versa.
+			overflowMenuToggleButtonHandler();
 		}
 	}
 }
@@ -439,20 +481,20 @@ function overflowMenuToggleButtonHandler() {
 	if (
 		window
 			.getComputedStyle(overflowMenuToggleButton)
-			.getPropertyValue("display") == "none"
+			.getPropertyValue("display") == "none" &&
+		overflowMenuItemsVisible.length > 0
 	) {
-		if (overflowMenuItemsVisible.length > 0) {
-			overflowMenuToggleButton.style.display = "flex";
-		} else {
-			overflowMenuToggleButton.style.display = "none";
-		}
+		overflowMenuToggleButton.style.display = "flex";
+	} else if (
+		window
+			.getComputedStyle(overflowMenuToggleButton)
+			.getPropertyValue("display") == "flex" &&
+		overflowMenuItemsVisible.length == 0
+	) {
+		overflowMenuToggleButton.style.display = "none";
 	}
 }
 
-function moveFromOver2Nav() {
-	console.log("placeholder");
-}
-
-document.addEventListener("DOMContentLoaded", dynamicOverflowHandler);
-window.addEventListener("resize", dynamicOverflowHandler);
+document.addEventListener("DOMContentLoaded", overflowHandler);
+window.addEventListener("resize", overflowHandler);
 //----------------------------------------------------------------------------------------------------------------------
