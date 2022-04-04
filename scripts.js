@@ -169,7 +169,6 @@ function togglePlayState(forceState = "toggle") {
 // Deprecated function for handling overFlow menu
 
 var overflowMenu = document.getElementById("OverflowMenu");
-// var overflowMenuItems = document.getElementsByClassName('overflowMenuButton')
 var navBarItems = [
 	"navBarHomeButton",
 	"navBarMoreButton",
@@ -182,16 +181,12 @@ function overflowMenuHandler() {
 	if (windowWidth < 730) {
 		overflowMenu.style.display = "block";
 		for (let i = 0; i < navBarItems.length; i++) {
-			try {
-				document.getElementById(navBarItems[i]).style.display = "none";
-			} catch (error) {}
+			document.getElementById(navBarItems[i]).style.display = "none";
 		}
 	} else {
 		overflowMenu.style.display = "none";
 		for (let i = 0; i < navBarItems.length; i++) {
-			try {
-				document.getElementById(navBarItems[i]).style.display = "flex";
-			} catch (error) {}
+			document.getElementById(navBarItems[i]).style.display = "flex";
 		}
 	}
 }
@@ -284,7 +279,6 @@ var remainingNavBarWidth =
 function dynamicOverflowHandler() {
 	remainingNavBarWidth =
 		window.innerWidth - 100 - navBarItemsVisible.length * 185;
-
 	// Check if there's enough space for all navBarItems
 	if (remainingNavBarWidth <= 185) {
 		// Check if there's any items left to hide from the navBar
