@@ -1,6 +1,8 @@
 # [MyWeb](https://vader.social)
 
-![](https://img.shields.io/badge/license-MIT-blue)
+<a href="https://github.com/CrypticVader/MyWeb/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
+
+<a href="https://vader.social"><img src="https://img.shields.io/badge/vercel-production-brightgreen" /></a>
 
 #### 👨‍🏭 Work-in-Progress personal website
 
