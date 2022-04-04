@@ -404,13 +404,14 @@ function navBar2OverflowId(navBarId) {
 
 // Currently display overflow if innerWidth <= 970px
 var remainingNavBarWidth =
-	window.innerWidth - 100 - navBarItemsAll.length * 185;
+	window.innerWidth - 200 - navBarItemsAll.length * 185;
 
 function dynamicOverflowHandler() {
 	remainingNavBarWidth =
-		window.innerWidth - 100 - navBarItemsVisible.length * 185;
+		window.innerWidth - 200 - navBarItemsVisible.length * 185;
+	console.log(" 'initial call'\nremainingNavBarWidth: " + remainingNavBarWidth);
 	// Check if there's enough space for all navBarItems
-	if (remainingNavBarWidth <= 130) {
+	if (remainingNavBarWidth <= 30) {
 		// Check if there's any items left to hide from the navBar
 		if (navBarItemsVisible.length > 0) {
 			document.getElementById(navBarItemsVisible[0]).style.display = "none";
@@ -420,13 +421,16 @@ function dynamicOverflowHandler() {
 			overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[0]));
 			navBarItemsVisible.splice(0, 1);
 			remainingNavBarWidth =
-				window.innerWidth - 100 - navBarItemsVisible.length * 185;
+				window.innerWidth - 200 - navBarItemsVisible.length * 185;
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
 			// Display overflow toggle button if it's hidden and there's any
 			// button in overflowMenuItemsVisible & vice versa.
 			overflowMenuToggleButtonHandler();
+			if (remainingNavBarWidth < 0 && navBarItemsVisible.length > 0) {
+				dynamicOverflowHandler();
+			}
 		}
 	}
 }
