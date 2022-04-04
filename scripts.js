@@ -413,33 +413,34 @@ function dynamicOverflowHandler() {
 	if (remainingNavBarWidth <= 130) {
 		// Check if there's any items left to hide from the navBar
 		if (navBarItemsVisible.length > 0) {
-			for (var i = 0; i < navBarItemsVisible.length; i++) {
-				document.getElementById(navBarItemsVisible[i]).style.display = "none";
-				document.getElementById(
-					navBar2OverflowId(navBarItemsVisible[i])
-				).style.display = "flex";
-				overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[i]));
-				navBarItemsVisible.splice(i, 1);
-				remainingNavBarWidth =
-					window.innerWidth - 100 - navBarItemsVisible.length * 185;
-				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
-				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
-				console.log("navBarItemsVisible: " + navBarItemsVisible);
+			document.getElementById(navBarItemsVisible[0]).style.display = "none";
+			document.getElementById(
+				navBar2OverflowId(navBarItemsVisible[0])
+			).style.display = "flex";
+			overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[0]));
+			navBarItemsVisible.splice(0, 1);
+			remainingNavBarWidth =
+				window.innerWidth - 100 - navBarItemsVisible.length * 185;
+			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
+			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
+			console.log("navBarItemsVisible: " + navBarItemsVisible);
+			// Display overflow toggle button if it's hidden and there's any
+			// button in overflowMenuItemsVisible & vice versa.
+			overflowMenuToggleButtonHandler();
+		}
+	}
+}
 
-				// Display overflow toggle button if it's hidden and there's any
-				// button in overflowMenuItemsVisible & vice versa.
-				if (
-					window
-						.getComputedStyle(overflowMenuToggleButton)
-						.getPropertyValue("display") == "none"
-				) {
-					if (overflowMenuItemsVisible.length > 0) {
-						overflowMenuToggleButton.style.display = "flex";
-					} else {
-						overflowMenuToggleButton.style.display = "none";
-					}
-				}
-			}
+function overflowMenuToggleButtonHandler() {
+	if (
+		window
+			.getComputedStyle(overflowMenuToggleButton)
+			.getPropertyValue("display") == "none"
+	) {
+		if (overflowMenuItemsVisible.length > 0) {
+			overflowMenuToggleButton.style.display = "flex";
+		} else {
+			overflowMenuToggleButton.style.display = "none";
 		}
 	}
 }
