@@ -428,7 +428,7 @@ function dynamicOverflowHandler() {
 			// Display overflow toggle button if it's hidden and there's any
 			// button in overflowMenuItemsVisible & vice versa.
 			overflowMenuToggleButtonHandler();
-			if (remainingNavBarWidth < 0 && navBarItemsVisible.length > 0) {
+			if (remainingNavBarWidth < 10 && navBarItemsVisible.length > 0) {
 				dynamicOverflowHandler();
 			}
 		}
