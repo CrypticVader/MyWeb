@@ -277,11 +277,16 @@ function navBar2OverflowId(navBarId) {
 	}
 }
 
-var remainingNavBarWidth = window.innerWidth - navBarItemsAll.length * 185;
+// Currently display overflow if innerWidth <= 1024px
+var remainingNavBarWidth =
+	window.innerWidth - 100 - navBarItemsAll.length * 185;
 
 function dynamicOverflowHandler() {
+	remainingNavBarWidth =
+		window.innerWidth - 100 - navBarItemsVisible.length * 185;
+
 	// Check if there's enough space for all navBarItems
-	if (remainingNavBarWidth <= 0) {
+	if (remainingNavBarWidth <= 185) {
 		// Check if there's any items left to hide from the navBar
 		if (navBarItemsVisible.length > 0) {
 			for (var i = 0; i < navBarItemsVisible.length; i++) {
@@ -295,7 +300,19 @@ function dynamicOverflowHandler() {
 				navBarItemsVisible.splice(i, 1);
 				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 				console.log("navBarItemsVisible: " + navBarItemsVisible);
-				if (remainingNavBarWidth > 185) {
+
+				// Display overflow toggle button if it's hidden and there's any
+				// button in overflowMenuItemsVisible & vice versa.
+				if (
+					window
+						.getComputedStyle(overflowMenuToggleButton)
+						.getPropertyValue("display") == "none"
+				) {
+					if (overflowMenuItemsVisible.length > 0) {
+						overflowMenuToggleButton.style.display = "flex";
+					} else {
+						overflowMenuToggleButton.style.display = "none";
+					}
 				}
 			}
 		}
@@ -303,7 +320,7 @@ function dynamicOverflowHandler() {
 }
 
 function moveFromOver2Nav() {
-	console.log("moveFromOver2Nav");
+	console.log("placeholder");
 }
 
 document.addEventListener("DOMContentLoaded", dynamicOverflowHandler);

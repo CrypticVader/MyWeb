@@ -210,12 +210,6 @@ a.overflowMenuButton {
 	display: none;
 }
 
-@media (max-width: 730px) {
-	#overflowMenuToggleButton {
-		display: flex;
-	}
-}
-
 div.alert {
 	position: fixed;
 	display: inline-block;
