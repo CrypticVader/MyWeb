@@ -291,13 +291,14 @@ function dynamicOverflowHandler() {
 		if (navBarItemsVisible.length > 0) {
 			for (var i = 0; i < navBarItemsVisible.length; i++) {
 				document.getElementById(navBarItemsVisible[i]).style.display = "none";
-				remainingNavBarWidth += 185;
-				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 				document.getElementById(
 					navBar2OverflowId(navBarItemsVisible[i])
 				).style.display = "flex";
 				overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[i]));
 				navBarItemsVisible.splice(i, 1);
+				remainingNavBarWidth =
+					window.innerWidth - 100 - navBarItemsVisible.length * 185;
+				console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 				console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 				console.log("navBarItemsVisible: " + navBarItemsVisible);
 
