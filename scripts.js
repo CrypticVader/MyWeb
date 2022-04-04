@@ -370,18 +370,11 @@ var overflowMenu = document.getElementById("overflowMenuId");
 
 var overflowMenuItemsVisible = [];
 
-const navBarItemsAll = [
-	"navBarHomeButton",
-	"navBarMoreButton",
-	"navBarSourceButton",
-	"navBarProjectButton",
-];
-
 var navBarItemsVisible = [
 	"navBarHomeButton",
 	"navBarMoreButton",
-	"navBarSourceButton",
 	"navBarProjectButton",
+	"navBarSourceButton",
 ];
 
 function navBar2OverflowId(navBarId) {
@@ -416,7 +409,7 @@ function overflow2NavBarId(overflowId) {
 
 // Currently display overflow if innerWidth <= 970px
 var remainingNavBarWidth =
-	window.innerWidth - 200 - navBarItemsAll.length * 185;
+	window.innerWidth - 200 - navBarItemsVisible.length * 185;
 
 function overflowHandler() {
 	remainingNavBarWidth =
