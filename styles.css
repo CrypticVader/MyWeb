@@ -1,5 +1,5 @@
-body {
-	background: linear-gradient(
+:root {
+	og-gradient: linear-gradient(
 		130deg,
 		rgba(31, 31, 190, 0.737),
 		#104d86a8,
@@ -11,12 +11,40 @@ body {
 		#43047096,
 		#a80041ab
 	);
-	background-size: 500% 400%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
-	background-color: #000000;
+}
+
+body {
+	background: linear-gradient(
+			130deg,
+			rgba(31, 31, 189, 0.5),
+			rgba(16, 77, 134, 0.5),
+			rgba(124, 0, 52, 0.5),
+			rgba(131, 32, 14, 0.5),
+			rgba(124, 28, 65, 0.5),
+			rgba(160, 110, 118, 0.5),
+			rgba(134, 94, 70, 0.5),
+			rgba(67, 4, 112, 0.5),
+			rgba(168, 0, 65, 0.5)
+		),
+		linear-gradient(
+			220deg,
+			rgba(31, 31, 189, 0.5),
+			rgba(16, 77, 134, 0.5),
+			rgba(124, 0, 52, 0.5),
+			rgba(131, 32, 14, 0.5),
+			rgba(124, 28, 65, 0.5),
+			rgba(160, 110, 118, 0.5),
+			rgba(134, 94, 70, 0.5),
+			rgba(67, 4, 112, 0.5),
+			rgba(168, 0, 65, 0.5)
+		);
+	background-size: 150vw 100vh, 150vw 100vh;
+	background-repeat: no-repeat, no-repeat;
+	background-attachment: fixed, fixed;
+	background-position: -100vw 0vh, 50vw 0vh;
+	-webkit-animation: gradient 10s infinite, gradient 10s infinite;
+	animation: gradient 10s infinite, gradient 10s infinite;
+	background-color: #181818;
 	color: rgba(255, 255, 255, 0.877);
 	font-size: 20px;
 	font-family: "Comfortaa", sans-serif;
@@ -40,35 +68,10 @@ h1.gradient-text {
 	position: inline-block;
 	font-weight: bolder;
 	transition: 0.6s;
-	opacity: 0.7;
+	opacity: 0.4;
 	font-size: 6em;
 	line-height: 100%;
 	margin-top: 0.8em;
-	/* Create the gradient. */
-	background: linear-gradient(
-		130deg,
-		#1f1fbebc,
-		#104d86a8,
-		#7c0034a4,
-		#83200e9c,
-		#7c1c41bb,
-		#a06e76b2,
-		#865e46b2,
-		#43047096,
-		#a80041ab
-	);
-	/* Set the background size and repeat properties. */
-	background-size: 500vw 400vh;
-	/* Use the text as a mask for the background. */
-	/* This will show the gradient as a text color rather than element bg. */
-	-moz-background-clip: text;
-	-webkit-background-clip: text;
-	background-clip: text;
-	text-shadow: rgba(219, 219, 219, 0.24) 0px 0px 0px;
-	-webkit-text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
 }
 
 h1.gradient-text:hover {
@@ -86,32 +89,18 @@ h1.gradient-text:hover {
 hr {
 	border: 0;
 	height: 2.5px;
-	background: linear-gradient(
-		130deg,
-		#1f1fbebc,
-		#104d86a8,
-		#7c0034a4,
-		#83200e9c,
-		#7c1c41bb,
-		#a06e76b2,
-		#865e46b2,
-		#43047096,
-		#a80041ab
-	);
-	background-size: 500vw 400vh;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
+	background-color: #7d7d7d3c;
 }
 
 @keyframes gradient {
 	0% {
-		background-position: 0% 40%;
+		background-position: -50vw 0vh, 0vw 0vh;
 	}
 	50% {
-		background-position: 100% 50%;
+		background-position: 0vw 0vh, -50vw 0vh;
 	}
 	100% {
-		background-position: 0% 40%;
+		background-position: -50vw 0vh, 0vw 0vh;
 	}
 }
 
