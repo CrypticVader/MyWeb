@@ -1,5 +1,5 @@
 :root {
-	og-gradient: linear-gradient(130deg,
+	--og-gradient: linear-gradient(130deg,
 			rgba(31, 31, 190, 0.737),
 			#104d86a8,
 			#7c0034a4,
