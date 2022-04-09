@@ -1,6 +1,6 @@
 :root {
 	--og-gradient: linear-gradient(130deg,
-			rgba(31, 31, 190, 0.737),
+			rgba(107, 221, 247, 0.737),
 			#104d86a8,
 			#7c0034a4,
 			#83200e9c,
@@ -12,7 +12,16 @@
 }
 
 body {
-	background: var(--og-gradient);
+	background: linear-gradient(130deg,
+			rgba(94, 94, 145, 0.9),
+			rgba(41, 129, 173, 0.9),
+			rgba(174, 56, 105, 0.9),
+			rgba(180, 75, 56, 0.9),
+			rgba(171, 87, 119, 0.9),
+			rgba(120, 81, 88, 0.9),
+			rgba(154, 109, 81, 0.9),
+			rgba(135, 95, 163, 0.9),
+			rgba(177, 128, 95, 0.9));
 	background-size: 400vw 400vh;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -23,6 +32,32 @@ body {
 	color: rgba(255, 255, 255, 0.877);
 	font-size: 20px;
 	font-family: "Comfortaa", sans-serif;
+}
+
+body.dark {
+	background: linear-gradient(130deg,
+			rgba(107, 221, 247, 0.737),
+			#104d86a8,
+			#7c0034a4,
+			#83200e9c,
+			#7c1c41bb,
+			#a06e76b2,
+			#865e46b2,
+			#43047096,
+			#a80041ab);
+}
+
+body.light {
+	background: linear-gradient(130deg,
+			rgba(94, 94, 145, 0.9),
+			rgba(41, 129, 173, 0.9),
+			rgba(174, 56, 105, 0.9),
+			rgba(180, 75, 56, 0.9),
+			rgba(171, 87, 119, 0.9),
+			rgba(120, 81, 88, 0.9),
+			rgba(154, 109, 81, 0.9),
+			rgba(135, 95, 163, 0.9),
+			rgba(177, 128, 95, 0.9));
 }
 
 @media (hover: hover) {
@@ -87,8 +122,8 @@ hr {
 	left: 45vw;
 	width: 10px;
 	height: 10px;
-	border: solid 1px #9e9e9e8a;
-	border-radius: 15%;
+	/* border: solid 1px #9e9e9e8a; */
+	/* border-radius: 15%; */
 	transform-origin: top left;
 	overflow: hidden;
 	transform: scale(0) rotate(0deg) translate(-50%, -50%);
