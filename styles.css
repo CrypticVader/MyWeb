@@ -106,15 +106,13 @@ hr {
 	left: 45vw;
 	width: 10px;
 	height: 10px;
-	border: solid 1px #003298;
+	border: solid 1px #9e9e9e8a;
+	border-radius: 15%;
 	transform-origin: top left;
+	overflow: hidden;
 	transform: scale(0) rotate(0deg) translate(-50%, -50%);
 	-webkit-animation: cube 12s ease-in forwards infinite;
 	animation: cube 12s ease-in forwards infinite;
-}
-
-.cube:nth-child(2n) {
-	border-color: #0051f4;
 }
 
 .cube:nth-child(2) {
