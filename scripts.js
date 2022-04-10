@@ -499,3 +499,59 @@ function overflowMenuToggleButtonHandler() {
 overflowHandler();
 window.addEventListener("resize", overflowHandler);
 //----------------------------------------------------------------------------------------------------------------------
+// Bg particle fx
+
+// Some random colors
+const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+const lightColors = [
+	"rgba(96, 174, 213, 0.902)",
+	"rgba(199, 124, 103, 0.902)",
+	"rgba(228, 138, 167, 0.814)",
+	"rgba(143, 231, 197, 0.753)",
+	"rgba(247, 242, 152, 0.902)",
+];
+
+const numBalls = 40; // Number of particles
+const balls = [];
+
+// Creating & styling particles
+window.addEventListener(onload, generateParticles());
+
+function generateParticles() {
+	for (let i = 0; i < numBalls; i++) {
+		let ball = document.createElement("div");
+		ball.classList.add("ball");
+		ball.style.background =
+			lightColors[Math.floor(Math.random() * lightColors.length)];
+		ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+		ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+		ball.style.transform = `scale(${Math.random()})`;
+		ball.style.width = `${Math.random()}em`;
+		ball.style.height = ball.style.width;
+
+		balls.push(ball);
+		document.body.append(ball);
+	}
+}
+
+// Keyframes for the particle animation
+balls.forEach((elem, i, arr) => {
+	let to = {
+		x: Math.random() * (i % 2 === 0 ? -11 : 11),
+		y: Math.random() * 12,
+	};
+
+	elem.animate(
+		[
+			{ transform: "translate(0, 0)" }, // start position
+			{ transform: `translate(${to.x}rem, ${to.y}rem)` }, // end position
+		],
+		{
+			duration: (Math.random() + 1) * 3500, // random duration
+			direction: "alternate-reverse",
+			fill: "both",
+			iterations: Infinity,
+			easing: "ease-in-out",
+		}
+	);
+});
