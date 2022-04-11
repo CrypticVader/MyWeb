@@ -108,6 +108,7 @@ function copyText(text = "undefined") {
 //----------------------------------------------------------------------------------------------------------------------
 
 var bgPlayState = "running";
+var bgParticleMotionState;
 var playStateIconText;
 var skipOverride = false;
 var playStateIcon = document.getElementById("playStateIcon");
@@ -118,10 +119,12 @@ function togglePlayState(forceState = "toggle") {
 	if (forceState == "toggle") {
 		if (bgPlayState == "running") {
 			bgPlayState = "paused";
+			bgParticleMotion = "pause";
 			popupText = "Background&nbsppaused";
 			playStateIconText = "play_arrow";
 		} else {
 			bgPlayState = "running";
+			bgParticleMotion = "run";
 			popupText = "Background&nbsprunning";
 			playStateIconText = "pause";
 		}
@@ -129,11 +132,13 @@ function togglePlayState(forceState = "toggle") {
 	} else if (forceState == "play") {
 		skipOverride = bgPlayState == "running" ? true : false;
 		bgPlayState = "running";
+		bgParticleMotion = "run";
 		popupText = "Background&nbsprunning";
 		playStateIconText = "pause";
 	} else if (forceState == "pause") {
 		skipOverride = bgPlayState == "paused" ? true : false;
 		bgPlayState = "paused";
+		bgParticleMotion = "pause";
 		popupText = "Background&nbsppaused";
 		playStateIconText = "play_arrow";
 	}
@@ -154,11 +159,14 @@ function togglePlayState(forceState = "toggle") {
 	if (skipOverride == false) {
 		// Change play state
 		document.body.style.animationPlayState = bgPlayState;
-		try {
-			divider.style.animationPlayState = bgPlayState;
-			headingAnimated.style.animationPlayState = bgPlayState;
-		} catch (error) {
-			console.log("Missing elements referenced, error suppressed.");
+		if (bgParticleMotion == "pause") {
+			balls.forEach((elem, i, arr) => {
+				anims[i].pause();
+			});
+		} else if (bgParticleMotion == "run") {
+			balls.forEach((elem, i, arr) => {
+				anims[i].play();
+			});
 		}
 		// Icon change & effect
 		butttonIconTransition("playStateIcon", playStateIconText, (delay = 50));
@@ -407,7 +415,7 @@ function overflow2NavBarId(overflowId) {
 	}
 }
 
-// Currently display overflow if innerWidth <= 970px
+// Currently displays overflow if innerWidth <= 970px
 var remainingNavBarWidth =
 	window.innerWidth - 200 - navBarItemsVisible.length * 185;
 
@@ -502,7 +510,7 @@ window.addEventListener("resize", overflowHandler);
 // Bg particle fx
 
 // Some random colors
-const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+const defaultColors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 const lightColors = [
 	"rgba(96, 174, 213, 0.902)",
 	"rgba(199, 124, 103, 0.902)",
@@ -518,6 +526,7 @@ const balls = []; // Array to store particles
 window.addEventListener(onload, generateParticles());
 
 function generateParticles() {
+	let containerDiv = document.getElementById("particleContainer"); // Particles container
 	for (let i = 0; i < numBalls; i++) {
 		let ball = document.createElement("div");
 		ball.classList.add("ball");
@@ -528,20 +537,20 @@ function generateParticles() {
 		ball.style.transform = `scale(${Math.random()})`;
 		ball.style.width = `${Math.random()}em`;
 		ball.style.height = ball.style.width;
-
 		balls.push(ball);
-		particleContainer.appendChild(ball);
+		containerDiv.appendChild(ball);
 	}
 }
 
 // Keyframes for the particle animation
+var anims = [];
 balls.forEach((elem, i, arr) => {
 	let to = {
 		x: Math.random() * (i % 2 === 0 ? -16 : 16),
 		y: Math.random() * 17,
 	};
 
-	elem.animate(
+	let anim = elem.animate(
 		[
 			{ transform: "translate(0, 0)" }, // start position
 			{ transform: `translate(${to.x}rem, ${to.y}rem)` }, // end position
@@ -554,4 +563,5 @@ balls.forEach((elem, i, arr) => {
 			easing: "ease-in-out",
 		}
 	);
+	anims.push(anim);
 });
