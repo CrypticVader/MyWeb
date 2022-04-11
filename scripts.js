@@ -512,7 +512,7 @@ const lightColors = [
 ];
 
 const numBalls = 40; // Number of particles
-const balls = [];
+const balls = []; // Array to store particles
 
 // Creating & styling particles
 window.addEventListener(onload, generateParticles());
@@ -530,15 +530,15 @@ function generateParticles() {
 		ball.style.height = ball.style.width;
 
 		balls.push(ball);
-		document.body.append(ball);
+		particleContainer.appendChild(ball);
 	}
 }
 
 // Keyframes for the particle animation
 balls.forEach((elem, i, arr) => {
 	let to = {
-		x: Math.random() * (i % 2 === 0 ? -11 : 11),
-		y: Math.random() * 12,
+		x: Math.random() * (i % 2 === 0 ? -16 : 16),
+		y: Math.random() * 17,
 	};
 
 	elem.animate(
