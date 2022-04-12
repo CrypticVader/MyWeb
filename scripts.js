@@ -1,8 +1,5 @@
 var logData = false;
 
-var divider = document.getElementById("divider");
-var headingAnimated = document.getElementById("headAnimated");
-
 //----------------------------------------------------------------------------------------------------------------------
 
 var currentPopup;
@@ -37,8 +34,8 @@ function closeModal() {
 
 function butttonIconTransition(elementId, iconText, delay = 50) {
 	let element = document.getElementById(elementId);
-	element.style.transform = "scale(0.6)";
-	element.style.opacity = "0.7";
+	element.style.transform = "scale(0.4)";
+	element.style.opacity = "0.5";
 	setTimeout(function changeIcon() {
 		element.innerHTML = iconText;
 		element.style.transform = "rotate(-180deg)";
@@ -111,10 +108,8 @@ var bgPlayState = "running";
 var bgParticleMotionState;
 var playStateIconText;
 var skipOverride = false;
-var playStateIcon = document.getElementById("playStateIcon");
 
 function togglePlayState(forceState = "toggle") {
-	let playStateIcon = document.getElementById("playStateIcon");
 	// Decide what to do based on the current state & forceState
 	if (forceState == "toggle") {
 		if (bgPlayState == "running") {
@@ -145,27 +140,28 @@ function togglePlayState(forceState = "toggle") {
 	// Error handling
 	else {
 		console.log(
-			"Invalid forceState argument.\n Available options: 'toggle', 'pause', 'play'"
+			`Invalid argument "${forceState}" passed to forceState.
+			Available options: 'toggle', 'pause', 'play'`
 		);
 	}
 	// Log the current state
 	if (logData) {
-		console.log("bgPlayState: " + bgPlayState);
-		console.log("popupText: " + popupText);
-		console.log("playStateIconText: " + playStateIconText);
-		console.log("skipOverride: " + skipOverride);
-		console.log("\n");
+		console.log(`bgPlayState: ${bgPlayState}`);
+		console.log(`popupText: ${popupText}`);
+		console.log(`playStateIconText: ${playStateIconText}`);
+		console.log(`skipOverride: ${skipOverride}`);
+		console.log("");
 	}
 	if (skipOverride == false) {
 		// Change play state
 		document.body.style.animationPlayState = bgPlayState;
 		if (bgParticleMotion == "pause") {
-			balls.forEach((elem, i, arr) => {
-				anims[i].pause();
+			ballAnims.forEach((elem, i, arr) => {
+				elem.pause();
 			});
 		} else if (bgParticleMotion == "run") {
-			balls.forEach((elem, i, arr) => {
-				anims[i].play();
+			ballAnims.forEach((elem, i, arr) => {
+				elem.play();
 			});
 		}
 		// Icon change & effect
@@ -483,6 +479,11 @@ function overflowHandler() {
 		// Display overflow toggle button if it's hidden and there's any
 		// button in overflowMenuItemsVisible & vice versa.
 		overflowMenuToggleButtonHandler();
+		// To handle the case where multiple elements will have
+		// to be shown on navBar on window maximize.
+		if (remainingNavBarWidth > 215 && overflowMenuItemsVisible.length > 0) {
+			overflowHandler();
+		}
 	}
 }
 
@@ -518,6 +519,15 @@ const lightColors = [
 	"rgba(143, 231, 197, 0.753)",
 	"rgba(247, 242, 152, 0.902)",
 ];
+const darkColors = [
+	"rgba(16, 77, 134, 0.659)",
+	"rgba(16, 77, 134, 0.659)",
+	"rgba(124, 28, 65, 0.733)",
+	"rgba(160, 110, 118, 0.698)",
+	"rgba(134, 94, 70, 0.698)",
+	"rgba(67, 4, 112, 0.588)",
+	"rgba(168, 0, 65, 0.671)",
+];
 
 const numBalls = 40; // Number of particles
 const balls = []; // Array to store particles
@@ -531,19 +541,19 @@ function generateParticles() {
 		let ball = document.createElement("div");
 		ball.classList.add("ball");
 		ball.style.background =
-			lightColors[Math.floor(Math.random() * lightColors.length)];
+			lightColors[Math.floor(Math.random() * lightColors.length)]; // Random color
 		ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
 		ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
-		ball.style.transform = `scale(${Math.random()})`;
 		ball.style.width = `${Math.random()}em`;
 		ball.style.height = ball.style.width;
+		ball.style.transform = `scale(${Math.random()})`;
 		balls.push(ball);
 		containerDiv.appendChild(ball);
 	}
 }
 
 // Keyframes for the particle animation
-var anims = [];
+var ballAnims = [];
 balls.forEach((elem, i, arr) => {
 	let to = {
 		x: Math.random() * (i % 2 === 0 ? -16 : 16),
@@ -563,5 +573,7 @@ balls.forEach((elem, i, arr) => {
 			easing: "ease-in-out",
 		}
 	);
-	anims.push(anim);
+	ballAnims.push(anim);
 });
+
+//----------------------------------------------------------------------------------------------------------------------
