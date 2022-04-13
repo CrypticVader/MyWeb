@@ -351,26 +351,26 @@ function togglePlayState(forceState = "toggle") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// Set initial theme based on system preferences, & setup localStorage item
+// Set initial theme based on system preferences, & setup sessionStorage item
 function initializeTheme() {
-	// if (localStorage.getItem("theme") === null) {}
+	// if (sessionStorage.getItem("theme") === null) {}
 	if (
 		window.matchMedia &&
 		window.matchMedia("(prefers-color-scheme: dark)").matches
 	) {
-		localStorage.setItem("theme", "dark");
+		sessionStorage.setItem("theme", "dark");
 		document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
 	} else if (
 		window.matchMedia &&
 		window.matchMedia("(prefers-color-scheme: light)").matches
 	) {
-		localStorage.setItem("theme", "light");
+		sessionStorage.setItem("theme", "light");
 		document.getElementById("themeToggleButtonIcon").innerHTML = "dark_mode";
 	} else {
-		localStorage.setItem("theme", "light");
+		sessionStorage.setItem("theme", "light");
 		document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
 	}
-	document.body.className = localStorage.getItem("theme");
+	document.body.className = sessionStorage.getItem("theme");
 }
 
 function toggleTheme(forceTheme = "toggle") {
@@ -379,24 +379,24 @@ function toggleTheme(forceTheme = "toggle") {
 	let popupText;
 	let themeIconText;
 	if (forceTheme == "toggle") {
-		if (localStorage.getItem("theme") == "light") {
-			localStorage.setItem("theme", "dark");
+		if (sessionStorage.getItem("theme") == "light") {
+			sessionStorage.setItem("theme", "dark");
 			popupText = "Dark&nbsptheme&nbspselected";
 			themeIconText = "light_mode";
-		} else if (localStorage.getItem("theme") == "dark") {
-			localStorage.setItem("theme", "light");
+		} else if (sessionStorage.getItem("theme") == "dark") {
+			sessionStorage.setItem("theme", "light");
 			popupText = "Light&nbsptheme";
 			themeIconText = "dark_mode";
 		}
 		skipOverride = false;
 	} else if (forceTheme == "dark") {
-		skipOverride = localStorage.getItem("theme") == "dark" ? true : false;
-		localStorage.setItem("theme", "dark");
+		skipOverride = sessionStorage.getItem("theme") == "dark" ? true : false;
+		sessionStorage.setItem("theme", "dark");
 		popupText = "Dark&nbsptheme";
 		themeIconText = "light_mode";
 	} else if (forceTheme == "light") {
-		skipOverride = localStorage.getItem("theme") == "light" ? true : false;
-		localStorage.setItem("theme", "light");
+		skipOverride = sessionStorage.getItem("theme") == "light" ? true : false;
+		sessionStorage.setItem("theme", "light");
 		popupText = "Light&nbsptheme&nbspselected";
 		themeIconText = "dark_mode";
 	}
@@ -407,7 +407,7 @@ function toggleTheme(forceTheme = "toggle") {
 	// Log the current state
 	if (logData) {
 		console.log(
-			`localStorage.getItem("theme"): ${localStorage.getItem("theme")}`
+			`sessionStorage.getItem("theme"): ${sessionStorage.getItem("theme")}`
 		);
 		console.log(`popupText: ${popupText}`);
 		console.log(`themeIconText: ${themeIconText}`);
@@ -415,11 +415,11 @@ function toggleTheme(forceTheme = "toggle") {
 	}
 	// Change theme
 	if (skipOverride == false) {
-		document.body.className = localStorage.getItem("theme");
+		document.body.className = sessionStorage.getItem("theme");
 		butttonIconTransition("themeToggleButtonIcon", themeIconText);
 		balls.forEach((elem, i, arr) => {
 			let colorSet =
-				localStorage.getItem("theme") == "light" ? lightColors : darkColors;
+				sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
 			elem.style.background =
 				colorSet[Math.floor(Math.random() * colorSet.length)];
 		});
@@ -639,7 +639,7 @@ window.addEventListener(onload, generateParticles());
 function generateParticles() {
 	let containerDiv = document.getElementById("particleContainer"); // Particles container
 	let colorSet =
-		localStorage.getItem("theme") == "light" ? lightColors : darkColors;
+		sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
 	for (let i = 0; i < numBalls; i++) {
 		let ball = document.createElement("div");
 		ball.classList.add("ball");
