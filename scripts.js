@@ -337,15 +337,15 @@ function togglePlayState(forceState = "toggle") {
 		// Change play state
 		document.body.style.animationPlayState = bgPlayState;
 		if (bgParticleMotion == "pause") {
-			ballAnims.forEach((elem, i, arr) => {
+			particleAnims.forEach((elem, i, arr) => {
 				elem.pause();
 			});
 		} else if (bgParticleMotion == "run") {
-			ballAnims.forEach((elem, i, arr) => {
+			particleAnims.forEach((elem, i, arr) => {
 				elem.play();
 			});
 		}
-		balls.forEach((elem, i, arr) => {
+		particles.forEach((elem, i, arr) => {
 			elem.style.opacity = bgPlayState == "running" ? "0.4" : "0.2";
 		});
 		// Icon change & effect
@@ -422,7 +422,7 @@ function toggleTheme(forceTheme = "toggle") {
 	if (skipOverride == false) {
 		document.body.className = sessionStorage.getItem("theme");
 		butttonIconTransition("themeToggleButtonIcon", themeIconText);
-		balls.forEach((elem, i, arr) => {
+		particles.forEach((elem, i, arr) => {
 			let colorSet =
 				sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
 			elem.style.background =
@@ -628,8 +628,8 @@ const darkColors = [
 	"rgba(168, 0, 65, 0.671)",
 ];
 
-const numBalls = 40; // Number of particles
-const balls = []; // Array to store particles
+const numParticles = 40; // Number of particles
+const particles = []; // Array to store particles
 
 // Creating & styling particles
 window.addEventListener("DOMContentLoaded", generateParticles());
@@ -638,24 +638,25 @@ function generateParticles() {
 	let containerDiv = document.getElementById("particleContainer"); // Particles container
 	let colorSet =
 		sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
-	for (let i = 0; i < numBalls; i++) {
-		let ball = document.createElement("div");
-		ball.classList.add("ball");
-		ball.style.background =
+	for (let i = 0; i < numParticles; i++) {
+		let particle = document.createElement("div");
+		particle.classList.add("particle");
+		particle.style.background =
 			colorSet[Math.floor(Math.random() * colorSet.length)]; // Random color
-		ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
-		ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
-		ball.style.width = `${Math.random()}em`;
-		ball.style.height = ball.style.width;
-		ball.style.transform = `scale(${Math.random()})`;
-		balls.push(ball);
-		containerDiv.appendChild(ball);
+		particle.style.left = `${Math.floor(Math.random() * 100)}vw`;
+		particle.style.top = `${Math.floor(Math.random() * 100)}vh`;
+		particle.style.width = `${Math.random()}em`;
+		particle.style.height = particle.style.width;
+		particle.style.transform = `scale(${Math.random()})`;
+		particles.push(particle);
+		containerDiv.appendChild(particle);
 	}
 }
 
 // Keyframes for the particle animation
-var ballAnims = [];
-balls.forEach((elem, i, arr) => {
+const particleAnims = [];
+
+particles.forEach((elem, i, arr) => {
 	let to = {
 		x: Math.random() * (i % 2 === 0 ? -16 : 16),
 		y: Math.random() * 17,
@@ -674,7 +675,7 @@ balls.forEach((elem, i, arr) => {
 			easing: "ease-in-out",
 		}
 	);
-	ballAnims.push(anim);
+	particleAnims.push(anim);
 });
 
 //----------------------------------------------------------------------------------------------------------------------
