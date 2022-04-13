@@ -33,7 +33,87 @@
 	--default-radius: 17px;
 }
 
+/* Testing houdini stuff for smooth gradient */
+
+@property --c1 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: orange;
+}
+
+@property --c2 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: blue;
+}
+
+@property --c3 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: red;
+}
+
+@property --c4 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: green;
+}
+
+@property --c5 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: purple;
+}
+
+.box {
+	/* needed for firefox to have a valid output */
+	--c1: red;
+	--c2: orange;
+	--c3: green;
+	--c4: black;
+	--c5: white;
+	/*-*/
+	cursor: pointer;
+	width: 1500px;
+	height: 470px;
+	margin: 15px;
+	display: block;
+	transition: --d 0.5s, --c 0.5s, --b 0.5s, --a 0.5s;
+	background: linear-gradient(90deg, var(--d), var(--c), var(--b), var(--a));
+	animation: anim 2s infinite;
+}
+
+@keyframes testAnim {
+	0% {
+		--d: red;
+		--c: orange;
+		--b: green;
+		--a: blue;
+	}
+	50% {
+		--d: blue;
+		--c: red;
+		--b: orange;
+		--a: green;
+	}
+	100% {
+		--d: red;
+		--c: orange;
+		--b: green;
+		--a: blue;
+	}
+}
+/*-*/
+
 body {
+	background-image: linear-gradient(
+		80deg,
+		var(--c1),
+		var(--c2),
+		var(--c3),
+		var(--c4),
+		var(--c5)
+	);
 	background-size: 400% 300%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -43,11 +123,15 @@ body {
 	color: rgba(255, 255, 255, 0.877);
 	font-size: 20px;
 	font-family: "Comfortaa", sans-serif;
-	transition: 0.3s;
+	transition: --c1 0.5s, --c2 0.5s, --c3 0.5s, --c4 0.5s, --c5 0.5s;
 }
 
 body.dark {
-	background-image: var(--dark-gradient);
+	--c1: rgb(7, 40, 74);
+	--c2: rgb(81, 32, 40);
+	--c3: rgb(69, 49, 26);
+	--c4: rgb(39, 2, 66);
+	--c5: rgb(15, 66, 44);
 	background-size: 400% 400%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -56,7 +140,11 @@ body.dark {
 }
 
 body.light {
-	background-image: var(--light-gradient);
+	--c1: rgba(106, 178, 214, 0.902);
+	--c2: rgba(204, 136, 117, 0.902);
+	--c3: rgba(228, 138, 167, 0.814);
+	--c4: rgba(143, 231, 197, 0.753);
+	--c5: rgba(213, 209, 139, 0.902);
 	background-size: 400% 300%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
