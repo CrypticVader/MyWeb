@@ -65,20 +65,31 @@
 	initial-value: purple;
 }
 
+@property --gradientColor1 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: white;
+}
+
+@property --gradientColor2 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: purple;
+}
+
 body {
+	--gradientColor2: var(--bgGradientColor1);
+	--gradientColor1: var(--bgGradientColor2);
 	background-image: linear-gradient(
 		80deg,
-		var(--bgGradientColor1),
-		var(--bgGradientColor2),
-		var(--bgGradientColor3),
-		var(--bgGradientColor4),
-		var(--bgGradientColor5)
+		var(--gradientColor1),
+		var(--gradientColor2)
 	);
-	background-size: 400% 300%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	-webkit-animation: gradient 40s infinite;
-	animation: gradient 40s infinite;
+	background-size: 100%;
+	-webkit-animation: reworkedGradient 40s infinite;
+	animation: reworkedGradient 10s infinite alternate-reverse;
 	background-color: rgb(0, 0, 0);
 	color: rgba(255, 255, 255, 0.877);
 	font-size: 20px;
@@ -93,7 +104,6 @@ body.dark {
 	--bgGradientColor3: rgb(69, 49, 26);
 	--bgGradientColor4: rgb(39, 2, 66);
 	--bgGradientColor5: rgb(15, 66, 44);
-	background-size: 400% 400%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-color: rgb(0, 0, 0);
@@ -106,7 +116,6 @@ body.light {
 	--bgGradientColor3: rgba(228, 138, 167, 0.814);
 	--bgGradientColor4: rgba(143, 231, 197, 0.753);
 	--bgGradientColor5: rgba(213, 209, 139, 0.902);
-	background-size: 400% 300%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-color: rgb(0, 0, 0);
@@ -124,13 +133,31 @@ body.light {
 	0% {
 		background-position: 0% 100%;
 	}
-
 	50% {
 		background-position: 100% 0%;
 	}
-
 	100% {
 		background-position: 0% 100%;
+	}
+}
+
+/* Doesn't Work on Safari & Firefox */
+@keyframes reworkedGradient {
+	0% {
+		--gradientColor1: var(--bgGradientColor1);
+		--gradientColor2: var(--bgGradientColor2);
+	}
+	25% {
+		--gradientColor1: var(--bgGradientColor2);
+		--gradientColor2: var(--bgGradientColor3);
+	}
+	50% {
+		--gradientColor1: var(--bgGradientColor3);
+		--gradientColor2: var(--bgGradientColor4);
+	}
+	100% {
+		--gradientColor1: var(--bgGradientColor4);
+		--gradientColor2: var(--bgGradientColor5);
 	}
 }
 
