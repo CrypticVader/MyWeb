@@ -356,22 +356,23 @@ function togglePlayState(forceState = "toggle") {
 
 // Set initial theme based on system preferences, & setup sessionStorage item
 function initializeTheme() {
-	// if (sessionStorage.getItem("theme") === null) {}
-	if (
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: dark)").matches
-	) {
-		sessionStorage.setItem("theme", "dark");
-		document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
-	} else if (
-		window.matchMedia &&
-		window.matchMedia("(prefers-color-scheme: light)").matches
-	) {
-		sessionStorage.setItem("theme", "light");
-		document.getElementById("themeToggleButtonIcon").innerHTML = "dark_mode";
-	} else {
-		sessionStorage.setItem("theme", "light");
-		document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
+	if (sessionStorage.getItem("theme") === null) {
+		if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches
+		) {
+			sessionStorage.setItem("theme", "dark");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
+		} else if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: light)").matches
+		) {
+			sessionStorage.setItem("theme", "light");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "dark_mode";
+		} else {
+			sessionStorage.setItem("theme", "light");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
+		}
 	}
 	document.body.className = sessionStorage.getItem("theme");
 }
