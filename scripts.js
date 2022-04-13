@@ -344,6 +344,9 @@ function togglePlayState(forceState = "toggle") {
 				elem.play();
 			});
 		}
+		balls.forEach((elem, i, arr) => {
+			elem.style.opacity = bgPlayState == "running" ? "0.4" : "0.2";
+		});
 		// Icon change & effect
 		butttonIconTransition("playStateIcon", playStateIconText, (delay = 50));
 	}
