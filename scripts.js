@@ -1,4 +1,8 @@
-var logData = false;
+sessionStorage.setItem("logData", "false");
+
+function logData(data = "false") {
+	sessionStorage.setItem("logData", data);
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -182,11 +186,9 @@ document.getElementById("navBar").innerHTML = navBarTemplate;
 //----------------------------------------------------------------------------------------------------------------------
 
 var currentPopup;
-var topPercent;
 
-function openModal(id, topHold = "70%") {
+function openModal(id) {
 	let overlay = document.getElementById("overlay");
-	topPercent = topHold;
 	currentPopup = document.getElementById(id);
 	currentPopup.style.top = "20%";
 	currentPopup.style.opacity = "1";
@@ -205,7 +207,7 @@ function closeModal() {
 	currentPopup.style.visibility = "hidden";
 	currentPopup.style.transform = "scale(0.4)";
 	currentPopup.style.opacity = "0";
-	currentPopup.style.top = topPercent;
+	currentPopup.style.top = "70%";
 	document.body.style.overflow = "auto";
 	togglePlayState("play");
 }
@@ -233,7 +235,7 @@ var popupText = "lorem&nbspipsum";
 
 function spawnAlert(text = popupText, timeout = 1900) {
 	// For 'text' use &nbsp instead of space to avoid line break.
-	var popup = document.createElement("div");
+	let popup = document.createElement("div");
 	popup.innerHTML = text;
 	let margin = text.length * 5.4;
 	popup.className = "alert";
@@ -285,7 +287,6 @@ function copyText(text = "undefined") {
 //----------------------------------------------------------------------------------------------------------------------
 
 var bgPlayState = "running";
-var bgParticleMotionState;
 
 function togglePlayState(forceState = "toggle") {
 	// Decide what to do based on the current state & forceState
@@ -325,7 +326,7 @@ function togglePlayState(forceState = "toggle") {
 		);
 	}
 	// Log the current state
-	if (logData) {
+	if (sessionStorage.getItem("logData") == "true") {
 		console.log(`bgPlayState: ${bgPlayState}`);
 		console.log(`popupText: ${popupText}`);
 		console.log(`playStateIconText: ${playStateIconText}`);
@@ -409,7 +410,7 @@ function toggleTheme(forceTheme = "toggle") {
 		console.log(`${forceTheme} is not a valid argument.`);
 	}
 	// Log the current state
-	if (logData) {
+	if (sessionStorage.getItem("logData") == "true") {
 		console.log(
 			`sessionStorage.getItem("theme"): ${sessionStorage.getItem("theme")}`
 		);
@@ -435,12 +436,10 @@ window.addEventListener("load", initializeTheme);
 //----------------------------------------------------------------------------------------------------------------------
 
 var overflowMenuVisibility = "hidden";
-var overflowMenuToggleButtonIcon = document.getElementById(
-	"overflowMenuToggleButtonText"
-);
-var overlayThin = document.getElementById("overlayThin");
 
 function toggleOverflowMenu() {
+	let overflowMenu = document.getElementById("overflowMenuId");
+	let overlayThin = document.getElementById("overlayThin");
 	if (overflowMenuVisibility == "hidden") {
 		togglePlayState((forceState = "pause"));
 		overlayThin.style.visibility = "visible";
@@ -474,10 +473,7 @@ function toggleOverflowMenu() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenu = document.getElementById("overflowMenuId");
-
 var overflowMenuItemsVisible = [];
-
 var navBarItemsVisible = [
 	"navBarHomeButton",
 	"navBarMoreButton",
@@ -521,7 +517,7 @@ function overflowHandler() {
 	remainingNavBarWidth =
 		window.innerWidth - 255 - navBarItemsVisible.length * 185;
 	// Initial log
-	if (logData == true) {
+	if ((sessionStorage.getItem("logData") == "true") == true) {
 		console.log(
 			" 'initial call'\nremainingNavBarWidth: " + remainingNavBarWidth
 		);
@@ -539,7 +535,7 @@ function overflowHandler() {
 		remainingNavBarWidth =
 			window.innerWidth - 255 - navBarItemsVisible.length * 185;
 		// Log data
-		if (logData == true) {
+		if ((sessionStorage.getItem("logData") == "true") == true) {
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
@@ -573,7 +569,7 @@ function overflowHandler() {
 		remainingNavBarWidth =
 			window.innerWidth - 255 - navBarItemsVisible.length * 185;
 		// Log data
-		if (logData == true) {
+		if ((sessionStorage.getItem("logData") == "true") == true) {
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
