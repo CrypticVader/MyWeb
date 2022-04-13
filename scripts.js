@@ -516,8 +516,6 @@ function overflow2NavBarId(overflowId) {
 }
 
 // Currently displays overflow if innerWidth <= 1024px
-var remainingNavBarWidth =
-	window.innerWidth - 255 - navBarItemsVisible.length * 185;
 
 function overflowHandler() {
 	remainingNavBarWidth =
@@ -638,7 +636,7 @@ const numBalls = 40; // Number of particles
 const balls = []; // Array to store particles
 
 // Creating & styling particles
-window.addEventListener(onload, generateParticles());
+window.addEventListener("DOMContentLoaded", generateParticles());
 
 function generateParticles() {
 	let containerDiv = document.getElementById("particleContainer"); // Particles container
