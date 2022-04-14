@@ -130,3 +130,108 @@ body.light button {
 			0 3px 3px 3px rgba(96, 96, 96, 0.19);
 	}
 }
+
+body.light div.tooltip span.tooltiptext {
+	background-color: #d1d1d124;
+	color: #0f0f0f;
+	-webkit-backdrop-filter: blur(7px) saturate(100%) brightness(1.3);
+	backdrop-filter: blur(7px) saturate(100%) brightness(1.3);
+	box-shadow: 0 10px 14px 0 rgba(73, 73, 73, 0.137),
+		0 15px 40px 0 rgba(72, 72, 72, 0.116);
+}
+
+body.light div.tab {
+	background-color: #ffffff23;
+	color: rgba(0, 0, 0, 0.905);
+	box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24),
+		0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}
+
+body.light div.tab:active {
+	opacity: 0.5;
+	box-shadow: 0px 0px 0px 3px rgba(74, 74, 74, 0.18),
+		0px 0px 0px 3 rgba(79, 79, 79, 0.15);
+}
+
+@media (hover: none) {
+	body.light div.tab:active {
+		-webkit-filter: saturate(150%);
+		filter: saturate(150%);
+		box-shadow: 0 2px 0px 2px rgba(0, 0, 0, 0.18),
+			0 0px 0px 3px rgba(0, 0, 0, 0.15);
+	}
+}
+
+body.light div.tabTextContainer {
+	background-color: #ffffffcc;
+	-webkit-backdrop-filter: blur(5px) brightness(0.75);
+	backdrop-filter: blur(5px) brightness(0.75);
+}
+
+@media (hover: hover) {
+	body.light div.tab:hover {
+		-webkit-backdrop-filter: saturate(100%);
+		backdrop-filter: saturate(100%);
+		box-shadow: 0 12px 16px 0 rgba(218, 218, 218, 0.24),
+			0 17px 50px 0 rgba(214, 214, 214, 0.19);
+	}
+
+	body.light div.tab:hover div.tabTextContainer {
+		background-color: #ffffff00;
+		-webkit-backdrop-filter: blur(0px) brightness(1) contrast(1.4);
+		backdrop-filter: blur(0px) brightness(1) contrast(1.4);
+	}
+
+	body.light div.tab:hover img {
+		opacity: 0.2;
+		-webkit-filter: blur(7px);
+		filter: blur(7px);
+	}
+}
+
+body.light div.overlay {
+	background: rgba(255, 255, 255, 0.637);
+	-webkit-backdrop-filter: brightness(0.1);
+	backdrop-filter: brightness(0.1);
+}
+
+body.light div.popup {
+	background: #ffffff5a;
+	box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.137),
+		0 15px 40px 0 rgba(255, 255, 255, 0.116);
+	-webkit-backdrop-filter: blur(7px);
+	backdrop-filter: blur(7px);
+}
+
+body.light div.CloseIcon {
+	color: #ffffff;
+	background-color: #ff1b1b7d;
+	opacity: 1;
+}
+
+@media (hover: hover) {
+	body.light div.CloseIcon:hover {
+		background-color: rgb(255, 0, 0);
+		box-shadow: 0 10px 14px 0 rgba(255, 0, 0, 0.137),
+			0 15px 40px 0 rgba(215, 215, 215, 0.116);
+	}
+}
+
+body.light div.CloseIcon:active {
+	box-shadow: 0 2px 2px 2px rgba(187, 187, 187, 0.18),
+		0 3px 3px 3px rgba(0, 0, 0, 0.15);
+	background-color: rgb(255, 118, 118);
+	opacity: 1;
+}
+
+body.light #copyId {
+	background-color: #00000023;
+}
+
+body.light #copyId:hover {
+	box-shadow: 0px 0px 0px 2px #00000038;
+}
+
+body.light #copyId:active {
+	box-shadow: 0px 0px 0px 4px #3d3d3d72;
+}

@@ -1,187 +1,8 @@
 sessionStorage.setItem("logData", "false");
 
-function logData(data = "false") {
-	sessionStorage.setItem("logData", data);
+function logData(log = "false") {
+	sessionStorage.setItem("logData", log);
 }
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// Code for adding overflow and navBar to all pages
-
-navBarTemplate = `<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"/>
-<span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
-Hello
-</span>
-
-<button
-id="overflowMenuToggleButton"
-style="float: right; padding: 8px"
-onclick="toggleOverflowMenu()"
->
-<span
-	style="transition: 0.2s; margin-top: 0em"
-	id="overflowMenuToggleButtonText"
-	class="material-icons-round md-24"
->
-	menu
-</span>
-</button>
-
-<a
-id="navBarHomeButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="/"
->
-<span class="material-icons-round md-24" style="padding-right: 0.2em">
-	home
-</span>
-Home
-</a>
-
-<a
-id="navBarMoreButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="/pages/learn2code.html"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	dashboard
-</span>
-See More
-</a>
-
-<a
-id="navBarProjectButton"
-class="link-button disabled"
-style="float: right; padding: 8px; margin-right: 7px"
-href="https://github.com/CrypticVader/MyWeb"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	build
-</span>
-My projects
-</a>
-
-<a
-id="navBarSourceButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="https://github.com/CrypticVader/MyWeb"
-target="_blank"
-rel="noopener noreferrer"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	source
-</span>
-View Source
-</a>
-
-<button
-id="playStateButton"
-style="
-	transition: 0.2s;
-	float: right;
-	vertical-align: middle;
-	padding: 8px;
-	margin-right: 7px;
-"
-onclick="togglePlayState(); spawnAlert();"
->
-<span
-	id="playStateIcon"
-	style="transition: 0.2s"
-	class="material-icons-round md-24"
->
-	pause
-</span>
-</button>
-
-<button
-id="themeToggleButton"
-style="
-	transition: 0.2s;
-	float: right;
-	vertical-align: middle;
-	padding: 8px;
-	margin-right: 7px;
-"
-onclick="toggleTheme(); spawnAlert('Theme changed');"
->
-<span
-	id="themeToggleButtonIcon"
-	style="transition: 0.2s"
-	class="material-icons-round md-24"
->
-	light_mode
-</span>
-</button>`;
-
-overflowMenutemplate = `<a id="overflowMenuHomeButton" class="overflowMenuButton" href="/">
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	home
-</span>
-Home
-</a>
-
-<a
-id="overflowMenuMoreButton"
-class="overflowMenuButton"
-href="/pages/learn2code.html"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	dashboard
-</span>
-See More
-</a>
-
-<a
-id="overflowMenuSourceButton"
-class="overflowMenuButton"
-href="https://github.com/CrypticVader/MyWeb"
-target="_blank"
-rel="noopener noreferrer"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	source
-</span>
-View source
-</a>
-
-<a
-id="overflowMenuProjectButton"
-class="overflowMenuButton disabled"
-href="/pages/projects"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	build
-</span>
-My projects
-</a>`;
-
-document.getElementById("overflowMenuId").innerHTML = overflowMenutemplate;
-document.getElementById("navBar").innerHTML = navBarTemplate;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -287,7 +108,6 @@ function copyText(text = "undefined") {
 //----------------------------------------------------------------------------------------------------------------------
 
 var bgPlayState = "running";
-
 function togglePlayState(forceState = "toggle") {
 	// Decide what to do based on the current state & forceState
 	let skipOverride;
@@ -431,7 +251,7 @@ function toggleTheme(forceTheme = "toggle") {
 	}
 }
 
-window.addEventListener("load", initializeTheme);
+window.addEventListener("DOMContentLoaded", initializeTheme);
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -511,7 +331,7 @@ function overflow2NavBarId(overflowId) {
 	}
 }
 
-// Currently displays overflow if innerWidth <= 1024px
+// Currently displays overflow menu if innerWidth <= 1024px
 
 function overflowHandler() {
 	remainingNavBarWidth =
@@ -523,7 +343,7 @@ function overflowHandler() {
 		);
 	}
 	// * Check if there's enough space for all navBarItems.
-	// * Check if there's any items left to hide from the navBar
+	// * Check if there's any items left to hide from the navBar.
 	// * Displacing elements from navBar to overflowMenu.
 	if (remainingNavBarWidth <= 30 && navBarItemsVisible.length > 0) {
 		document.getElementById(navBarItemsVisible[0]).style.display = "none";
@@ -589,7 +409,7 @@ function overflowMenuToggleButtonHandler() {
 	if (
 		window
 			.getComputedStyle(overflowMenuToggleButton)
-			.getPropertyValue("display") == "none" &&
+			.getPropertyValue("display") === "none" &&
 		overflowMenuItemsVisible.length > 0
 	) {
 		overflowMenuToggleButton.style.display = "flex";
@@ -603,14 +423,12 @@ function overflowMenuToggleButtonHandler() {
 	}
 }
 
-overflowHandler();
+overflowHandler(); // Using an eventListener causes a delay in the first call.
 window.addEventListener("resize", overflowHandler);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Bg particle fx
 
-// Some random colors
-const defaultColors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 const lightColors = [
 	"rgba(96, 174, 213, 0.902)",
 	"rgba(199, 124, 103, 0.902)",
@@ -632,8 +450,6 @@ const numParticles = 40; // Number of particles
 const particles = []; // Array to store particles
 
 // Creating & styling particles
-window.addEventListener("DOMContentLoaded", generateParticles());
-
 function generateParticles() {
 	let containerDiv = document.getElementById("particleContainer"); // Particles container
 	let colorSet =
@@ -653,15 +469,15 @@ function generateParticles() {
 	}
 }
 
+window.addEventListener("DOMContentLoaded", generateParticles());
+
 // Keyframes for the particle animation
 const particleAnims = [];
-
 particles.forEach((elem, i, arr) => {
 	let to = {
 		x: Math.random() * (i % 2 === 0 ? -16 : 16),
 		y: Math.random() * 17,
 	};
-
 	let anim = elem.animate(
 		[
 			{ transform: "translate(0, 0)" }, // start position

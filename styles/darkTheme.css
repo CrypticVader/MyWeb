@@ -130,3 +130,107 @@ body.dark button {
 			0 3px 3px 3px rgba(0, 0, 0, 0.15);
 	}
 }
+
+body.dark div.tooltip span.tooltiptext {
+	background-color: #00000034;
+	color: #ffffff;
+	-webkit-backdrop-filter: blur(7px) saturate(200%) brightness(0.75);
+	backdrop-filter: blur(7px) saturate(200%) brightness(0.75);
+	box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137),
+		0 15px 40px 0 rgba(0, 0, 0, 0.116);
+}
+
+body.dark div.tab {
+	background-color: #00000033;
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+		0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+body.dark div.tab:active {
+	opacity: 0.5;
+	box-shadow: 0px 0px 0px 3px rgba(74, 74, 74, 0.18),
+		0px 0px 0px 3 rgba(79, 79, 79, 0.15);
+}
+
+@media (hover: none) {
+	body.dark div.tab:active {
+		-webkit-filter: saturate(150%);
+		filter: saturate(150%);
+		box-shadow: 0 2px 0px 2px rgba(0, 0, 0, 0.18),
+			0 0px 0px 3px rgba(0, 0, 0, 0.15);
+	}
+}
+
+body.dark div.tabTextContainer {
+	background-color: #1a1a1adb;
+	-webkit-backdrop-filter: blur(5px) brightness(0.75);
+	backdrop-filter: blur(5px) brightness(0.75);
+}
+
+@media (hover: hover) {
+	body.dark div.tab:hover {
+		-webkit-backdrop-filter: saturate(100%);
+		backdrop-filter: saturate(100%);
+		box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+			0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	body.dark div.tab:hover div.tabTextContainer {
+		background-color: #00000000;
+		-webkit-backdrop-filter: blur(0px) brightness(1) contrast(2);
+		backdrop-filter: blur(0px) brightness(1) contrast(2);
+	}
+
+	body.dark div.tab:hover img {
+		opacity: 0.3;
+		-webkit-filter: blur(10px);
+		filter: blur(10px);
+	}
+}
+
+body.dark div.overlay {
+	background: rgba(0, 0, 0, 0.637);
+	-webkit-backdrop-filter: brightness(0.25);
+	backdrop-filter: brightness(0.25);
+}
+
+body.dark div.popup {
+	background: #8080803f;
+	box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137),
+		0 15px 40px 0 rgba(0, 0, 0, 0.116);
+	-webkit-backdrop-filter: brightness(0.5) blur(10px);
+	backdrop-filter: brightness(0.5) blur(10px);
+}
+
+body.dark div.CloseIcon {
+	background-color: #ff000059;
+	opacity: 0.8;
+}
+
+@media (hover: hover) {
+	body.dark div.CloseIcon:hover {
+		background-color: rgb(168, 0, 0);
+		box-shadow: 0 10px 14px 0 rgba(255, 0, 0, 0.137),
+			0 15px 40px 0 rgba(0, 0, 0, 0.116);
+	}
+}
+
+body.dark div.CloseIcon:active {
+	box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
+		0 3px 3px 3px rgba(0, 0, 0, 0.15);
+	background-color: rgb(92, 23, 23);
+	opacity: 0.8;
+}
+
+body.dark #copyId {
+	background-color: #ffffff23;
+}
+
+body.dark #copyId:hover {
+	box-shadow: 0px 0px 0px 2px #ffffff38;
+}
+
+body.dark #copyId:active {
+	box-shadow: 0px 0px 0px 4px #9c9c9c72;
+}
