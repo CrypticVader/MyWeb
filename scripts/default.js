@@ -166,7 +166,7 @@ function togglePlayState(forceState = "toggle") {
 			});
 		}
 		particles.forEach((elem, i, arr) => {
-			elem.style.opacity = bgPlayState == "running" ? "0.4" : "0.2";
+			elem.style.opacity = bgPlayState == "running" ? "0.5" : "0.2";
 		});
 		// Icon change & effect
 		butttonIconTransition("playStateIcon", playStateIconText, (delay = 50));
@@ -430,20 +430,18 @@ window.addEventListener("resize", overflowHandler);
 // Bg particle fx
 
 const lightColors = [
-	"rgba(96, 174, 213, 0.902)",
-	"rgba(199, 124, 103, 0.902)",
-	"rgba(228, 138, 167, 0.814)",
-	"rgba(143, 231, 197, 0.753)",
-	"rgba(247, 242, 152, 0.902)",
+	"rgba(106, 178, 214, 0.902)",
+	"rgba(224, 158, 140, 0.902)",
+	"rgba(222, 141, 167, 0.814)",
+	"rgba(154, 233, 203, 0.753)",
+	"rgba(228, 224, 151, 0.902)",
 ];
 const darkColors = [
-	"rgba(16, 77, 134, 0.659)",
-	"rgba(16, 77, 134, 0.659)",
-	"rgba(124, 28, 65, 0.733)",
-	"rgba(160, 110, 118, 0.698)",
-	"rgba(134, 94, 70, 0.698)",
-	"rgba(67, 4, 112, 0.588)",
-	"rgba(168, 0, 65, 0.671)",
+	"rgb(7, 40, 74)",
+	"rgb(81, 32, 40)",
+	"rgb(69, 49, 26)",
+	"rgb(39, 2, 66)",
+	"rgb(15, 66, 44)",
 ];
 
 const numParticles = 40; // Number of particles

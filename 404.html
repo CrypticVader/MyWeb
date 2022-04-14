@@ -46,22 +46,42 @@
 
 	<style>
 		body {
-			background-image: url(/assets/404-dark.png);
 			background-color: rgb(18, 23, 37);
-			animation: none;
-			background-size: 100vmin 100vmin;
+			/* animation: none; */
 			background-repeat: no-repeat;
 			background-attachment: fixed;
-			background-position: center;
-			margin-left: 2vw;
+			background-position: right;
+			margin-left: 1vw;
 			position: relative;
 		}
 
-		@media (min-width: 900px) {
+		#textContainer {
+			padding: 20px;
+			margin-top: 10em;
+			transition: 0.3s;
+		}
+
+		@media (max-width: 900px) {
 			body {
-				background-size: 100vmin 100vmin;
-				background-position: right;
+				background-position: center;
 			}
+			#textContainer {
+				background-color: rgba(0, 0, 0, 0.12);
+				border-radius: 20px;
+				-webkit-backdrop-filter: blur(5px);
+				backdrop-filter: blur(5px);
+			}
+		}
+		body.dark {
+			background-image: url(/assets/404-dark.png);
+			background-color: rgb(18, 23, 37);
+			background-size: 100vmin 100vmin;
+		}
+		body.light {
+			background-image: url(/assets/404-light.png);
+			background-color: rgba(194, 189, 133, 0.611);
+			background-size: 120vmin 70vmin;
+			color: black;
 		}
 	</style>
 
@@ -74,32 +94,33 @@
 
 		<div id="navBar" class="nav-bar"></div>
 
-		<h1
-			style="
-				padding-top: 3.8em;
-				opacity: 1;
-				font-size: 3em;
-				line-height: 100%;
-				margin: 0;
-				margin-bottom: 0.4em;
-				text-align: left;
-				color: white;
-			"
-		>
-			Page not found :(
-		</h1>
+		<div id="textContainer">
+			<h1
+				style="
+					opacity: 1;
+					font-size: 3em;
+					margin: 0;
+					margin-bottom: 0.4em;
+					text-align: left;
+				"
+			>
+				Page not found <nobr>:(</nobr>
+			</h1>
 
-		<ins
-			style="
-				text-decoration: none;
-				padding: 0;
-				opacity: 0.8;
-				font-size: 1.3em;
-				margin: 0;
-			"
-		>
-			Error code: 404 </ins
-		><br />
+			<ins
+				style="
+					text-decoration: none;
+					padding: 0;
+					opacity: 0.8;
+					font-size: 1.3em;
+					margin: 0;
+				"
+			>
+				Error code: <nobr>404</nobr>
+			</ins>
+		
+
+		<br />
 
 		<a
 			id="navBarHomeButton"
@@ -111,7 +132,7 @@
 		</a>
 
 		<!-- Load external JavaScript -->
-		<script src="/scripts/default.js"></script>
 		<script src="/scripts/templates.js"></script>
+		<script src="/scripts/default.js"></script>
 	</body>
 </html>
