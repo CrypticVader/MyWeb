@@ -1,5 +1,7 @@
 // Template for adding overflow and navBar
 
+// IMPORTANT: When loading js to a page, make sure to load template.js before default.js
+
 const navBarTemplate = `<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"/>
 <span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
 Hello

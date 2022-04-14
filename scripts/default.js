@@ -334,7 +334,7 @@ function overflow2NavBarId(overflowId) {
 // Currently displays overflow menu if innerWidth <= 1024px
 
 function overflowHandler() {
-	remainingNavBarWidth =
+	let remainingNavBarWidth =
 		window.innerWidth - 255 - navBarItemsVisible.length * 185;
 	// Initial log
 	if ((sessionStorage.getItem("logData") == "true") == true) {
