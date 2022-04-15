@@ -1,7 +1,7 @@
-body {
-	background: linear-gradient(
-		130deg,
-		rgba(31, 31, 190, 0.737),
+:root {
+	--og-gradient: linear-gradient(
+		132deg,
+		#6bddf7bc,
 		#104d86a8,
 		#7c0034a4,
 		#83200e9c,
@@ -11,21 +11,98 @@ body {
 		#43047096,
 		#a80041ab
 	);
-	background-size: 500% 400%;
+
+	--default-radius: 17px;
+}
+
+@property --bgGradientColor1 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: orange;
+}
+
+@property --bgGradientColor2 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: blue;
+}
+
+@property --bgGradientColor3 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: red;
+}
+
+@property --bgGradientColor4 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: green;
+}
+
+@property --bgGradientColor5 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: purple;
+}
+
+@property --gradientColor1 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: white;
+}
+
+@property --gradientColor2 {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: purple;
+}
+
+body {
+	--gradientColor2: var(--bgGradientColor1);
+	--gradientColor1: var(--bgGradientColor2);
+	background-image: linear-gradient(
+		80deg,
+		var(--gradientColor1),
+		var(--gradientColor2)
+	);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
-	background-color: #000000;
+	background-size: 100%;
+	-webkit-animation: gradient 25s infinite alternate ease-in-out;
+	animation: gradient 25s infinite alternate ease-in-out;
+	background-color: rgb(0, 0, 0);
 	color: rgba(255, 255, 255, 0.877);
 	font-size: 20px;
 	font-family: "Comfortaa", sans-serif;
+	transition: --bgGradientColor1 0.3s, --bgGradientColor2 0.3s,
+		--bgGradientColor3 0.3s, --bgGradientColor4 0.3s, --bgGradientColor5 0.3s,
+		all 0.3s;
 }
 
 @media (hover: hover) {
 	body {
 		-webkit-overscroll-behavior: none;
 		overscroll-behavior: none;
+	}
+}
+
+/* Doesn't Work on Firefox & Safari */
+@keyframes gradient {
+	0% {
+		--gradientColor1: var(--bgGradientColor1);
+		--gradientColor2: var(--bgGradientColor2);
+	}
+	25% {
+		--gradientColor1: var(--bgGradientColor2);
+		--gradientColor2: var(--bgGradientColor3);
+	}
+	50% {
+		--gradientColor1: var(--bgGradientColor3);
+		--gradientColor2: var(--bgGradientColor4);
+	}
+	100% {
+		--gradientColor1: var(--bgGradientColor4);
+		--gradientColor2: var(--bgGradientColor5);
 	}
 }
 
@@ -40,79 +117,36 @@ h1.gradient-text {
 	position: inline-block;
 	font-weight: bolder;
 	transition: 0.6s;
-	opacity: 0.7;
+	opacity: 0.2;
 	font-size: 6em;
 	line-height: 100%;
 	margin-top: 0.8em;
-	/* Create the gradient. */
-	background: linear-gradient(
-		130deg,
-		#1f1fbebc,
-		#104d86a8,
-		#7c0034a4,
-		#83200e9c,
-		#7c1c41bb,
-		#a06e76b2,
-		#865e46b2,
-		#43047096,
-		#a80041ab
-	);
-	/* Set the background size and repeat properties. */
-	background-size: 500vw 400vh;
-	/* Use the text as a mask for the background. */
-	/* This will show the gradient as a text color rather than element bg. */
-	-moz-background-clip: text;
-	-webkit-background-clip: text;
-	background-clip: text;
-	text-shadow: rgba(219, 219, 219, 0.24) 0px 0px 0px;
-	-webkit-text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
 }
 
 h1.gradient-text:hover {
 	opacity: 1;
-	text-shadow: rgba(255, 255, 255, 0.466) 0px 0px 0px;
 }
 
 @media (hover: none) {
 	h1.gradient-text:active {
 		opacity: 1;
-		text-shadow: rgba(255, 255, 255, 0.466) 0px 0px 0px;
 	}
 }
 
 hr {
+	transition: 0.6s;
 	border: 0;
-	height: 2.5px;
-	background: linear-gradient(
-		130deg,
-		#1f1fbebc,
-		#104d86a8,
-		#7c0034a4,
-		#83200e9c,
-		#7c1c41bb,
-		#a06e76b2,
-		#865e46b2,
-		#43047096,
-		#a80041ab
-	);
-	background-size: 500vw 400vh;
-	-webkit-animation: gradient 60s ease infinite;
-	animation: gradient 60s ease infinite;
+	height: 3px;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 40%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 40%;
-	}
+.particle {
+	position: absolute;
+	border-radius: 50%;
+	opacity: 0.5;
+	transition: 0.5s;
+	-moz-filter: saturate(120%);
+	filter: saturate(120%);
+	pointer-events: none;
 }
 
 a {
@@ -126,18 +160,19 @@ div.nav-bar {
 	left: 0;
 	right: 0;
 	height: 2.7em;
-	background-color: rgba(37, 37, 37, 0.534);
 	position: fixed;
-	color: rgba(255, 255, 255, 0.712);
 	font-size: 20px;
 	font-family: "Comfortaa", sans-serif;
-	-webkit-backdrop-filter: blur(40px);
-	backdrop-filter: blur(40px);
-	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-		0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	padding-top: 0.5em;
 	padding-left: 15px;
 	padding-right: 15px;
+	transition: 0.2s;
+}
+
+@media (max-width: 300px) {
+	#navBarTitle {
+		display: none;
+	}
 }
 
 #overlayThin {
@@ -145,6 +180,7 @@ div.nav-bar {
 	-webkit-backdrop-filter: blur(5px);
 	backdrop-filter: blur(3px);
 	transition: 0.25s;
+	z-index: 999;
 }
 
 div.overflowMenu {
@@ -157,19 +193,16 @@ div.overflowMenu {
 	padding-right: 20px;
 	padding-top: 20px;
 	overflow: auto;
-	background-color: #00000049;
 	font-size: 18px;
 	z-index: 999;
+	border-radius: 20px 0px 0px 20px;
 	-webkit-backdrop-filter: blur(40px);
 	backdrop-filter: blur(40px);
-	border-radius: 20px 0px 0px 20px;
 	transform: translateX(100%);
 	transition: 0.3s;
 }
 
 a.overflowMenuButton {
-	color: #ffffff;
-	background-color: #72727254;
 	font-size: 20px;
 	border-radius: 12px;
 	cursor: pointer;
@@ -186,23 +219,17 @@ a.overflowMenuButton {
 
 @media (hover: hover) {
 	a.overflowMenuButton:hover {
-		transition: 0.1s;
-		/* x-offset y-offset z-index  length */
-		box-shadow: 0px 0px 0px 4px #ffffff4e;
+		transition: 0.15s;
 	}
+
 	a.overflowMenuButton:active {
-		background-color: #a0a0a052;
-		opacity: 0.4;
-		transition: 0.1s;
-		box-shadow: 0px 0px 0px 2px #ffffff4e;
+		transition: 0.15s;
 	}
 }
 
 @media (hover: none) {
 	a.overflowMenuButton:active {
-		opacity: 0.5;
 		transition: 0.15s;
-		box-shadow: 0px 0px 0px 4px #9b9b9b4b;
 	}
 }
 
@@ -217,13 +244,9 @@ div.alert {
 	top: 95%;
 	left: 50%;
 	opacity: 0;
-	-webkit-transform: translate3d(0%, -100%, 0);
+	white-space: nowrap;
+	-webkit-transform: scale(0) translate3d(0%, -100%, 0);
 	transform: scale(0) translate3d(0%, -100%, 0);
-	background-color: #00000034;
-	-webkit-backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
-	backdrop-filter: blur(7px) saturate(150%) brightness(0.7);
-	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-		0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	padding: 12px;
 	border-radius: 17px;
 	transition: 0.5s;
@@ -238,14 +261,11 @@ a.link-button {
 	-webkit-tap-highlight-color: transparent;
 	font-family: "Comfortaa", sans-serif;
 	font-size: 17px;
-	background-color: #a1a1a131;
-	color: rgb(255, 255, 255);
-	border: solid 2px #a7a6a61e;
 	border-radius: 17px;
-	padding: 10px;
+	padding: 8px;
 	text-align: center;
 	text-decoration: none;
-	display: flex;
+	display: inline-flex;
 	cursor: pointer;
 	transition: 0.5s;
 }
@@ -258,50 +278,36 @@ a.disabled {
 @media (hover: hover) {
 	a.link-button:hover {
 		border-radius: 10px;
-		background-color: #a1a1a100;
-		border: solid 2px #c9c9c967;
 		transition: 0.25s;
 		-webkit-transform: scale(1.06);
 		transform: scale(1.06);
 		cursor: pointer;
 		opacity: 1;
-		box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-			0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	}
+
 	a.link-button:active {
-		border: solid 2px #8d8d8d3d;
 		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
 		-webkit-transform: scale(1);
 		transform: scale(1);
-		opacity: 0.5;
-		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
-			0 3px 3px 3px rgba(0, 0, 0, 0.15);
 	}
 }
 
 @media (hover: none) {
 	a.link-button:active {
-		border: solid 2px #8d8d8d3d;
 		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
 		-webkit-transform: scale(0.93);
 		transform: scale(0.93);
-		opacity: 0.5;
-		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
-			0 3px 3px 3px rgba(0, 0, 0, 0.15);
 	}
 }
 
 button {
 	/* This is to vertically center the text */
 	line-height: 25px;
-	/**/
+	/* -- */
 	-webkit-tap-highlight-color: transparent;
 	-moz-tap-highlight-color: transparent;
 	font-family: "Comfortaa", sans-serif;
 	font-size: 17px;
-	background-color: #a1a1a131;
-	color: rgb(255, 255, 255);
-	border: solid 2px #a7a6a61e;
 	border-radius: 17px;
 	padding: 10px;
 	text-align: center;
@@ -314,36 +320,25 @@ button {
 @media (hover: hover) {
 	button:hover {
 		border-radius: 10px;
-		background-color: #a1a1a100;
-		border: solid 2px #c9c9c967;
 		transition: 0.25s;
 		-webkit-transform: scale(1.06);
 		transform: scale(1.06);
 		cursor: pointer;
 		opacity: 1;
-		box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-			0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	}
+
 	button:active {
-		border: solid 2px #8d8d8d3d;
 		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
 		-webkit-transform: scale(1);
 		transform: scale(1);
-		opacity: 0.5;
-		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
-			0 3px 3px 3px rgba(0, 0, 0, 0.15);
 	}
 }
 
 @media (hover: none) {
 	button:active {
-		border: solid 2px #8d8d8d3d;
 		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
 		-webkit-transform: scale(0.93);
 		transform: scale(0.93);
-		opacity: 0.5;
-		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
-			0 3px 3px 3px rgba(0, 0, 0, 0.15);
 	}
 }
 
@@ -361,7 +356,6 @@ button {
 
 .material-icons-round.md-48 {
 	font-size: 48px;
-	color: rgba(206, 206, 206, 0.808);
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	transition: 0.2s;
@@ -393,11 +387,9 @@ img.squeeze {
 		width: 50px;
 		height: 50px;
 	}
-}
-
-@media (hover: none) {
 	img.squeeze:active {
-		transition: 0.2s;
+		opacity: 0.4;
+		transition: opacity 0.2s;
 		height: 40px;
 		width: 40px;
 		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
@@ -405,10 +397,9 @@ img.squeeze {
 	}
 }
 
-@media (hover: hover) {
+@media (hover: none) {
 	img.squeeze:active {
-		opacity: 0.4;
-		transition: opacity 0.2s;
+		transition: 0.2s;
 		height: 40px;
 		width: 40px;
 		box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
@@ -443,13 +434,9 @@ div.tooltip {
 
 div.tooltip span.tooltiptext {
 	font-size: 15px;
-	text-shadow: 0 0 0;
 	visibility: hidden;
 	width: 170px;
 	height: 25px;
-	background-color: #00000034;
-	animation: gradient 60s ease infinite;
-	color: #ffffff;
 	text-align: center;
 	border-radius: 8px;
 	padding-top: 9px;
@@ -457,10 +444,6 @@ div.tooltip span.tooltiptext {
 	-webkit-transform: scale(0.4);
 	transform: scale(0.4);
 	opacity: 0;
-	-webkit-backdrop-filter: blur(7px) saturate(200%) brightness(0.75);
-	backdrop-filter: blur(7px) saturate(200%) brightness(0.75);
-	box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137),
-		0 15px 40px 0 rgba(0, 0, 0, 0.116);
 	transition: 0.5s;
 	transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 	/* Position the tooltip */
@@ -480,15 +463,10 @@ div.tooltip:hover span.tooltiptext {
 }
 
 div.tab {
-	width: 45.8%;
-	height: 100%;
-	background-color: #00000033;
-	color: white;
+	width: 45%;
 	font-size: 1em;
 	font-family: "Comfortaa", sans-serif;
 	padding: 0;
-	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-		0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	margin: 2%;
 	border-radius: 17px;
 	transition: 0.25s;
@@ -505,17 +483,16 @@ div.tab img {
 
 div.tab:active {
 	opacity: 0.5;
-	transition: opacity 0s, box-shadow 0.2s;
+	transition: opacity 0.15s, box-shadow 0.2s;
 	box-shadow: 0px 0px 0px 3px rgba(74, 74, 74, 0.18),
 		0px 0px 0px 3 rgba(79, 79, 79, 0.15);
 }
 
 @media (hover: none) {
 	div.tab:active {
-		-webkit-transform: scale(0.96);
-		transform: scale(0.96);
-		-webkit-filter: saturate(150%);
-		filter: saturate(150%);
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		opacity: 0.4;
 		transition: 0.25s;
 		box-shadow: 0 2px 0px 2px rgba(0, 0, 0, 0.18),
 			0 0px 0px 3px rgba(0, 0, 0, 0.15);
@@ -533,8 +510,6 @@ div.tabTextContainer {
 	transition: 0.25s;
 	position: absolute;
 	text-align: center;
-	-webkit-backdrop-filter: blur(5px) brightness(0.75);
-	backdrop-filter: blur(5px) brightness(0.75);
 }
 
 div.tabTextContainer span {
@@ -549,32 +524,23 @@ div.tabTextContainer span {
 
 @media (hover: hover) {
 	div.tab:hover {
-		-webkit-backdrop-filter: saturate(100%);
-		backdrop-filter: saturate(100%);
 		-webkit-transform: scale(1.05);
 		transform: scale(1.05);
 		transition: 0.2s;
-		box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-			0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	}
+
 	div.tab:hover div.tabTextContainer {
 		background-image: none;
-		background-color: #00000000;
 		border-radius: 17px;
 		opacity: 1;
-		transition: 0.2s;
+		transition: 0.25s;
 		height: 100%;
-		-webkit-backdrop-filter: blur(0px) brightness(1) contrast(2);
-		backdrop-filter: blur(0px) brightness(1) contrast(2);
 	}
+
 	div.tab:hover img {
-		-webkit-transform: scale(1.01);
-		transform: scale(1.01);
-		opacity: 0.3;
-		-webkit-filter: blur(10px);
-		filter: blur(10px);
-		transition: 0.1s;
+		transition: 0.25s;
 	}
+
 	div.tab:hover div.tabTextContainer span {
 		opacity: 1;
 		font-size: 200%;
@@ -584,19 +550,9 @@ div.tabTextContainer span {
 	}
 }
 
-#wipSmol {
-	display: none;
-}
-
 @media (max-width: 1090px) {
 	div.tab {
 		width: 90%;
-	}
-	#wipBig {
-		display: none;
-	}
-	#wipSmol {
-		display: block;
 	}
 }
 
@@ -606,7 +562,7 @@ div.tabTextContainer span {
 	}
 }
 
-/* Popup stuff */
+/* Modal stuff */
 
 div.overlay {
 	z-index: 9;
@@ -616,42 +572,72 @@ div.overlay {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.637);
-	-webkit-backdrop-filter: brightness(0.25);
-	backdrop-filter: brightness(0.25);
 	opacity: 0;
 	transition: 0.7s;
 }
 
-div.popup {
+div.modal {
 	z-index: 99;
 	visibility: hidden;
 	overflow: auto;
 	border-radius: 20px;
 	position: fixed;
-	width: 60%;
-	height: 65%;
-	left: 20%;
+	width: 55%;
+	height: 70%;
+	left: 50%;
+	margin-left: -30%;
 	top: 70%;
-	padding: 20px;
-	background: #8080803f;
-	box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137),
-		0 15px 40px 0 rgba(0, 0, 0, 0.116);
+	padding: 0px;
 	opacity: 0;
-	transition: 0.4s;
+	transition: all 0.4s, margin-left 0s;
 	transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 	transform: scale(0);
-	-webkit-backdrop-filter: brightness(0.5) blur(10px);
-	backdrop-filter: brightness(0.5) blur(10px);
+}
+
+@media (max-width: 1000px) {
+	div.modal {
+		width: 70%;
+	}
+}
+
+@media (max-width: 750px) {
+	div.modal {
+		width: 90%;
+	}
+}
+
+div.modalHeader {
+	z-index: 9;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	height: 2.2em;
+	margin: 0;
+	width: calc(100% - 20px);
+	background-color: rgba(52, 52, 52, 0.653);
+	padding: 10px;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+h3.modalHeading {
+	display: flex;
+	float: left;
+	vertical-align: top;
+	margin: 10px;
+}
+
+img.focused:hover {
+	-webkit-transform: scale(0.95);
+	transform: scale(0.95);
+	transition: 0.2s;
 }
 
 div.CloseIcon {
-	background-color: #ff000059;
-	opacity: 0.8;
+	display: flex;
 	cursor: pointer;
 	float: right;
 	padding: 4px;
-	padding-bottom: 0px;
 	transition: 0.2s;
 	border-radius: 25%;
 	-moz-tap-highlight-color: transparent;
@@ -660,30 +646,25 @@ div.CloseIcon {
 
 @media (hover: hover) {
 	div.CloseIcon:hover {
-		background-color: rgb(168, 0, 0);
-		box-shadow: 0 10px 14px 0 rgba(255, 0, 0, 0.137),
-			0 15px 40px 0 rgba(0, 0, 0, 0.116);
 		opacity: 1;
 		transition: 0.2s;
 	}
 }
 
 div.CloseIcon:active {
-	box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.18),
-		0 3px 3px 3px rgba(0, 0, 0, 0.15);
-	background-color: rgb(92, 23, 23);
-	opacity: 0.8;
-	transition: box-shadow 0.2s, opacity 0s;
+	transition: box-shadow 0.2s, opacity 0s, transform 0.2s;
+	transform: scale(0.9);
 }
 
-/* End of popup stuff */
+/* End of modal stuff */
 
 #copyId {
-	font-size: 15px;
+	font-size: 16px;
 	cursor: default;
 	background-color: #ffffff23;
-	display: inline-block;
-	padding: 4px;
+	display: inline-flex;
+	padding: 3px;
+	margin-top: 2px;
 	border-radius: 9px;
 	transition: 0.3s;
 	transform: scale(1.25);
@@ -697,4 +678,11 @@ div.CloseIcon:active {
 #copyId:active {
 	box-shadow: 0px 0px 0px 4px #9c9c9c72;
 	transition: 0.3s;
+}
+
+#particleContainer {
+	overflow: hidden;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
 }

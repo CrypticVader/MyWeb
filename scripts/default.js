@@ -1,21 +1,21 @@
-var logData = false;
+sessionStorage.setItem("logData", "false");
 
-var divider = document.getElementById("divider");
-var headingAnimated = document.getElementById("headAnimated");
+function logData(logState = "false") {
+	sessionStorage.setItem("logData", logState);
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var currentPopup;
-var overlay = document.getElementById("overlay");
-var topPercent;
+var currentModal;
 
-function openModal(id, topHold = "70%") {
-	topPercent = topHold;
-	currentPopup = document.getElementById(id);
-	currentPopup.style.top = "20%";
-	currentPopup.style.opacity = "1";
-	currentPopup.style.transform = "scale(1)";
-	currentPopup.style.visibility = "visible";
+function openModal(id) {
+	let overlay = document.getElementById("overlay");
+	currentModal = document.getElementById(id);
+	currentModal.style.marginLeft = `-${currentModal.clientWidth / 2}px`;
+	currentModal.style.top = "20%";
+	currentModal.style.opacity = "1";
+	currentModal.style.transform = "scale(1)";
+	currentModal.style.visibility = "visible";
 	overlay.style.visibility = "visible";
 	overlay.style.opacity = "1";
 	document.body.style.overflow = "hidden";
@@ -23,22 +23,30 @@ function openModal(id, topHold = "70%") {
 }
 
 function closeModal() {
+	let overlay = document.getElementById("overlay");
 	overlay.style.visibility = "hidden";
 	overlay.style.opacity = "0";
-	currentPopup.style.visibility = "hidden";
-	currentPopup.style.transform = "scale(0.4)";
-	currentPopup.style.opacity = "0";
-	currentPopup.style.top = topPercent;
+	currentModal.style.visibility = "hidden";
+	currentModal.style.transform = "scale(0.4)";
+	currentModal.style.opacity = "0";
+	currentModal.style.top = "70%";
 	document.body.style.overflow = "auto";
 	togglePlayState("play");
 }
+
+// To center the modal if it is visible during window resize
+window.addEventListener("resize", function () {
+	if (currentModal && currentModal.style.visibility == "visible") {
+		currentModal.style.marginLeft = `-${currentModal.clientWidth / 2}px`;
+	}
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 
 function butttonIconTransition(elementId, iconText, delay = 50) {
 	let element = document.getElementById(elementId);
-	element.style.transform = "scale(0.6)";
-	element.style.opacity = "0.7";
+	element.style.transform = "scale(0.4)";
+	element.style.opacity = "0.5";
 	setTimeout(function changeIcon() {
 		element.innerHTML = iconText;
 		element.style.transform = "rotate(-180deg)";
@@ -52,16 +60,17 @@ function butttonIconTransition(elementId, iconText, delay = 50) {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var popupText = "lorem&nbspipsum";
+var popupText = "lorem ipsum";
 
 function spawnAlert(text = popupText, timeout = 1900) {
-	// For 'text' use &nbsp instead of space to avoid line break.
-	var popup = document.createElement("div");
-	popup.innerHTML = text;
-	let margin = text.length * 5.4;
+	let popup = document.createElement("div");
+	popup.innerHTML = `<span>${text}</span>`;
 	popup.className = "alert";
-	popup.style.marginLeft = -margin + "px";
+	popup.style.marginLeft = `-${
+		getTextWidth(text, "20px Comfortaa") / 2 + 10
+	}px`; // Centering the popup horizontally
 	document.body.appendChild(popup);
+	// console.log(getTextWidth(text, "20px Comfortaa"));
 	transition();
 
 	function transition() {
@@ -76,6 +85,16 @@ function spawnAlert(text = popupText, timeout = 1900) {
 		setTimeout(function delDiv() {
 			popup.remove();
 		}, timeout + 300);
+	}
+
+	function getTextWidth(text, font) {
+		let canvas =
+			getTextWidth.canvas ||
+			(getTextWidth.canvas = document.createElement("canvas"));
+		let context = canvas.getContext("2d");
+		context.font = font;
+		let metrics = context.measureText(text);
+		return metrics.width;
 	}
 }
 
@@ -107,59 +126,69 @@ function copyText(text = "undefined") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var bgPlayState = "running";
-var playStateIconText;
-var skipOverride = false;
-var playStateIcon = document.getElementById("playStateIcon");
-
 function togglePlayState(forceState = "toggle") {
-	let playStateIcon = document.getElementById("playStateIcon");
 	// Decide what to do based on the current state & forceState
+	let bgPlayState = window
+		.getComputedStyle(document.body)
+		.getPropertyValue("animation-play-state");
+	let skipOverride;
+	let playStateIconText;
 	if (forceState == "toggle") {
 		if (bgPlayState == "running") {
 			bgPlayState = "paused";
-			popupText = "Background&nbsppaused";
+			bgParticleMotion = "pause";
+			popupText = "Background paused";
 			playStateIconText = "play_arrow";
 		} else {
 			bgPlayState = "running";
-			popupText = "Background&nbsprunning";
+			bgParticleMotion = "run";
+			popupText = "Background running";
 			playStateIconText = "pause";
 		}
 		skipOverride = false;
 	} else if (forceState == "play") {
 		skipOverride = bgPlayState == "running" ? true : false;
 		bgPlayState = "running";
-		popupText = "Background&nbsprunning";
+		bgParticleMotion = "run";
+		popupText = "Background running";
 		playStateIconText = "pause";
 	} else if (forceState == "pause") {
 		skipOverride = bgPlayState == "paused" ? true : false;
 		bgPlayState = "paused";
-		popupText = "Background&nbsppaused";
+		bgParticleMotion = "pause";
+		popupText = "Background paused";
 		playStateIconText = "play_arrow";
 	}
 	// Error handling
 	else {
 		console.log(
-			"Invalid forceState argument.\n Available options: 'toggle', 'pause', 'play'"
+			`Invalid argument "${forceState}" passed to forceState.
+			Available options: 'toggle', 'pause', 'play'`
 		);
 	}
 	// Log the current state
-	if (logData) {
-		console.log("bgPlayState: " + bgPlayState);
-		console.log("popupText: " + popupText);
-		console.log("playStateIconText: " + playStateIconText);
-		console.log("skipOverride: " + skipOverride);
-		console.log("\n");
+	if (sessionStorage.getItem("logData") == "true") {
+		console.log(`bgPlayState: ${bgPlayState}`);
+		console.log(`popupText: ${popupText}`);
+		console.log(`playStateIconText: ${playStateIconText}`);
+		console.log(`skipOverride: ${skipOverride}`);
+		console.log("");
 	}
 	if (skipOverride == false) {
 		// Change play state
 		document.body.style.animationPlayState = bgPlayState;
-		try {
-			divider.style.animationPlayState = bgPlayState;
-			headingAnimated.style.animationPlayState = bgPlayState;
-		} catch (error) {
-			console.log("Missing elements referenced, error suppressed.");
+		if (bgParticleMotion == "pause") {
+			particleAnims.forEach((elem, i, arr) => {
+				elem.pause();
+			});
+		} else if (bgParticleMotion == "run") {
+			particleAnims.forEach((elem, i, arr) => {
+				elem.play();
+			});
 		}
+		particles.forEach((elem, i, arr) => {
+			elem.style.opacity = bgPlayState == "running" ? "0.5" : "0.2";
+		});
 		// Icon change & effect
 		butttonIconTransition("playStateIcon", playStateIconText, (delay = 50));
 	}
@@ -167,172 +196,86 @@ function togglePlayState(forceState = "toggle") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-// Code for adding overflow and navBar to all pages
+// Set initial theme based on system preferences, & setup sessionStorage item
+function initializeTheme() {
+	if (sessionStorage.getItem("theme") === null) {
+		if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: dark)").matches
+		) {
+			sessionStorage.setItem("theme", "dark");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
+		} else if (
+			window.matchMedia &&
+			window.matchMedia("(prefers-color-scheme: light)").matches
+		) {
+			sessionStorage.setItem("theme", "light");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "dark_mode";
+		} else {
+			sessionStorage.setItem("theme", "light");
+			document.getElementById("themeToggleButtonIcon").innerHTML = "light_mode";
+		}
+	}
+	document.body.className = sessionStorage.getItem("theme");
+}
 
-navBarTemplate = `<img src="/assets/vader-grey.png" height="40px" width="40px" alt="logo"/>
-<span style="font-size: 25px; vertical-align: 10px; padding-left: 10px">
-Hello
-</span>
+function toggleTheme(forceTheme = "toggle") {
+	// Decide what to do based on the current theme & forceTheme
+	let skipOverride;
+	let themeIconText;
+	if (forceTheme == "toggle") {
+		if (sessionStorage.getItem("theme") == "light") {
+			sessionStorage.setItem("theme", "dark");
+			themeIconText = "light_mode";
+		} else if (sessionStorage.getItem("theme") == "dark") {
+			sessionStorage.setItem("theme", "light");
+			themeIconText = "dark_mode";
+		}
+		skipOverride = false;
+	} else if (forceTheme == "dark") {
+		skipOverride = sessionStorage.getItem("theme") == "dark" ? true : false;
+		sessionStorage.setItem("theme", "dark");
+		themeIconText = "light_mode";
+	} else if (forceTheme == "light") {
+		skipOverride = sessionStorage.getItem("theme") == "light" ? true : false;
+		sessionStorage.setItem("theme", "light");
+		themeIconText = "dark_mode";
+	}
+	// Error handling
+	else {
+		console.log(`${forceTheme} is not a valid argument.`);
+	}
+	// Log the current state
+	if (sessionStorage.getItem("logData") == "true") {
+		console.log(
+			`sessionStorage.getItem("theme"): ${sessionStorage.getItem("theme")}`
+		);
+		console.log(`themeIconText: ${themeIconText}`);
+		console.log("");
+	}
+	// Change theme
+	if (skipOverride == false) {
+		document.body.className = sessionStorage.getItem("theme");
+		butttonIconTransition("themeToggleButtonIcon", themeIconText);
+		particles.forEach((elem, i, arr) => {
+			let colorSet =
+				sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
+			elem.style.background =
+				colorSet[Math.floor(Math.random() * colorSet.length)];
+		});
+	}
+}
 
-<button
-id="overflowMenuToggleButton"
-style="float: right; padding: 8px"
-onclick="toggleOverflowMenu()"
->
-<span
-	style="transition: 0.2s; margin-top: 0em"
-	id="overflowMenuToggleButtonText"
-	class="material-icons-round md-24"
->
-	menu
-</span>
-</button>
-
-<a
-id="navBarHomeButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="/"
->
-<span class="material-icons-round md-24" style="padding-right: 0.2em">
-	home
-</span>
-Home
-</a>
-
-<a
-id="navBarMoreButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="/pages/learn2code.html"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	dashboard
-</span>
-See More
-</a>
-
-<a
-id="navBarProjectButton"
-class="link-button disabled"
-style="float: right; padding: 8px; margin-right: 7px"
-href="https://github.com/CrypticVader/MyWeb"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	build
-</span>
-My projects
-</a>
-
-<a
-id="navBarSourceButton"
-class="link-button"
-style="float: right; padding: 8px; margin-right: 7px"
-href="https://github.com/CrypticVader/MyWeb"
-target="_blank"
-rel="noopener noreferrer"
->
-<span
-	class="material-icons-round md-24"
-	style="margin-top: 0em; padding-right: 0.4em"
->
-	source
-</span>
-View Source
-</a>
-
-<button
-id="playStateButton"
-style="
-	transition: 0.2s;
-	float: right;
-	vertical-align: middle;
-	padding: 8px;
-	margin-right: 7px;
-"
-onclick="togglePlayState(); spawnAlert();"
->
-<span
-	id="playStateIcon"
-	style="transition: 0.2s"
-	class="material-icons-round md-24"
->
-	pause
-</span>
-</button>`;
-
-overflowMenutemplate = `<a id="overflowMenuHomeButton" class="overflowMenuButton" href="/">
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	home
-</span>
-Home
-</a>
-
-<a
-id="overflowMenuMoreButton"
-class="overflowMenuButton"
-href="/pages/learn2code.html"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	dashboard
-</span>
-See More
-</a>
-
-<a
-id="overflowMenuSourceButton"
-class="overflowMenuButton"
-href="https://github.com/CrypticVader/MyWeb"
-target="_blank"
-rel="noopener noreferrer"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	source
-</span>
-View source
-</a>
-
-<a
-id="overflowMenuProjectButton"
-class="overflowMenuButton disabled"
-href="/pages/projects"
->
-<span
-	class="material-icons-round md-18"
-	style="transform: scale(1.1); font-size: 20px; padding-right: 0.4em"
->
-	build
-</span>
-My projects
-</a>`;
-
-document.getElementById("overflowMenuId").innerHTML = overflowMenutemplate;
-document.getElementById("navBar").innerHTML = navBarTemplate;
+window.addEventListener("DOMContentLoaded", initializeTheme);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenuVisibility = "hidden";
-var overflowMenuToggleButtonIcon = document.getElementById(
-	"overflowMenuToggleButtonText"
-);
-var overlayThin = document.getElementById("overlayThin");
-
 function toggleOverflowMenu() {
+	let overflowMenu = document.getElementById("overflowMenuId");
+	let overlayThin = document.getElementById("overlayThin");
+	let overflowMenuVisibility = window
+		.getComputedStyle(overflowMenu)
+		.getPropertyValue("visibility");
 	if (overflowMenuVisibility == "hidden") {
 		togglePlayState((forceState = "pause"));
 		overlayThin.style.visibility = "visible";
@@ -366,10 +309,7 @@ function toggleOverflowMenu() {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenu = document.getElementById("overflowMenuId");
-
 var overflowMenuItemsVisible = [];
-
 var navBarItemsVisible = [
 	"navBarHomeButton",
 	"navBarMoreButton",
@@ -407,21 +347,19 @@ function overflow2NavBarId(overflowId) {
 	}
 }
 
-// Currently display overflow if innerWidth <= 970px
-var remainingNavBarWidth =
-	window.innerWidth - 200 - navBarItemsVisible.length * 185;
+// Currently displays overflow menu if innerWidth <= 1024px
 
 function overflowHandler() {
-	remainingNavBarWidth =
-		window.innerWidth - 200 - navBarItemsVisible.length * 185;
+	let remainingNavBarWidth =
+		window.innerWidth - 255 - navBarItemsVisible.length * 185;
 	// Initial log
-	if (logData == true) {
+	if ((sessionStorage.getItem("logData") == "true") == true) {
 		console.log(
 			" 'initial call'\nremainingNavBarWidth: " + remainingNavBarWidth
 		);
 	}
 	// * Check if there's enough space for all navBarItems.
-	// * Check if there's any items left to hide from the navBar
+	// * Check if there's any items left to hide from the navBar.
 	// * Displacing elements from navBar to overflowMenu.
 	if (remainingNavBarWidth <= 30 && navBarItemsVisible.length > 0) {
 		document.getElementById(navBarItemsVisible[0]).style.display = "none";
@@ -431,9 +369,9 @@ function overflowHandler() {
 		overflowMenuItemsVisible.push(navBar2OverflowId(navBarItemsVisible[0]));
 		navBarItemsVisible.splice(0, 1);
 		remainingNavBarWidth =
-			window.innerWidth - 200 - navBarItemsVisible.length * 185;
+			window.innerWidth - 255 - navBarItemsVisible.length * 185;
 		// Log data
-		if (logData == true) {
+		if ((sessionStorage.getItem("logData") == "true") == true) {
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
@@ -465,9 +403,9 @@ function overflowHandler() {
 		);
 		overflowMenuItemsVisible.splice(overflowMenuItemsVisible.length - 1, 1);
 		remainingNavBarWidth =
-			window.innerWidth - 200 - navBarItemsVisible.length * 185;
+			window.innerWidth - 255 - navBarItemsVisible.length * 185;
 		// Log data
-		if (logData == true) {
+		if ((sessionStorage.getItem("logData") == "true") == true) {
 			console.log("remainingNavBarWidth: " + remainingNavBarWidth);
 			console.log("overflowMenuItemsVisible: " + overflowMenuItemsVisible);
 			console.log("navBarItemsVisible: " + navBarItemsVisible);
@@ -475,6 +413,11 @@ function overflowHandler() {
 		// Display overflow toggle button if it's hidden and there's any
 		// button in overflowMenuItemsVisible & vice versa.
 		overflowMenuToggleButtonHandler();
+		// To handle the case where multiple elements will have
+		// to be shown on navBar on window maximize.
+		if (remainingNavBarWidth > 215 && overflowMenuItemsVisible.length > 0) {
+			overflowHandler();
+		}
 	}
 }
 
@@ -482,7 +425,7 @@ function overflowMenuToggleButtonHandler() {
 	if (
 		window
 			.getComputedStyle(overflowMenuToggleButton)
-			.getPropertyValue("display") == "none" &&
+			.getPropertyValue("display") === "none" &&
 		overflowMenuItemsVisible.length > 0
 	) {
 		overflowMenuToggleButton.style.display = "flex";
@@ -496,6 +439,73 @@ function overflowMenuToggleButtonHandler() {
 	}
 }
 
-overflowHandler();
+overflowHandler(); // Using an eventListener causes a delay in the first call.
 window.addEventListener("resize", overflowHandler);
+
+//----------------------------------------------------------------------------------------------------------------------
+// Bg particle fx
+
+const lightColors = [
+	"rgba(106, 178, 214, 0.902)",
+	"rgba(224, 158, 140, 0.902)",
+	"rgba(222, 141, 167, 0.814)",
+	"rgba(154, 233, 203, 0.753)",
+	"rgba(228, 224, 151, 0.902)",
+];
+const darkColors = [
+	"rgb(7, 40, 74)",
+	"rgb(81, 32, 40)",
+	"rgb(69, 49, 26)",
+	"rgb(39, 2, 66)",
+	"rgb(15, 66, 44)",
+];
+
+const numParticles = 40; // Number of particles
+const particles = []; // Array to store particles
+
+// Creating & styling particles
+function generateParticles() {
+	let containerDiv = document.getElementById("particleContainer"); // Particles container
+	let colorSet =
+		sessionStorage.getItem("theme") == "light" ? lightColors : darkColors;
+	for (let i = 0; i < numParticles; i++) {
+		let particle = document.createElement("div");
+		particle.classList.add("particle");
+		particle.style.background =
+			colorSet[Math.floor(Math.random() * colorSet.length)]; // Random color
+		particle.style.left = `${Math.floor(Math.random() * 100)}vw`;
+		particle.style.top = `${Math.floor(Math.random() * 100)}vh`;
+		particle.style.width = `${Math.random()}em`;
+		particle.style.height = particle.style.width;
+		particle.style.transform = `scale(${Math.random()})`;
+		particles.push(particle);
+		containerDiv.appendChild(particle);
+	}
+}
+
+window.addEventListener("DOMContentLoaded", generateParticles());
+
+// Keyframes for the particle animation
+const particleAnims = [];
+particles.forEach((elem, i, arr) => {
+	let to = {
+		x: Math.random() * (i % 2 === 0 ? -16 : 16),
+		y: Math.random() * 17,
+	};
+	let anim = elem.animate(
+		[
+			{ transform: "translate(0, 0)" }, // start position
+			{ transform: `translate(${to.x}rem, ${to.y}rem)` }, // end position
+		],
+		{
+			duration: (Math.random() + 1) * 3500, // random duration
+			direction: "alternate-reverse",
+			fill: "both",
+			iterations: Infinity,
+			easing: "ease-in-out",
+		}
+	);
+	particleAnims.push(anim);
+});
+
 //----------------------------------------------------------------------------------------------------------------------
