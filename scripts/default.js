@@ -1,7 +1,7 @@
 sessionStorage.setItem("logData", "false");
 
-function logData(log = "false") {
-	sessionStorage.setItem("logData", log);
+function logData(logState = "false") {
+	sessionStorage.setItem("logData", logState);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -126,9 +126,11 @@ function copyText(text = "undefined") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var bgPlayState = "running";
 function togglePlayState(forceState = "toggle") {
 	// Decide what to do based on the current state & forceState
+	let bgPlayState = window
+		.getComputedStyle(document.body)
+		.getPropertyValue("animation-play-state");
 	let skipOverride;
 	let playStateIconText;
 	if (forceState == "toggle") {
@@ -268,11 +270,12 @@ window.addEventListener("DOMContentLoaded", initializeTheme);
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var overflowMenuVisibility = "hidden";
-
 function toggleOverflowMenu() {
 	let overflowMenu = document.getElementById("overflowMenuId");
 	let overlayThin = document.getElementById("overlayThin");
+	let overflowMenuVisibility = window
+		.getComputedStyle(overflowMenu)
+		.getPropertyValue("visibility");
 	if (overflowMenuVisibility == "hidden") {
 		togglePlayState((forceState = "pause"));
 		overlayThin.style.visibility = "visible";
