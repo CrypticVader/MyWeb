@@ -52,16 +52,17 @@ function butttonIconTransition(elementId, iconText, delay = 50) {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var popupText = "lorem&nbspipsum";
+var popupText = "lorem ipsum";
 
 function spawnAlert(text = popupText, timeout = 1900) {
-	// For 'text' use &nbsp instead of space to avoid line break.
 	let popup = document.createElement("div");
-	popup.innerHTML = text;
-	let margin = text.length * 5.4;
+	popup.innerHTML = `<span>${text}</span>`;
 	popup.className = "alert";
-	popup.style.marginLeft = -margin + "px";
+	popup.style.marginLeft = `-${
+		getTextWidth(text, "20px Comfortaa") / 2 + 10
+	}px`; // Centering the popup horizontally
 	document.body.appendChild(popup);
+	// console.log(getTextWidth(text, "20px Comfortaa"));
 	transition();
 
 	function transition() {
@@ -76,6 +77,16 @@ function spawnAlert(text = popupText, timeout = 1900) {
 		setTimeout(function delDiv() {
 			popup.remove();
 		}, timeout + 300);
+	}
+
+	function getTextWidth(text, font) {
+		let canvas =
+			getTextWidth.canvas ||
+			(getTextWidth.canvas = document.createElement("canvas"));
+		let context = canvas.getContext("2d");
+		context.font = font;
+		let metrics = context.measureText(text);
+		return metrics.width;
 	}
 }
 
@@ -116,12 +127,12 @@ function togglePlayState(forceState = "toggle") {
 		if (bgPlayState == "running") {
 			bgPlayState = "paused";
 			bgParticleMotion = "pause";
-			popupText = "Background&nbsppaused";
+			popupText = "Background paused";
 			playStateIconText = "play_arrow";
 		} else {
 			bgPlayState = "running";
 			bgParticleMotion = "run";
-			popupText = "Background&nbsprunning";
+			popupText = "Background running";
 			playStateIconText = "pause";
 		}
 		skipOverride = false;
@@ -129,13 +140,13 @@ function togglePlayState(forceState = "toggle") {
 		skipOverride = bgPlayState == "running" ? true : false;
 		bgPlayState = "running";
 		bgParticleMotion = "run";
-		popupText = "Background&nbsprunning";
+		popupText = "Background running";
 		playStateIconText = "pause";
 	} else if (forceState == "pause") {
 		skipOverride = bgPlayState == "paused" ? true : false;
 		bgPlayState = "paused";
 		bgParticleMotion = "pause";
-		popupText = "Background&nbsppaused";
+		popupText = "Background paused";
 		playStateIconText = "play_arrow";
 	}
 	// Error handling
@@ -201,28 +212,23 @@ function initializeTheme() {
 function toggleTheme(forceTheme = "toggle") {
 	// Decide what to do based on the current theme & forceTheme
 	let skipOverride;
-	let popupText;
 	let themeIconText;
 	if (forceTheme == "toggle") {
 		if (sessionStorage.getItem("theme") == "light") {
 			sessionStorage.setItem("theme", "dark");
-			popupText = "Dark&nbsptheme&nbspselected";
 			themeIconText = "light_mode";
 		} else if (sessionStorage.getItem("theme") == "dark") {
 			sessionStorage.setItem("theme", "light");
-			popupText = "Light&nbsptheme";
 			themeIconText = "dark_mode";
 		}
 		skipOverride = false;
 	} else if (forceTheme == "dark") {
 		skipOverride = sessionStorage.getItem("theme") == "dark" ? true : false;
 		sessionStorage.setItem("theme", "dark");
-		popupText = "Dark&nbsptheme";
 		themeIconText = "light_mode";
 	} else if (forceTheme == "light") {
 		skipOverride = sessionStorage.getItem("theme") == "light" ? true : false;
 		sessionStorage.setItem("theme", "light");
-		popupText = "Light&nbsptheme&nbspselected";
 		themeIconText = "dark_mode";
 	}
 	// Error handling
@@ -234,7 +240,6 @@ function toggleTheme(forceTheme = "toggle") {
 		console.log(
 			`sessionStorage.getItem("theme"): ${sessionStorage.getItem("theme")}`
 		);
-		console.log(`popupText: ${popupText}`);
 		console.log(`themeIconText: ${themeIconText}`);
 		console.log("");
 	}
