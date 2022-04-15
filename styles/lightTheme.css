@@ -178,8 +178,6 @@ body.light div.tabTextContainer {
 
 	body.light div.tab:hover div.tabTextContainer {
 		background-color: #ffffff00;
-		-webkit-backdrop-filter: blur(0px) brightness(1) contrast(1.4);
-		backdrop-filter: blur(0px) brightness(1) contrast(1.4);
 	}
 
 	body.light div.tab:hover img {
@@ -190,17 +188,17 @@ body.light div.tabTextContainer {
 }
 
 body.light div.overlay {
-	background: rgba(255, 255, 255, 0.637);
+	background: rgba(160, 160, 160, 0.508);
 	-webkit-backdrop-filter: brightness(0.1);
 	backdrop-filter: brightness(0.1);
 }
 
-body.light div.popup {
-	background: #ffffff5a;
+body.light div.modal {
+	background: #ffffff91;
 	box-shadow: 0 10px 14px 0 rgba(255, 255, 255, 0.137),
 		0 15px 40px 0 rgba(255, 255, 255, 0.116);
-	-webkit-backdrop-filter: blur(7px);
-	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
 }
 
 body.light div.CloseIcon {

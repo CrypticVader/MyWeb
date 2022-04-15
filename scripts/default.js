@@ -6,15 +6,16 @@ function logData(log = "false") {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-var currentPopup;
+var currentModal;
 
 function openModal(id) {
 	let overlay = document.getElementById("overlay");
-	currentPopup = document.getElementById(id);
-	currentPopup.style.top = "20%";
-	currentPopup.style.opacity = "1";
-	currentPopup.style.transform = "scale(1)";
-	currentPopup.style.visibility = "visible";
+	currentModal = document.getElementById(id);
+	currentModal.style.marginLeft = `-${currentModal.clientWidth / 2}px`;
+	currentModal.style.top = "20%";
+	currentModal.style.opacity = "1";
+	currentModal.style.transform = "scale(1)";
+	currentModal.style.visibility = "visible";
 	overlay.style.visibility = "visible";
 	overlay.style.opacity = "1";
 	document.body.style.overflow = "hidden";
@@ -25,13 +26,20 @@ function closeModal() {
 	let overlay = document.getElementById("overlay");
 	overlay.style.visibility = "hidden";
 	overlay.style.opacity = "0";
-	currentPopup.style.visibility = "hidden";
-	currentPopup.style.transform = "scale(0.4)";
-	currentPopup.style.opacity = "0";
-	currentPopup.style.top = "70%";
+	currentModal.style.visibility = "hidden";
+	currentModal.style.transform = "scale(0.4)";
+	currentModal.style.opacity = "0";
+	currentModal.style.top = "70%";
 	document.body.style.overflow = "auto";
 	togglePlayState("play");
 }
+
+// To center the modal if it is visible during window resize
+window.addEventListener("resize", function () {
+	if (currentModal && currentModal.style.visibility == "visible") {
+		currentModal.style.marginLeft = `-${currentModal.clientWidth / 2}px`;
+	}
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 
