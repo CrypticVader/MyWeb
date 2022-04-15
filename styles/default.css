@@ -594,10 +594,42 @@ div.modal {
 	transform: scale(0);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
 	div.modal {
 		width: 70%;
 	}
+}
+
+@media (max-width: 750px) {
+	div.modal {
+		width: 90%;
+	}
+}
+
+div.modalHeader {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	height: 2.2em;
+	margin: 0;
+	width: calc(100% - 20px);
+	background-color: rgba(52, 52, 52, 0.653);
+	padding: 10px;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+h3.modalHeading {
+	display: flex;
+	float: left;
+	vertical-align: top;
+	margin: 10px;
+}
+
+img.focused:hover {
+	-webkit-transform: scale(0.95);
+	transform: scale(0.95);
+	transition: 0.2s;
 }
 
 div.CloseIcon {
@@ -619,7 +651,8 @@ div.CloseIcon {
 }
 
 div.CloseIcon:active {
-	transition: box-shadow 0.2s, opacity 0s;
+	transition: box-shadow 0.2s, opacity 0s, transform 0.2s;
+	transform: scale(0.9);
 }
 
 /* End of modal stuff */

@@ -201,6 +201,10 @@ body.dark div.modal {
 	backdrop-filter: brightness(0.5) blur(10px);
 }
 
+body.dark div.modalHeader {
+	background-color: rgba(52, 52, 52, 0.653);
+}
+
 body.dark div.CloseIcon {
 	background-color: #ff000059;
 	opacity: 0.8;

@@ -123,23 +123,8 @@
 
 		<!-- Modals, not visible -->
 		<div class="modal" id="msftModal">
-			<div
-				style="
-					position: sticky;
-					top: 0;
-					height: 2.2em;
-					margin: 0;
-					width: calc(100% - 20px);
-					background-color: rgba(52, 52, 52, 0.653);
-					padding: 10px;
-					backdrop-filter: blur(5px);
-				"
-			>
-				<h3
-					style="display: flex; float: left; vertical-align: top; margin: 10px"
-				>
-					Microsoft Learn
-				</h3>
+			<div class="modalHeader">
+				<h3 class="modalHeading">Microsoft Learn</h3>
 				<div onclick="closeModal()" class="CloseIcon">
 					<span class="material-icons-round" style="font-size: 32px">
 						close
@@ -148,10 +133,11 @@
 			</div>
 			<div style="padding: 20px; padding-top: 0">
 				<img
-					style="margin-top: 0.5em"
+					style="margin-top: 0.5em; border-radius: 10px"
 					src="/assets/code/msLearn.png"
-					class="blurred"
+					class="blurred focused"
 					title="Microsoft Learn"
+					onclick="window.open('/assets/code/msLearn.png')"
 				/>
 				<p>Does this even work?</p>
 				<a
@@ -169,87 +155,131 @@
 		</div>
 
 		<div class="modal" id="codCadModal">
-			<div onclick="closeModal()" class="CloseIcon">
-				<span class="material-icons-round" style="font-size: 32px">
-					close
-				</span>
+			<div class="modalHeader">
+				<h3 class="modalHeading">Codcademy</h3>
+				<div onclick="closeModal()" class="CloseIcon">
+					<span class="material-icons-round" style="font-size: 32px">
+						close
+					</span>
+				</div>
 			</div>
-			<h3>Codecademy</h3>
-			<p>Does this even work?</p>
-			<a
-				href="https://www.codecademy.com/learn"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link-button"
-			>
-				<span class="material-icons-round" style="padding-right: 0.2em">
-					launch
-				</span>
-				Go here
-			</a>
+			<div style="padding: 20px; padding-top: 0">
+				<img
+					style="margin-top: 0.5em; border-radius: 10px"
+					src="/assets/code/codCad.png"
+					class="blurred focused"
+					title="Codcademy"
+					onclick="window.open('/assets/code/codCad.png')"
+				/>
+				<p>Does this even work?</p>
+				<a
+					href="https://www.codecademy.com/learn"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="link-button"
+				>
+					<span class="material-icons-round" style="padding-right: 0.2em">
+						launch
+					</span>
+					Go here
+				</a>
+			</div>
 		</div>
 
 		<div class="modal" id="freeCCModal">
-			<div onclick="closeModal()" class="CloseIcon">
-				<span class="material-icons-round" style="font-size: 32px">
-					close
-				</span>
+			<div class="modalHeader">
+				<h3 class="modalHeading">FreeCodeCamp</h3>
+				<div onclick="closeModal()" class="CloseIcon">
+					<span class="material-icons-round" style="font-size: 32px">
+						close
+					</span>
+				</div>
 			</div>
-			<h3>FreeCodeCamp</h3>
-			<p>Does this even work?</p>
-			<a
-				href="https://www.freecodecamp.org/learn"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link-button"
-			>
-				<span class="material-icons-round" style="padding-right: 0.2em">
-					launch
-				</span>
-				Go here
-			</a>
+			<div style="padding: 20px; padding-top: 0">
+				<img
+					style="margin-top: 0.5em; border-radius: 10px"
+					src="/assets/code/freeCc.png"
+					class="blurred focused"
+					title="FreeCodeCamp"
+					onclick="window.open('/assets/code/freeCc.png')"
+				/>
+				<p>Does this even work?</p>
+				<a
+					href="https://www.freecodecamp.org/learn"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="link-button"
+				>
+					<span class="material-icons-round" style="padding-right: 0.2em">
+						launch
+					</span>
+					Go here
+				</a>
+			</div>
 		</div>
 
 		<div class="modal" id="w3SModal">
-			<div onclick="closeModal()" class="CloseIcon">
-				<span class="material-icons-round" style="font-size: 32px">
-					close
-				</span>
+			<div class="modalHeader">
+				<h3 class="modalHeading">W3Schools</h3>
+				<div onclick="closeModal()" class="CloseIcon">
+					<span class="material-icons-round" style="font-size: 32px">
+						close
+					</span>
+				</div>
 			</div>
-			<h3>W3Schools</h3>
-			<p>Does this even work?</p>
-			<a
-				href="https://my-learning.w3schools.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link-button"
-			>
-				<span class="material-icons-round" style="padding-right: 0.2em">
-					launch
-				</span>
-				Go here
-			</a>
+			<div style="padding: 20px; padding-top: 0">
+				<img
+					style="margin-top: 0.5em; border-radius: 10px"
+					src="/assets/code/W3S.png"
+					class="blurred focused"
+					title="W3Schools"
+					onclick="window.open('/assets/code/W3S.png')"
+				/>
+				<p>Does this even work?</p>
+				<a
+					href="https://my-learning.w3schools.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="link-button"
+				>
+					<span class="material-icons-round" style="padding-right: 0.2em">
+						launch
+					</span>
+					Go here
+				</a>
+			</div>
 		</div>
 
 		<div class="modal" id="gitLearnModal">
-			<div onclick="closeModal()" class="CloseIcon">
-				<span class="material-icons-round" style="font-size: 32px">
-					close
-				</span>
+			<div class="modalHeader">
+				<h3 class="modalHeading">GitHub Learning Lab</h3>
+				<div onclick="closeModal()" class="CloseIcon">
+					<span class="material-icons-round" style="font-size: 32px">
+						close
+					</span>
+				</div>
 			</div>
-			<h3>GitHub Learning Lab</h3>
-			<p>Does this even work?</p>
-			<a
-				href="https://lab.github.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link-button"
-			>
-				<span class="material-icons-round" style="padding-right: 0.2em">
-					launch
-				</span>
-				Go here
-			</a>
+			<div style="padding: 20px; padding-top: 0">
+				<img
+					style="margin-top: 0.5em; border-radius: 10px"
+					src="/assets/code/GitLearn.png"
+					class="blurred focused"
+					title="GitHub Learning Lab"
+					onclick="window.open('/assets/code/GitLearn.png')"
+				/>
+				<p>Does this even work?</p>
+				<a
+					href="https://lab.github.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="link-button"
+				>
+					<span class="material-icons-round" style="padding-right: 0.2em">
+						launch
+					</span>
+					Go here
+				</a>
+			</div>
 		</div>
 		<!-- End of Modals -->
 
