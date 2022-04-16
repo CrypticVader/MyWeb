@@ -4,16 +4,17 @@
 
 
 
-#### 👨‍🏭 Work-in-Progress personal website
+#### Personal website
 
 - ### Main Page
-![2022-03-27 (97)](https://user-images.githubusercontent.com/61494838/160291365-65440a96-b7bf-419d-a707-5335c3a25857.png)
+![image](https://user-images.githubusercontent.com/61494838/163662875-f07631a0-0570-4144-af2b-4846e8483156.png)
+![image](https://user-images.githubusercontent.com/61494838/163662883-5eae197a-82d8-4169-9023-e550fea6c227.png)
 
 - ### Geek Stuff
-![2022-03-27 (98)](https://user-images.githubusercontent.com/61494838/160291383-37baada3-c581-4581-810b-3834ffa8dce9.png)
-
-- ### Popup/Modal
-![2022-03-27 (99)](https://user-images.githubusercontent.com/61494838/160291397-ae91b401-dc70-454a-a4bf-fdfbd21c86c6.png)
+![image](https://user-images.githubusercontent.com/61494838/163662900-bee4265d-20ba-4be8-89f2-c8b3e67b4c51.png)
+![image](https://user-images.githubusercontent.com/61494838/163662914-cb589149-1e67-48c2-88cf-416187c8355e.png)
 
 - ### Error 404 page
-![2022-03-27 (101)](https://user-images.githubusercontent.com/61494838/160291410-639873fa-5292-4e7e-a709-9dd75d7cfe09.png)
+![image](https://user-images.githubusercontent.com/61494838/163662926-843a2ca3-0fd1-4bb7-9a27-80d9231e95a4.png)
+![image](https://user-images.githubusercontent.com/61494838/163662935-d27328db-c16a-4e17-817f-60ed3c143020.png)
+
