@@ -45,14 +45,14 @@ window.addEventListener("resize", function () {
 var n = 1;
 function butttonIconTransition(elementId, iconText, delay = 50) {
 	let element = document.getElementById(elementId);
-	element.style.opacity = "0.6";
-	element.style.transform = ```rotate(${180 * n}deg) scale(0.4)```;
+	element.style.opacity = "0.3";
+	element.style.transform = `rotate(${180 * n}deg) scale(0.5)`;
 	setTimeout(function changeIcon() {
-		element.style.transform = ```rotate(${180 * n++}deg) scale(0.4)```;
+		element.style.transform = `rotate(${180 * n++}deg) scale(0.4)`;
 		element.innerHTML = iconText;
 	}, 100);
 	setTimeout(function morphIcon() {
-		element.style.transform = ```rotate(${360 * n}deg) scale(1)```;
+		element.style.transform = `rotate(${180 * n}deg) scale(1)`;
 		element.style.opacity = "1";
 	}, 100 + delay);
 }
