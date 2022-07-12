@@ -42,18 +42,17 @@ window.addEventListener("resize", function () {
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-
+var n = 1;
 function butttonIconTransition(elementId, iconText, delay = 50) {
 	let element = document.getElementById(elementId);
-	element.style.transform = "scale(0.4)";
-	element.style.opacity = "0.5";
+	element.style.opacity = "0.6";
+	element.style.transform = ```rotate(${180 * n}deg) scale(0.4)```;
 	setTimeout(function changeIcon() {
+		element.style.transform = ```rotate(${180 * n++}deg) scale(0.4)```;
 		element.innerHTML = iconText;
-		element.style.transform = "rotate(-180deg)";
 	}, 100);
 	setTimeout(function morphIcon() {
-		element.style.transform = "rotate(-180deg)";
-		element.style.transform = "scale(1)";
+		element.style.transform = ```rotate(${360 * n}deg) scale(1)```;
 		element.style.opacity = "1";
 	}, 100 + delay);
 }
@@ -177,18 +176,20 @@ function togglePlayState(forceState = "toggle") {
 	if (skipOverride == false) {
 		// Change play state
 		document.body.style.animationPlayState = bgPlayState;
-		if (bgParticleMotion == "pause") {
-			particleAnims.forEach((elem, i, arr) => {
-				elem.pause();
+		try {
+			if (bgParticleMotion == "pause") {
+				particleAnims.forEach((elem, i, arr) => {
+					elem.pause();
+				});
+			} else if (bgParticleMotion == "run") {
+				particleAnims.forEach((elem, i, arr) => {
+					elem.play();
+				});
+			}
+			particles.forEach((elem, i, arr) => {
+				elem.style.opacity = bgPlayState == "running" ? "0.5" : "0.2";
 			});
-		} else if (bgParticleMotion == "run") {
-			particleAnims.forEach((elem, i, arr) => {
-				elem.play();
-			});
-		}
-		particles.forEach((elem, i, arr) => {
-			elem.style.opacity = bgPlayState == "running" ? "0.5" : "0.2";
-		});
+		} catch (error) {}
 		// Icon change & effect
 		butttonIconTransition("playStateIcon", playStateIconText, (delay = 50));
 	}
@@ -439,6 +440,7 @@ function overflowMenuToggleButtonHandler() {
 	}
 }
 
+// window.DOMContentLoaded(overflowHandler());
 overflowHandler(); // Using an eventListener causes a delay in the first call.
 window.addEventListener("resize", overflowHandler);
 
