@@ -12,7 +12,7 @@
 		#a80041ab
 	);
 
-	--default-radius: 17px;
+	--default-radius: 19px;
 }
 
 @property --bgGradientColor1 {
@@ -195,7 +195,7 @@ div.overflowMenu {
 	overflow: auto;
 	font-size: 18px;
 	z-index: 999;
-	border-radius: 20px 0px 0px 20px;
+	border-radius: var(--default-radius) 0px 0px var(--default-radius);
 	-webkit-backdrop-filter: blur(40px);
 	backdrop-filter: blur(40px);
 	transform: translateX(100%);
@@ -204,7 +204,7 @@ div.overflowMenu {
 
 a.overflowMenuButton {
 	font-size: 20px;
-	border-radius: 12px;
+	border-radius: var(--default-radius);
 	cursor: pointer;
 	/*display: flex;*/
 	display: none;
@@ -248,7 +248,7 @@ div.alert {
 	-webkit-transform: scale(0) translate3d(0%, -100%, 0);
 	transform: scale(0) translate3d(0%, -100%, 0);
 	padding: 12px;
-	border-radius: 17px;
+	border-radius: var(--default-radius);
 	transition: 0.5s;
 	transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
@@ -256,18 +256,18 @@ div.alert {
 a.link-button {
 	/* This is to vertically center the text */
 	line-height: 25px;
-	/**/
+	/* -- */
 	-moz-tap-highlight-color: transparent;
 	-webkit-tap-highlight-color: transparent;
 	font-family: "Comfortaa", sans-serif;
 	font-size: 17px;
-	border-radius: 17px;
+	border-radius: var(--default-radius);
 	padding: 8px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-flex;
 	cursor: pointer;
-	transition: 0.5s;
+	transition: 0.2s;
 }
 
 a.disabled {
@@ -278,17 +278,19 @@ a.disabled {
 @media (hover: hover) {
 	a.link-button:hover {
 		border-radius: 10px;
-		transition: 0.25s;
+		transition: 0.2s;
 		-webkit-transform: scale(1.06);
-		transform: scale(1.06);
+		transform: scale(0.95);
 		cursor: pointer;
 		opacity: 1;
 	}
 
 	a.link-button:active {
-		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
+		transition: box-shadow 0.3s, transform 0.1s, opacity 0.25s, border 0.3s,
+			border-radius 0.1s;
 		-webkit-transform: scale(1);
-		transform: scale(1);
+		transform: scale(1.05);
+		border-radius: var(--default-radius);
 	}
 }
 
@@ -308,29 +310,31 @@ button {
 	-moz-tap-highlight-color: transparent;
 	font-family: "Comfortaa", sans-serif;
 	font-size: 17px;
-	border-radius: 17px;
-	padding: 10px;
+	border-radius: var(--default-radius);
+	padding: 8px;
 	text-align: center;
 	text-decoration: none;
 	display: flex;
 	cursor: pointer;
-	transition: 0.5s;
+	transition: 0.2s;
 }
 
 @media (hover: hover) {
 	button:hover {
 		border-radius: 10px;
-		transition: 0.25s;
+		transition: 0.2s;
 		-webkit-transform: scale(1.06);
-		transform: scale(1.06);
+		transform: scale(0.95);
 		cursor: pointer;
 		opacity: 1;
 	}
 
 	button:active {
-		transition: box-shadow 0.4s, transform 0s, opacity 0.3s, border 0.1s;
+		transition: box-shadow 0.3s, transform 0.1s, opacity 0.25s, border 0.3s,
+			border-radius 0.1s;
 		-webkit-transform: scale(1);
-		transform: scale(1);
+		transform: scale(1.05);
+		border-radius: var(--default-radius);
 	}
 }
 
@@ -438,7 +442,7 @@ div.tooltip span.tooltiptext {
 	width: 170px;
 	height: 25px;
 	text-align: center;
-	border-radius: 8px;
+	border-radius: var(--default-radius);
 	padding-top: 9px;
 	padding-bottom: 2px;
 	-webkit-transform: scale(0.4);
@@ -468,7 +472,7 @@ div.tab {
 	font-family: "Comfortaa", sans-serif;
 	padding: 0;
 	margin: 2%;
-	border-radius: 17px;
+	border-radius: var(--default-radius);
 	transition: 0.25s;
 	position: relative;
 	display: -ms-inline-grid;
@@ -478,7 +482,7 @@ div.tab {
 div.tab img {
 	height: 100%;
 	width: 100%;
-	border-radius: 18px;
+	border-radius: var(--default-radius);
 }
 
 div.tab:active {
@@ -506,7 +510,7 @@ div.tabTextContainer {
 	width: 100%;
 	bottom: -1px;
 	left: 0%;
-	border-radius: 0px 0px 17px 17px;
+	border-radius: 0px 0px var(--default-radius) var(--default-radius);
 	transition: 0.25s;
 	position: absolute;
 	text-align: center;
@@ -531,7 +535,7 @@ div.tabTextContainer span {
 
 	div.tab:hover div.tabTextContainer {
 		background-image: none;
-		border-radius: 17px;
+		border-radius: var(--default-radius);
 		opacity: 1;
 		transition: 0.25s;
 		height: 100%;
@@ -580,18 +584,18 @@ div.modal {
 	z-index: 99;
 	visibility: hidden;
 	overflow: auto;
-	border-radius: 20px;
+	border-radius: var(--default-radius);
 	position: fixed;
 	width: 55%;
-	height: 70%;
+	height: 80%;
 	left: 50%;
 	margin-left: -30%;
-	top: 70%;
+	top: 10%;
 	padding: 0px;
 	opacity: 0;
 	transition: all 0.4s, margin-left 0s;
-	transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-	transform: scale(0);
+	transition-timing-function: cubic-bezier(0.62, -0.9, 0.3, 1.35);
+	transform: scale(1.1);
 }
 
 @media (max-width: 1000px) {
@@ -637,9 +641,9 @@ div.CloseIcon {
 	display: flex;
 	cursor: pointer;
 	float: right;
-	padding: 4px;
+	padding: 6px;
 	transition: 0.2s;
-	border-radius: 25%;
+	border-radius: var(--default-radius);
 	-moz-tap-highlight-color: transparent;
 	-webkit-tap-highlight-color: transparent;
 }
@@ -663,9 +667,9 @@ div.CloseIcon:active {
 	cursor: default;
 	background-color: #ffffff23;
 	display: inline-flex;
-	padding: 3px;
-	margin-top: 2px;
-	border-radius: 9px;
+	padding: 4px;
+	margin-top: 1px;
+	border-radius: var(--default-radius);
 	transition: 0.3s;
 	transform: scale(1.25);
 }

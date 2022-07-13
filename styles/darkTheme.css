@@ -195,8 +195,8 @@ body.dark div.overlay {
 
 body.dark div.modal {
 	background: rgba(40, 40, 40, 0.422);
-	box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.137),
-		0 15px 40px 0 rgba(0, 0, 0, 0.116);
+	box-shadow: 0 10px 40px 10px rgba(101, 101, 101, 0.4),
+		0 10px 70px 10px rgb(0, 0, 0);
 	-webkit-backdrop-filter: brightness(0.5) blur(10px);
 	backdrop-filter: brightness(0.5) blur(10px);
 }

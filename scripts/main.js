@@ -12,7 +12,7 @@ function openModal(id) {
 	let overlay = document.getElementById("overlay");
 	currentModal = document.getElementById(id);
 	currentModal.style.marginLeft = `-${currentModal.clientWidth / 2}px`;
-	currentModal.style.top = "20%";
+	currentModal.style.top = "15%";
 	currentModal.style.opacity = "1";
 	currentModal.style.transform = "scale(1)";
 	currentModal.style.visibility = "visible";
@@ -27,9 +27,9 @@ function closeModal() {
 	overlay.style.visibility = "hidden";
 	overlay.style.opacity = "0";
 	currentModal.style.visibility = "hidden";
-	currentModal.style.transform = "scale(0.4)";
+	currentModal.style.transform = "scale(1.1)";
 	currentModal.style.opacity = "0";
-	currentModal.style.top = "70%";
+	currentModal.style.top = "10%";
 	document.body.style.overflow = "auto";
 	togglePlayState("play");
 }
@@ -42,19 +42,23 @@ window.addEventListener("resize", function () {
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-var n = 1;
+
 function butttonIconTransition(elementId, iconText, delay = 50) {
 	let element = document.getElementById(elementId);
-	element.style.opacity = "0.3";
-	element.style.transform = `rotate(${180 * n}deg) scale(0.5)`;
+	element.style.opacity = "0.4";
+	element.style.transition = "0.25s";
 	setTimeout(function changeIcon() {
-		element.style.transform = `rotate(${180 * n++}deg) scale(0.4)`;
+		element.style.transform = `rotate(180deg) scale(0.5)`;
 		element.innerHTML = iconText;
-	}, 100);
+	}, 70);
 	setTimeout(function morphIcon() {
-		element.style.transform = `rotate(${180 * n}deg) scale(1)`;
+		element.style.transform = `rotate(360deg) scale(1)`;
 		element.style.opacity = "1";
-	}, 100 + delay);
+	}, 150 + delay);
+	setTimeout(function resetIcon() {
+		element.style.transform = `rotate(0deg) scale(1)`;
+		element.style.transition = "0s";
+	}, 400 + delay);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
